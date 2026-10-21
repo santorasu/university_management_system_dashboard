@@ -12,6 +12,7 @@ import { AttendanceScreen } from './attendance/AttendanceRoot';
 import { TimetableScreen } from './timetable/TimetableRoot';
 import { AssignmentsScreen } from './assignments/AssignmentsRoot';
 import { ExamsScreen } from './exams/ExamsRoot';
+import { NoticesScreen } from './notices/NoticesRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -36,6 +37,8 @@ export const DashboardScreen: React.FC = () => {
         return <AssignmentsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'EXAMS':
         return <ExamsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'NOTICES_MESSAGES':
+        return <NoticesScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'RECENT_ACTIVITIES':
         return <RecentActivitiesDestination onNavigate={setCurrentDestination} />;
       case 'UPCOMING_EVENTS':

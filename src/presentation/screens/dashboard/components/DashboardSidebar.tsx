@@ -49,7 +49,7 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({
       title: 'SCHOOL OPERATIONS',
       items: [
         { id: 'finance', label: 'Fees & Finance', icon: 'wallet', destination: 'FEES_FINANCE_REPORT' },
-        { id: 'notices', label: 'Notices & Messages', icon: 'messages-square' },
+        { id: 'notices', label: 'Notices & Messages', icon: 'messages-square', destination: 'NOTICES_MESSAGES' },
         { id: 'library', label: 'Library & Documents', icon: 'folder-open' },
         { id: 'events', label: 'Events', icon: 'calendar-check', destination: 'UPCOMING_EVENTS' },
       ],

@@ -559,7 +559,81 @@ To guarantee that the user never encounters layout discrepancies, inconsistent b
 
 ---
 
-## 15. Next Steps & Feature Implementation Roadmap
+---
+
+## 15. School Operations — Notices, Messages & Notifications Flow (Node `63:1320`)
+
+Authoritative specification for the 4 canonical screens and 4 interactive modals of the Notices, Messages, and Notifications flow:
+
+### Canonical Screens:
+1. **Screen 1: Notices — Overview (`#63:1321`)**:
+   - **Hero Header**: 3-tier breadcrumbs (`Dashboard / Notices & Messages / Overview`), circular back button `←`, title `Notices & Announcements`, subtitle `Create targeted announcements and manage publication across your school community`, action buttons `← Dashboard` and `+ Create notice`.
+   - **Persistent Sub-Navigation Tabs**: Placed directly below the hero header (`Notices & Announcements`, `Create / Edit Notice`, `Messages & Conversations`, `Notification History`).
+   - **4 KPI Metric Cards**: Placed directly UNDER the sub-navigation tabs:
+     - `Published notices` (`24` | `↑ 4 this term` | Blue left border `#3659D9`)
+     - `Drafts` (`6` | `Needs review` | Amber left border `#B86E0F`)
+     - `Scheduled` (`3` | `Upcoming week` | Green left border `#148C57`)
+     - `Unread messages` (`18` | `Requires reply` | Red left border `#BF2E33`)
+   - **65% / 35% Split Layout**:
+     - **Left (65%)**: Recent Notices table card with search field (`Search notices or keywords...`), status dropdown filter (`All statuses`, `Published`, `Draft`, `Scheduled`), audience dropdown filter (`All audiences`, `Teachers`, `Students`, `Parents`), and action to open preview/edit.
+     - **Right (35%)**: Quick actions list (`Create new announcement`, `View unread messages (18)`, `Audit notification delivery`) and Audience targeting reference panel (`Teachers`, `Students`, `Parents`, `Staff`).
+
+2. **Screen 2: Notices — Create and Edit (`#63:1434`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Notices & Messages / Create / Edit Notice`), circular back button `←`, title `Create / Edit Notice`, subtitle `Prepare an announcement, choose its audience, and publish now or schedule it`, actions `Save draft` and `Publish now`.
+   - **Persistent Subnav Tabs & 4 KPI Cards**: Maintained directly beneath header for vertical cadence.
+   - **2-Column Layout (`notices-form-grid`)**:
+     - **Left (65%)**: Notice editor form (`Notice title`, `Message / announcement` rich textarea, `Category` dropdown [Academic, Event, Fee, General], `Attachments` field, `Target audience` checkboxes [Teacher, Student, Parent], optional `Class`, `Section`, and `Additional group` dropdowns).
+     - **Right (35%)**: `Publication settings` card (Status [Draft, Scheduled, Published], Publish date, Publish time, Expiry date), `Ready to publish?` specimen preview box with `Preview notice` trigger and `Publish notice` button, and bottom save/cancel actions.
+
+3. **Screen 3: Messages — Inbox and Conversation (`#63:1545`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Notices & Messages / Messages & Conversations`), circular back button `←`, title `Messages & Conversations`, subtitle `Review incoming messages and respond to Teachers, Students, and Parents`, primary action `+ Compose message`.
+   - **Persistent Subnav Tabs & 4 KPI Cards**: Maintained directly beneath header.
+   - **Split Messenger View (`messages-split-view`)**:
+     - **Left Panel (380px)**: Inbox panel with unread subtitle (`18 unread · All roles`), search field (`Search messages by name or topic...`), role filter tabs (`All`, `Unread`, `Teachers`, `Students`), interactive conversation cards with initials avatar, recipient name, role/class, subject, timestamp, and unread marker dot.
+     - **Right Panel (1fr)**: Interactive chat thread with recipient header, `Mark as read` action, pinned context chip (`📌 Context: [Subject]`), chronological bubble stream (incoming neutral bubbles vs outgoing brand blue bubbles), reply textarea with Enter-to-send shortcut, attachment button, and Send reply trigger.
+
+4. **Screen 4: Notifications — History (`#63:1662`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Notices & Messages / Notification History`), circular back button `←`, title `Notification History`, subtitle `Track delivery, read status, and recent notification activity`, action `Export history`.
+   - **Persistent Subnav Tabs & 4 KPI Cards**: Maintained directly beneath header.
+   - **Grid View (`notif-history-grid`)**:
+     - **Left Column**: Notification History audit table with multi-parameter filter toolbar (`Search`, `Channel` [All, In-app + Email, In-app, SMS], `Read status` [All, Read, Unread], `Audience` [All roles, Teachers, Students, Parents], `Reset` button). Columns: `DATE`, `NOTIFICATION`, `RECIPIENT`, `CHANNEL`, `DELIVERY` (Delivered / Failed badge), `READ STATUS` (Read / Unread badge).
+     - **Right Column (340px)**: `Delivery summary` card with progress bars (`Delivered 98.4%` [Green bar], `Read 76.2%` [Blue bar], `Unread 23.8%` [Amber bar], `Delivery failures: 12` [Red badge]), and policy guidance footnote.
+
+### Interactive Modals (Node `#262:1320` - `#262:1450`):
+- **Notice Preview & Publish Modal (`#262:1320`)**: Specimen notice card showing category badge, date, title, formatted announcement text, targeted audience, author, and `Publish notice` confirm action.
+- **Compose Message Modal (`#262:1364`)**: Modal with recipient dropdown (All, Teachers, Parents, Students), subject input, message body textarea, and send action.
+- **Message Sent Confirmation Modal (`#262:1412`)**: Circular green checkmark icon, confirmation message `Message dispatched successfully to selected recipient`, and `Done` dismissal.
+- **Notifications Export Complete Modal (`#262:1450`)**: Success modal confirming CSV export generated with download notification.
+
+---
+
+## 16. Universal Layout & Navigation Invariants (Strict Enforcement Rules)
+
+Always enforce these strict architectural invariants on every screen in every module:
+
+1. **Symmetrical 2-Side Equal Padding (1400px Centered Container)**:
+   - Module containers (`.notices-container`, `.finance-container`, `.exams-container`, etc.) MUST specify:
+     ```css
+     width: 100%;
+     max-width: 1400px;
+     margin: 0 auto;
+     gap: 24px;
+     box-sizing: border-box;
+     ```
+   - Never allow tables or forms to stretch unconstrained to screen edges. Symmetrical equal margin padding on both sides must be preserved on all desktop viewports.
+
+2. **Persistent Tabbar Directly Under Hero + 4 KPI Cards Directly Under Tabbar**:
+   - The sub-navigation tabs MUST always be placed directly below the hero header.
+   - The 4 KPI stat cards MUST always be placed directly BELOW the sub-navigation tabs.
+   - Switching between tabs must NEVER cause the tabbar to jump or shift vertically.
+
+3. **3-Tier Breadcrumbs with Circular Back Button**:
+   - `Dashboard / [Module] / [Sub-screen]`
+   - Circular back button (`←`, 36px diameter circle) positioned directly beside the `<h1>` title to provide immediate one-click return navigation.
+
+---
+
+## 17. Next Steps & Feature Implementation Roadmap
 
 1. **Step 1 (Completed)**: Brand Design System, Tokens, 18 Master Custom Widgets, and Specimen Gallery.
 2. **Step 2 (Completed)**: 12-Screen Authentication Access Flow with state machine, mock latency, and error states.
@@ -571,9 +645,12 @@ To guarantee that the user never encounters layout discrepancies, inconsistent b
 8. **Step 8 (Completed)**: Academics — Timetable & Scheduling Module (`40:1195` - 4 canonical screens).
 9. **Step 9 (Completed)**: Academics — Assignments & Class Materials Module (`48:1320` - 4 canonical screens).
 10. **Step 10 (Completed)**: Academics — Exams & Results Module (`51:1320` - 4 canonical screens).
-11. **Step 11 (Completed)**: **School Operations — Fees & Finance / Student Billing & Invoicing Module (`53:1320` - 4 canonical screens)**:
-    - `Fees — Finance Overview` (`#53:1321`)
-    - `Fees — Categories and Student Assignment` (`#53:1660`)
-    - `Fees — Invoices and Payment Records` (`#53:1997`)
-    - `Fees — Dues, Receipts and Reports` (`#53:2335`)
-12. **Step 12 (Upcoming)**: **School Operations — Notices, Messages & Communications Module**.
+11. **Step 11 (Completed)**: School Operations — Fees & Finance / Student Billing & Invoicing Module (`53:1320` - 4 canonical screens).
+12. **Step 12 (Completed)**: **School Operations — Notices, Messages & Notifications Module (`63:1320` - 4 canonical screens & 4 modals)**:
+    - `Notices — Overview` (`#63:1321`)
+    - `Notices — Create and Edit` (`#63:1434`)
+    - `Messages — Inbox and Conversation` (`#63:1545`)
+    - `Notifications — History` (`#63:1662`)
+    - 4 Modals: `Notice Preview` (`#262:1320`), `Compose Message` (`#262:1364`), `Message Sent` (`#262:1412`), `Export Complete` (`#262:1450`).
+13. **Step 13 (Upcoming)**: School Operations — Library & Documents Management Module.
+

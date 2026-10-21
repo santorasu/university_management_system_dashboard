@@ -68,7 +68,8 @@ export type DashboardDestination =
   | 'EXAMS'
   | 'RECENT_ACTIVITIES'
   | 'UPCOMING_EVENTS'
-  | 'FEES_FINANCE_REPORT';
+  | 'FEES_FINANCE_REPORT'
+  | 'NOTICES_MESSAGES';
 
 export interface ScreenMetadata {
   id: AuthScreenId;
