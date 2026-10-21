@@ -232,7 +232,50 @@ The complete academic structure & classes/subjects module conforms 1:1 with Figm
 
 ---
 
-## 9. Next Steps & Feature Implementation Roadmap
+## 9. Attendance Management Architecture (Figma Node `31:876`)
+
+The complete student & class attendance module conforms 1:1 with Figma node `31:876` across 4 canonical screens:
+
+### Screen 1: `Attendance — Overview` (`#31:877`)
+- **Breadcrumbs**: `Dashboard / Attendance / Overview` (interactive clickable trail).
+- **Navigation Triad**: Circular `←` back arrow returning to Dashboard, `← Dashboard` action button, and `Take attendance` primary CTA.
+- **4 KPI Cards**: Present today (`1,142`, `91.4% of students`), Absent (`76`, `6.1% of students`), Late (`31`, `2.5% of students`), Classes recorded (`38 / 42`, `4 pending`).
+- **Sub-Navigation Tabs**: `Overview` (active), `Daily Records`, `Calendar & History`, `Notifications & States`.
+- **Row 1 Split (60% / 40%)**:
+  - **Left Card (Attendance Trend)**: October 2026 daily bar chart with rate values across days 1–12.
+  - **Right Card (Status Distribution)**: Proportional progress meters for Present (`1,142`), Absent (`76`), Late (`31`), and Excused (`26`).
+- **Row 2 Split (60% / 40%)**:
+  - **Left Card (Class-wise Attendance)**: Classes sorted by lowest attendance first (Grade 8 A, Grade 7 B, Grade 9 A, Grade 6 C, Grade 10 B) with quick `Record` / `View` action links into Daily Records.
+  - **Right Card (Absence Follow-ups)**: Urgent alerts for consecutive absences and unexcused leaves with `Review` CTAs and `View all notifications` link.
+
+### Screen 2: `Attendance — Daily Records` (`#31:1145`)
+- **Breadcrumbs**: `Dashboard / Attendance / Daily records`.
+- **Navigation Triad**: Circular `←` back arrow returning to Overview, `← Back to overview` button, and `Save attendance` primary CTA.
+- **Filter Toolbar**: Date picker (`18 October 2026`), Academic year (`2026–27`), Class (`Grade 8`), Section (`A`), Status filter (`All statuses`), `Apply filters` and `Reset`.
+- **4 Quick Summary Chips**: Class total (`35`), Present (`32`), Absent (`2`), Late (`1`).
+- **Student Attendance Marking Table**:
+  - Columns: Student, Student ID, Roll, Status, Arrival, Remarks.
+  - Interactive Status Picker: Immediate toggle buttons for `Present`, `Absent`, `Late`, and `Excused`. Modified rows highlight with green state.
+  - Footer notice and actions: `Cancel changes` and `Save attendance` with feedback toast.
+
+### Screen 3: `Attendance — Monthly Calendar & Student History` (`#31:1381`)
+- **Breadcrumbs**: `Dashboard / Attendance / Calendar & history`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `Export report` primary CTA.
+- **Top 60% / 40% Split**:
+  - **Left Card (Monthly Calendar)**: October 2026 calendar grid for Grade 8 Section A with color-coded rate badges (94%+ High, 90–93% Moderate, <90% Needs review) across all 31 days.
+  - **Right Card (Student Attendance History)**: Student selector dropdown (`Ava Thompson · STU-2026-001`), 4 metric summary boxes (Present 18 days, Absent 2 days, Late 1 day, Excused 1 day), and chronological recent records list.
+- **Bottom Card (Class-wise Attendance Report)**: Daily average attendance overview for Grades 6 through 10 with Strong, Good, and Review pills.
+
+### Screen 4: `Attendance — Absence Notifications & States` (`#31:1663`)
+- **Breadcrumbs**: `Dashboard / Attendance / Notifications & states`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `Export records` CTA.
+- **Top Card (Absence Notification Records)**: Multi-filter toolbar (Search, Notification type, Delivery status, Date range) and table with Student/Guardian, Trigger, Sent at, Channel pill (`Email`, `SMS`, `Push`), Delivery status pill (`Delivered`, `Failed`, `Queued`), and `Retry` / `View` actions.
+- **Middle 3-Column System States**: Live specimen cards for `Loading state` (animated spinner), `Empty state` (icon + Clear filters CTA), and `Error state` (warning icon + Retry CTA).
+- **Bottom Card (Validation & Confirmation States)**: Active confirmation prompt (`Submit attendance for Grade 8 · Section A?`) with `Cancel` and `Confirm` actions.
+
+---
+
+## 10. Next Steps & Feature Implementation Roadmap
 
 Follow this step-by-step sequence for subsequent phases:
 
@@ -241,19 +284,20 @@ Follow this step-by-step sequence for subsequent phases:
 3. **Step 3 (Completed)**: Admin Dashboard Overview (`15:6394`) and 4 destination views (`Recent Activities`, `Upcoming Events`, `Attendance Report`, `Fees & Finance Report`).
 4. **Step 4 (Completed)**: Academics — Student Management Module (`20:2104` - 4 canonical screens).
 5. **Step 5 (Completed)**: Academics — Teacher Management & Feedback Module (`21:876` - 5 canonical screens).
-6. **Step 6 (Completed)**: **Academics — Classes, Subjects & Academic Structure Module (`29:1501` - 4 canonical screens)**:
-   - `Academic Structure Overview` (`#29:1502`)
-   - `Class Details & Enrollment` (`#29:1737`)
-   - `Sections, Subjects & Assignments` (`#29:1956`)
-   - `Academic Years & Forms` (`#29:2207`)
-7. **Step 7 (Upcoming)**: **Academics — Timetable & Exam Management**:
+6. **Step 6 (Completed)**: Academics — Classes, Subjects & Academic Structure Module (`29:1501` - 4 canonical screens).
+7. **Step 7 (Completed)**: **Academics — Student & Class Attendance Module (`31:876` - 4 canonical screens)**:
+   - `Attendance Overview` (`#31:877`)
+   - `Daily Records Marking` (`#31:1145`)
+   - `Monthly Calendar & Student History` (`#31:1381`)
+   - `Absence Notifications & System States` (`#31:1663`)
+8. **Step 8 (Upcoming)**: **Academics — Timetable & Exam Management**:
    - Class weekly timetable grid, midterm/final exam scheduler, and gradebook publication.
-8. **Step 8 (Upcoming)**: **School Operations — Fees & Invoicing Module**:
+9. **Step 9 (Upcoming)**: **School Operations — Fees & Invoicing Module**:
    - Invoice generation, fee collection recording form, payment receipts, and automated reminder triggers.
 
 ---
 
-## 10. Universal Flow Navigation & Breadcrumb Standard
+## 11. Universal Flow Navigation & Breadcrumb Standard
 
 To ensure users never get trapped and can effortlessly navigate back through complex flows, all modules and sub-screens must strictly follow this navigation triad:
 

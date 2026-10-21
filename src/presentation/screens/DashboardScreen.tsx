@@ -4,11 +4,11 @@ import { DashboardHeader } from './dashboard/components/DashboardHeader';
 import { DashboardOverview } from './dashboard/DashboardOverview';
 import { RecentActivitiesDestination } from './dashboard/destinations/RecentActivitiesDestination';
 import { UpcomingEventsDestination } from './dashboard/destinations/UpcomingEventsDestination';
-import { AttendanceReportDestination } from './dashboard/destinations/AttendanceReportDestination';
 import { FeesFinanceDestination } from './dashboard/destinations/FeesFinanceDestination';
 import { StudentsScreen } from './students/StudentsRoot';
 import { TeachersScreen } from './teachers/TeachersRoot';
 import { AcademicStructureScreen } from './academic-structure/AcademicStructureRoot';
+import { AttendanceScreen } from './attendance/AttendanceRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -30,7 +30,7 @@ export const DashboardScreen: React.FC = () => {
       case 'UPCOMING_EVENTS':
         return <UpcomingEventsDestination onNavigate={setCurrentDestination} />;
       case 'ATTENDANCE_REPORT':
-        return <AttendanceReportDestination onNavigate={setCurrentDestination} />;
+        return <AttendanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'FEES_FINANCE_REPORT':
         return <FeesFinanceDestination onNavigate={setCurrentDestination} />;
       default:
