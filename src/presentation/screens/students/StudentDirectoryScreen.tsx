@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStudentFlow } from '../../../application/state/student-flow.context';
 import { StudentKpiCards } from './components/StudentKpiCards';
+import { StudentNavTabs } from './components/StudentNavTabs';
 import { Icon } from '../../widgets/Icon/Icon';
 
 interface StudentDirectoryScreenProps {
@@ -18,7 +19,7 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
     setSelectedClass,
     setSelectedStatus,
     setSelectedSection,
-    goToConsolidatedOverview,
+    goToDirectory,
     goToAddStudent,
     goToEditStudent,
     goToProfile,
@@ -41,7 +42,7 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
             <span className="edusync-dashboard-hero__crumb-sep">/</span>
             <span
               className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToConsolidatedOverview}
+              onClick={goToDirectory}
               role="button"
               tabIndex={0}
             >
@@ -57,13 +58,13 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={goToConsolidatedOverview}
-              title="Back to students overview"
-              aria-label="Back to students overview"
+              onClick={onNavigateToDashboard}
+              title="Back to Dashboard"
+              aria-label="Back to Dashboard"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Students directory</h1>
+            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Students</h1>
           </div>
           <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
             Manage student records, enrollment, guardians, and academic history.
@@ -74,28 +75,24 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
-            onClick={goToConsolidatedOverview}
-          >
-            ← Back to overview
-          </button>
-          <button
-            type="button"
-            className="edusync-btn edusync-btn--secondary"
             onClick={onNavigateToDashboard}
           >
-            Dashboard
+            ← Dashboard
           </button>
           <button
             type="button"
             className="edusync-btn edusync-btn--primary"
             onClick={goToAddStudent}
           >
-            Add student
+            + Add student
           </button>
         </div>
       </div>
 
-      {/* 4 KPI Cards */}
+      {/* Sub-Navigation Tabs */}
+      <StudentNavTabs />
+
+      {/* 4 KPI Cards (Placed below tabbar) */}
       <StudentKpiCards stats={stats} mode="directory" />
 
       {/* Full-Width Directory Card */}

@@ -1,0 +1,529 @@
+/* ==========================================================================
+   EDUSYNC TIMETABLE & SCHEDULING MODULE CSS
+   Figma Node: 40:1195 (University-Management-System)
+   Conforms to 1:1 Design Tokens, Elevations & Clean Layout Triad
+   ========================================================================== */
+
+.timetable-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   HERO / HEADER SECTION
+   -------------------------------------------------------------------------- */
+.timetable-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.timetable-hero__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+  margin-bottom: 8px;
+}
+
+.timetable-hero__crumb--link {
+  color: var(--edusync-brand-primary, #3659D9);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.timetable-hero__crumb--link:hover {
+  text-decoration: underline;
+  color: var(--edusync-brand-primary-hover, #2944B3);
+}
+
+.timetable-hero__crumb-sep {
+  color: var(--edusync-text-muted, #98A2B3);
+}
+
+.timetable-hero__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timetable-hero__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.timetable-hero__subtitle {
+  font-size: 14px;
+  color: var(--edusync-text-secondary, #667085);
+  margin: 4px 0 0 0;
+}
+
+.timetable-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   SUB-NAVIGATION TABS (Placed directly below Hero for consistency)
+   -------------------------------------------------------------------------- */
+.timetable-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--edusync-border-default, #E4E7EC);
+  padding-bottom: 0;
+  overflow-x: auto;
+}
+
+.timetable-nav-tab {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--edusync-text-secondary, #667085);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.timetable-nav-tab:hover {
+  color: var(--edusync-brand-primary, #3659D9);
+}
+
+.timetable-nav-tab--active {
+  color: var(--edusync-brand-primary, #3659D9);
+}
+
+.timetable-nav-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--edusync-brand-primary, #3659D9);
+  border-radius: 2px 2px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   4 KPI STAT CARDS
+   -------------------------------------------------------------------------- */
+.timetable-kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .timetable-kpis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .timetable-kpis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.timetable-kpi-card {
+  background: #ffffff;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(20, 33, 61, 0.05);
+}
+
+.timetable-kpi-card__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.timetable-kpi-card__value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  line-height: 1.1;
+}
+
+.timetable-kpi-card__subtext {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.timetable-kpi-card__subtext--warning {
+  color: #B45309;
+}
+
+.timetable-kpi-card__subtext--danger {
+  color: #DC2626;
+}
+
+/* --------------------------------------------------------------------------
+   CARDS & COMMON CONTAINERS
+   -------------------------------------------------------------------------- */
+.timetable-card {
+  background: #ffffff;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(20, 33, 61, 0.05);
+  box-sizing: border-box;
+}
+
+.timetable-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.timetable-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  margin: 0;
+}
+
+.timetable-card__subtitle {
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+  margin: 4px 0 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   WEEKLY TIMETABLE GRID (SCREEN 1)
+   -------------------------------------------------------------------------- */
+.timetable-split-70-30 {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .timetable-split-70-30 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.timetable-grid-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.timetable-grid-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
+  min-width: 700px;
+}
+
+.timetable-grid-table th {
+  background: #F8FAFC;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213D);
+  text-align: center;
+}
+
+.timetable-grid-table th.timetable-time-th {
+  width: 70px;
+  text-align: left;
+  background: transparent;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.timetable-time-td {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--edusync-text-secondary, #667085);
+  text-align: left;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.timetable-slot-cell {
+  background: #ffffff;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 60px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  vertical-align: top;
+}
+
+.timetable-slot-cell:hover {
+  box-shadow: 0 4px 10px rgba(20, 33, 61, 0.08);
+  border-color: var(--edusync-brand-primary, #3659D9);
+}
+
+.timetable-slot-cell--selected {
+  border: 2px solid var(--edusync-brand-primary, #3659D9) !important;
+  background: #F8FAFC;
+}
+
+/* Slot Types */
+.timetable-slot-cell--class {
+  border-left: 3px solid #3659D9;
+  background: #F8FAFF;
+}
+
+.timetable-slot-cell--lab {
+  border-left: 3px solid #059669;
+  background: #F0FDF4;
+}
+
+.timetable-slot-cell--exam {
+  border-left: 3px solid #D97706;
+  background: #FFFBEB;
+}
+
+.timetable-slot-cell--event {
+  border-left: 3px solid #7C3AED;
+  background: #FAF5FF;
+}
+
+.timetable-slot-subject {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  display: block;
+}
+
+.timetable-slot-room {
+  font-size: 11px;
+  color: var(--edusync-text-secondary, #667085);
+  margin-top: 3px;
+  display: block;
+}
+
+/* Legend */
+.timetable-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--edusync-border-default, #E4E7EC);
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.timetable-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.timetable-legend-badge {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   SIDE SCHEDULE & UPCOMING EVENTS
+   -------------------------------------------------------------------------- */
+.timetable-upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timetable-upcoming-item {
+  padding: 12px;
+  background: #F8FAFC;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timetable-upcoming-item__time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--edusync-brand-primary, #3659D9);
+}
+
+.timetable-upcoming-item__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213D);
+}
+
+.timetable-upcoming-item__loc {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+/* --------------------------------------------------------------------------
+   CONFLICT BANNER
+   -------------------------------------------------------------------------- */
+.timetable-conflict-banner {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.timetable-conflict-banner__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #991B1B;
+  margin: 0;
+}
+
+.timetable-conflict-banner__desc {
+  font-size: 13px;
+  color: #B91C1C;
+  margin: 2px 0 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   CLASS & TEACHER VIEWS (SCREEN 3)
+   -------------------------------------------------------------------------- */
+.timetable-segmented-controls {
+  display: inline-flex;
+  background: #F2F4F7;
+  padding: 3px;
+  border-radius: 8px;
+  gap: 4px;
+}
+
+.timetable-segment-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--edusync-text-secondary, #667085);
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.timetable-segment-btn--active {
+  background: #ffffff;
+  color: var(--edusync-brand-primary, #3659D9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.timetable-assignment-details-box {
+  background: #F8FAFC;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timetable-assignment-prop {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timetable-assignment-prop__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--edusync-text-muted, #98A2B3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timetable-assignment-prop__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213D);
+}
+
+/* --------------------------------------------------------------------------
+   SCHEDULE BUILDER (SCREEN 4)
+   -------------------------------------------------------------------------- */
+.timetable-days-toggle-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.timetable-day-chip {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  background: #ffffff;
+  cursor: pointer;
+  color: var(--edusync-text-secondary, #667085);
+  transition: all 0.15s ease;
+}
+
+.timetable-day-chip--active {
+  background: var(--edusync-brand-primary, #3659D9);
+  color: #ffffff;
+  border-color: var(--edusync-brand-primary, #3659D9);
+}
+
+.timetable-slot-config-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #F8FAFC;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 8px;
+}
+
+.timetable-slot-config-item__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213D);
+}
+
+.timetable-slot-config-item__time {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}

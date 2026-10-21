@@ -20,9 +20,9 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({ onNavigate
     <div className="edusync-dash-overview">
       {/* BREADCRUMB */}
       <nav className="edusync-dash-breadcrumb" aria-label="Breadcrumb">
-        <span>Maple Grove School</span>
-        <span className="edusync-dash-breadcrumb__separator">&gt;</span>
-        <span className="edusync-dash-breadcrumb__current">Dashboard</span>
+        <span>Dashboard</span>
+        <span className="edusync-dash-breadcrumb__separator">/</span>
+        <span className="edusync-dash-breadcrumb__current">Overview</span>
       </nav>
 
       {/* PAGE HEADER */}
@@ -69,11 +69,13 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({ onNavigate
           label="Attendance"
           value="96.0%"
           subtext="1,198 present · 16 Oct"
+          onClick={() => onNavigate('ATTENDANCE_REPORT')}
         />
         <StatCard
           label="Fees & Finance"
           value="$408,000"
           subtext="85% collected · Term 1"
+          onClick={() => onNavigate('FEES_FINANCE_REPORT')}
         />
       </div>
 
