@@ -275,7 +275,170 @@ The complete student & class attendance module conforms 1:1 with Figma node `31:
 
 ---
 
-## 10. Next Steps & Feature Implementation Roadmap
+## 10. Timetable & Scheduling Architecture (Figma Node `40:1195`)
+
+The complete timetable, periods scheduling and conflict detection module conforms 1:1 with Figma node `40:1195` across 4 canonical screens:
+
+### Screen 1: `Timetable — Weekly Overview` (`#40:1196`)
+- **Breadcrumbs**: `Dashboard / Timetable & Scheduling / Weekly Overview` (interactive clickable trail).
+- **Navigation Triad**: Circular `←` back arrow returning to Dashboard, `← Dashboard` action button, and `+ Create schedule` primary CTA.
+- **Sub-Navigation Tabs**: Placed directly below the hero header for instant access (`Weekly Overview` active, `Daily View`, `Class & Teacher Views`, `Schedule Builder & Slots`).
+- **4 KPI Cards**: Classes scheduled (`42`, `Across 6 days`), Teachers assigned (`28`, `2 periods to assign`), Rooms in use (`16`, `4 rooms available`), Schedule conflicts (`2`, `Needs review`).
+- **Filter Toolbar**: Date range (`12–17 October 2026`), Academic year (`2026–2027`), Class (`Class 8`), Section (`Section A`), Teacher (`All teachers`), Day (`All days`).
+- **Split Layout (70% / 30%)**:
+  - **Left Card (Weekly Timetable Grid)**: Time rows (08:00 to 13:00) against Monday through Saturday columns. Color-coded slot cards by type: Class (blue), Lab (teal), Exam (amber), Event/holiday (purple). Clicking any block selects it for inspection.
+  - **Right Card (Upcoming Schedule)**: Realtime events feed with times, subjects/meetings, and room locations (`View all events` CTA).
+
+### Screen 2: `Timetable — Daily View` (`#40:1452`)
+- **Breadcrumbs**: `Dashboard / Timetable & Scheduling / Daily View`.
+- **Navigation Triad**: Circular `←` back arrow returning to Overview, `← Back to overview` button, and `+ Create schedule` primary CTA.
+- **4 Daily Metric Cards**: Total periods (`48`, `Across 8 time slots`), Assigned (`44`, `92% covered`), Free rooms (`4`, `Available today`), Conflicts (`1`, `Teacher overlap`).
+- **Conflict Warning Banner**: Active dismissal callout (`Science · Class 7B overlaps with another assignment for Maliha Noor at 09:40 AM.`) with `Review conflict` CTA.
+- **Daily Periods Schedule Table**:
+  - Columns: TIME, CLASS / SECTION, SUBJECT, TEACHER, ROOM, STATUS, ACTION.
+  - Status pills: `Assigned` (green), `Conflict` (red), `Unassigned` (amber) with quick `Edit` / `Review` / `Assign` actions.
+
+### Screen 3: `Timetable — Class & Teacher Views` (`#40:1688`)
+- **Breadcrumbs**: `Dashboard / Timetable & Scheduling / Class & Teacher Views`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `+ Assign subject` primary CTA.
+- **Segmented Control**: Toggle between `Class view` and `Teacher view` with quick class/teacher dropdown filters.
+- **Split Layout (65% / 35%)**:
+  - **Left Card (Schedule Grid)**: Monday through Friday periods matrix for selected class/teacher.
+  - **Right Stack**:
+    - `Selected assignment`: Inspects active slot (Subject, Teacher, Classroom, Time, with `Edit assignment` and `Remove` actions).
+    - `Teacher workload overview`: Workload tally for Nusrat Jahan (18 periods/wk), Farhan Ahmed (16 periods/wk), Maliha Noor (22 periods/wk).
+    - `Room availability`: Status indicators for Room 204 (Occupied - Busy), Room 105 (Available - Free), Lab 02 (Occupied - Busy).
+
+### Screen 4: `Timetable — Schedule Builder & Time Slots` (`#40:1921`)
+- **Breadcrumbs**: `Dashboard / Timetable & Scheduling / Schedule Builder`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `+ New schedule` CTA.
+- **Two-Column Split Grid**:
+  - **Left Card (Period Details Form)**: Comprehensive builder for Subject, Teacher, Classroom, Day, Start/End time, Period label, and recurring day toggles (`Mon`, `Tue    - `Upcoming schedule`: Compact chronological upcoming events preview.
+
+---
+
+## 11. Assignments & Class Materials Architecture (Figma Node `48:1320`)
+
+The complete assignments, coursework tracking, and class learning resources module conforms 1:1 with Figma node `48:1320` across 4 canonical screens:
+
+### Screen 1: `Assignments — Overview` (`#48:1321`)
+- **Breadcrumbs**: `Dashboard / Assignments / Overview` (interactive clickable trail with circular back arrow).
+- **Navigation Triad**: Circular `←` back arrow returning to Dashboard, `← Dashboard` action button, and `＋ Create assignment` primary CTA.
+- **Sub-Navigation Tabs**: Placed directly below the hero header for instant access (`Overview` active, `Assignment List`, `Create Assignment`, `Submissions & Materials`).
+- **4 KPI Cards**: Placed directly beneath the tabs with 4px vertical accent bars:
+  - Total assignments: `248` (blue accent `#3659D9`), `Across all active classes`
+  - Published: `186` (green accent `#148C57`), `Visible to students`
+  - Pending submissions: `74` (amber accent `#B86E0F`), `Awaiting student work`
+  - Needs grading: `32` (purple accent `#6B4AB8`), `Submissions to review`
+- **Main Grid (65% / 35% Split)**:
+  - **Left Card (Recent assignments)**: Latest coursework table (Algebra — Worksheet 04, Chapter 3 Reading, Science Lab Report, English Essay) with class, due date, status pill (`Published`, `Draft`, `Late`), and submissions counter. Clicking any row selects and inspects the assignment.
+  - **Right Card (Submission status)**: Proportional status tally with color dots: Submitted (`412`), Pending (`74`), Late (`26`), Graded (`356`).
+- **Quick Action Cards Grid (Manage coursework)**:
+  - `Assignment list`: "Search, filter, and review assignments" -> `Open →` (navigates to List & Details).
+  - `Create assignment`: "Set class, subject, deadlines, and attachments" -> `Open →` (navigates to Create & Edit).
+  - `Submission tracking`: "Review submitted, pending, and late work" -> `Open →` (navigates to Submissions & Materials).
+  - `Class materials`: "Manage files and learning resources" -> `Open →` (navigates to Class materials tab).
+
+### Screen 2: `Assignments — List and Details` (`#48:1535`)
+- **Breadcrumbs**: `Dashboard / Assignments / Assignment list`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `＋ Create assignment` primary CTA.
+- **Filter Toolbar Card**: Multi-filter toolbar for Search (`Search title or keyword`), Class (`All classes`, `Class 8-A`, `Class 7-B`, etc.), Subject (`All subjects`, `Mathematics`, `English`, etc.), Status (`All statuses`, `Published`, `Draft`, `Late`), Due date (`Any date`), and `Reset` button.
+- **Assignment List Table Card**: Full-width interactive table with ASSIGNMENT, CLASS / SECTION, SUBJECT, TEACHER, DUE DATE, STATUS, SUBMISSIONS. Selecting a row highlights the row and loads details into the inspector card.
+- **Selected Assignment Details Card**:
+  - Assignment Title & Status Badge (`Algebra — Worksheet 04` · `Published`).
+  - Full instructions text.
+  - 2-row metadata grid: Class / Section (`Class 8 • Section A`), Subject (`Mathematics`), Assigned teacher (`Nusrat Jahan`), Published (`15 Oct 2026`), Due date (`22 Oct 2026 · 11:59 PM`), Attachments (`Worksheet_04.pdf · 2.4 MB`).
+  - Actions: `Edit assignment` (opens edit form) and `View submissions` (opens submissions view filtered to this coursework).
+
+### Screen 3: `Assignments — Create and Edit` (`#48:1747`)
+- **Breadcrumbs**: `Dashboard / Assignments / Create assignment` (or Edit assignment).
+- **Navigation Triad**: Circular `←` back arrow returning to List, `Save draft` button, and `Publish` primary action.
+- **Form Layout (Two Columns: 65% / 35%)**:
+  - **Left Card (Assignment details)**: Title, Academic year, Class dropdown, Section dropdown, Subject dropdown, Assigned teacher, Due date, Due time, Instructions textarea, Maximum marks, Submission type (`File upload`, `Online text`, `Physical paper`), Late submission policy (`Allow with late label`, `Reject late submissions`, `Penalty per day`).
+  - **Right Stack**:
+    - `Attachments & resources`: Drag-and-drop / click upload box (`PDF, DOCX, PPTX, JPG · up to 20 MB`), attached files list with remove `✕` action.
+    - `Publishing options`: Custom checkboxes for "Visible to selected class", "Notify students", and "Allow resubmission".
+- **Bottom Helper & Preview Cards**:
+  - `Before publishing` validation helper card with `Required fields` badge.
+  - `Student-facing preview` live rendering of assignment title, class, subject, deadline, max marks, and `Draft preview` badge.
+  - Bottom actions: `Cancel`, `Save draft`, `Publish assignment` / `Save changes`.
+
+### Screen 4: `Assignments — Submissions and Materials` (`#48:1939`)
+- **Breadcrumbs**: `Dashboard / Assignments / Submissions & Materials`.
+- **Navigation Triad**: Circular `←` back arrow, `← Back to overview` button, and `＋ Add material` primary CTA.
+- **Inner Section Tabs**: Sub-tabs for `Submissions` (active), `Grading overview`, and `Class materials`.
+- **Filter Toolbar Card**: Assignment selector, Class/Section filter, Status filter, Student search, and `Export` action.
+- **Student Submissions Table Card**: Columns for STUDENT, SUBMITTED AT, FILE / RESOURCE, STATUS, MARKS, REVIEW.
+  - Interactive rows: Ayesha Rahman, Tanvir Hossain, Nabila Islam, Samiul Karim.
+  - Action buttons: `Open submission` (opens grading modal), `View grade`, `Send reminder` (notifies pending student).
+- **Bottom Split Grid (50% / 50%)**:
+  - **Left Card (Grading overview)**: Proportional progress bars for Awaiting review (`12`), Graded (`12`), Returned for revision (`2`), and `Average score: 16.4 / 20`.
+  - **Right Card (Class materials library)**: Resources table for Class 8-A with Resource title, Type badge (`PDF`, `Link`), Updated date, and `Open` action + `＋ Add material` modal trigger.
+
+---
+
+---
+
+## 12. Exams & Results Architecture (Figma Node `51:1320`)
+
+The complete Exams & Results module conforms 1:1 with Figma node `51:1320` across 4 canonical screens:
+
+### Screen 1: `Exams — Overview` (`#51:1321`)
+- **Breadcrumbs**: `Dashboard / Exams & Results`.
+- **Navigation Triad**: Circular `←` back arrow returning to Dashboard, `← Dashboard` secondary button, and `＋ Create exam` primary CTA.
+- **Module Navigation Tabs**: Pinned directly below hero: `Overview`, `Create & Schedule`, `Marks Entry & Review`, `Results & Report Cards`.
+- **4 KPI Stat Cards** (with left vertical accent bars):
+  - Total exams: `18` ("Across academic terms", primary blue bar)
+  - Scheduled: `06` ("Upcoming assessments", amber bar)
+  - Marks under review: `04` ("Teacher submissions pending", purple bar)
+  - Published results: `12` ("Completed exam cycles", green bar)
+- **Middle Row (Split Grid: 60% / 40%)**:
+  - **Left (Upcoming exams card)**: Table with EXAM, TERM, DATE, STATUS, CLASSES, ACTION (`Mid-Term Examination`, `Class Test — Science`, `Final Assessment`, `Term 1 Final`).
+  - **Right Stack**:
+    - `Result processing`: Progress bars for Schedules confirmed (`8 / 8`), Marks submitted (`6 / 8`), Marks reviewed (`4 / 8`), Results published (`0 / 8`).
+    - `Common actions`: Quick action tiles for Create exam, Enter marks, Review results, and Grading scale settings.
+- **Bottom Card (Recent exam history)**: Table with EXAM, TERM, CLASSES, COMPLETED, RESULT STATUS, ACTION (`Annual Examination 2026`, `Class 7 Assessment`).
+
+### Screen 2: `Exams — Create and Schedule` (`#51:1551`)
+- **Breadcrumbs**: `Dashboard / Exams & Results / Create & Schedule`.
+- **Navigation Triad**: Circular `←` back arrow returning to Overview, `Save draft` button, and `Schedule exam` primary action.
+- **Form Layout (Two Columns: 65% / 35%)**:
+  - **Left Column**:
+    - `Exam information`: Exam name, Exam type dropdown (`Mid-Term`, `Final Exam`, `Class Test`, `Diagnostic Quiz`), Academic year, Term, Start & End dates, Applicable classes, Subjects, Exam instructions textarea.
+    - `Subject schedule`: Interactive table with SUBJECT, DATE, TIME, ROOM, ACTION + `＋ Add subject schedule` inline creator.
+  - **Right Stack**:
+    - `Validation checklist`: Real-time validation for Exam parameters, class/subject selection, and non-overlapping schedules.
+    - `Confirmation preview`: "Schedule this exam? Teachers will be notified when schedule is published." with Confirm/Cancel.
+    - `System feedback states`: Specimen alerts for Success (Exam scheduled), Error (Date conflict), Warning (Missing subject).
+
+### Screen 3: `Exams — Marks Entry and Review` (`#51:1756`)
+- **Breadcrumbs**: `Dashboard / Exams & Results / Marks Entry & Review`.
+- **Navigation Triad**: Circular `←` back arrow, `Under Review` status badge, `← Back to overview`, and `⚙️ Grading configuration` button.
+- **Marks Filter Bar Card**: Exam, Class/Section, Subject, Teacher review status filters with Apply/Reset.
+- **Teacher-submitted marks Card**: Table with CLASS/SUBJECT, TEACHER, SUBMITTED, MARKS, VALIDATION (`Valid`, `2 missing`, `Not submitted`), STATUS (`Submitted`, `Under Review`, `Pending`), ACTION (`Review & Approve`, `Send reminder`).
+- **Bottom Split Row (50% / 50%)**:
+  - **Left (Marks entry overview)**: Student marks table for Class 8-A Mathematics with student name, roll, marks, validation (`Valid`, `Out of range`, `Missing`), and `Fix marks` / `Enter marks` / `Edit` triggers opening `EditMarkModal`.
+  - **Right (Grading configuration)**: Grade scale table (`A+`, `A`, `B`, `C`, `D`, `F`) with score ranges, grade points, and `Approve selected marks` CTA.
+
+### Screen 4: `Exams — Results and Report Cards` (`#51:1992`)
+- **Breadcrumbs**: `Dashboard / Exams & Results / Results & Report Cards`.
+- **Navigation Triad**: Circular `←` back arrow, `Calculate results` action button.
+- **Inner Section Tabs**: Sub-tabs for `Results review` (active), `Report cards`, `Result history`.
+- **Results Filter Bar Card**: Exam, Class, Result status, Student search.
+- **Calculated Results Table Card**: STUDENT, ROLL, TOTAL (`432 / 500`), GRADE (`A+`), CLASS RANK (`1`), VALIDATION (`Valid`, `Marks missing`), RESULT STATUS (`Under Review`, `Blocked`, `Published`), ACTION (`View report card`, `Resolve issue`).
+- **Middle Split Row (50% / 50%)**:
+  - **Left (Class-wise performance)**: Class average (`76.4%`), Pass rate (`92%`), Marks verified (`87%`).
+  - **Right (Result publication)**: Warning notice ("2 records require correction before publishing"), `Preview report cards`, and `Publish results` CTA opening `PublishConfirmationModal`.
+- **Report cards & result history Card**: Table with EXAM/TERM, CLASS, PUBLISHED ON, REPORT CARDS, STATUS, ACTION.
+- **Interactive Modals**:
+  - `StudentReportCardModal`: Official student grade sheet with subject breakdown, total scores, GPA, rank, and PDF download.
+  - `PublishConfirmationModal`: Guardian/student publication confirmation.
+  - `GradingConfigModal`: Score range and GPA scale editor.
+  - `EditMarkModal`: Single-student mark validator and updater.
+
+---
+
+## 13. Next Steps & Feature Implementation Roadmap
 
 Follow this step-by-step sequence for subsequent phases:
 
@@ -285,30 +448,32 @@ Follow this step-by-step sequence for subsequent phases:
 4. **Step 4 (Completed)**: Academics — Student Management Module (`20:2104` - 4 canonical screens).
 5. **Step 5 (Completed)**: Academics — Teacher Management & Feedback Module (`21:876` - 5 canonical screens).
 6. **Step 6 (Completed)**: Academics — Classes, Subjects & Academic Structure Module (`29:1501` - 4 canonical screens).
-7. **Step 7 (Completed)**: **Academics — Student & Class Attendance Module (`31:876` - 4 canonical screens)**:
-   - `Attendance Overview` (`#31:877`)
-   - `Daily Records Marking` (`#31:1145`)
-   - `Monthly Calendar & Student History` (`#31:1381`)
-   - `Absence Notifications & System States` (`#31:1663`)
-8. **Step 8 (Upcoming)**: **Academics — Timetable & Exam Management**:
-   - Class weekly timetable grid, midterm/final exam scheduler, and gradebook publication.
-9. **Step 9 (Upcoming)**: **School Operations — Fees & Invoicing Module**:
-   - Invoice generation, fee collection recording form, payment receipts, and automated reminder triggers.
+7. **Step 7 (Completed)**: Academics — Student & Class Attendance Module (`31:876` - 4 canonical screens).
+8. **Step 8 (Completed)**: Academics — Timetable & Scheduling Module (`40:1195` - 4 canonical screens).
+9. **Step 9 (Completed)**: Academics — Assignments & Class Materials Module (`48:1320` - 4 canonical screens).
+10. **Step 10 (Completed)**: **Academics — Exams & Results Module (`51:1320` - 4 canonical screens)**:
+    - `Exams — Overview` (`#51:1321`)
+    - `Exams — Create and Schedule` (`#51:1551`)
+    - `Exams — Marks Entry and Review` (`#51:1756`)
+    - `Exams — Results and Report Cards` (`#51:1992`)
+11. **Step 11 (Upcoming)**: **School Operations — Fees & Finance / Invoicing Module**:
+    - Invoice generation, fee collection recording form, payment receipts, and automated reminder triggers.
 
 ---
 
-## 11. Universal Flow Navigation & Breadcrumb Standard
+## 14. Universal Flow Navigation & Breadcrumb Standard
 
 To ensure users never get trapped and can effortlessly navigate back through complex flows, all modules and sub-screens must strictly follow this navigation triad:
 
 1. **Interactive Breadcrumbs**:
    - Every sub-screen must render clickable ancestor crumbs (`.edusync-dashboard-hero__crumb--link`) with clear separators (`/`), hover underline/color change, and `role="button"`.
-   - Clicking `Dashboard` returns to `OVERVIEW`. Clicking module roots (e.g. `Students` or `Teachers`) returns to their respective consolidated overviews.
+   - Clicking `Dashboard` returns to `OVERVIEW`. Clicking module roots (e.g. `Students`, `Teachers`, or `Assignments`) returns to their respective consolidated overviews.
 
 2. **Circular Header Back Arrow (`.edusync-btn-back-circle`)**:
-   - Every detail, form, or sub-view header must position a circular `←` button directly beside the `<h1>` title (e.g. `Student profile`, `Add student`, `Teacher profile`, `Teacher Feedback`).
+   - Every detail, form, or sub-view header must position a circular `←` button directly beside the `<h1>` title (e.g. `Student profile`, `Add student`, `Teacher profile`, `Assignment list`, `Create assignment`).
    - Clicking this arrow immediately returns to the parent overview.
 
 3. **Prominent Header Action Buttons**:
-   - Top-right action bars must provide explicit secondary buttons (`← Back to students`, `← Back to teachers`, `← Back to Dashboard`, `Directory list`) alongside primary actions (`Edit`, `Save`, `Add`).
+   - Top-right action bars must provide explicit secondary buttons (`← Back to overview`, `← Dashboard`, `Directory list`) alongside primary actions (`Edit`, `Save`, `Publish`, `＋ Create assignment`).
    - Forms (Add/Edit) must provide both top-bar back buttons and bottom-bar `Cancel` buttons.
+   - Module sub-navigation tabs (`<*NavTabs />`) must always be placed directly below the hero header on all screens, keeping navigation intuitive, unified, and consistent across EduSync.

@@ -9,6 +9,9 @@ import { StudentsScreen } from './students/StudentsRoot';
 import { TeachersScreen } from './teachers/TeachersRoot';
 import { AcademicStructureScreen } from './academic-structure/AcademicStructureRoot';
 import { AttendanceScreen } from './attendance/AttendanceRoot';
+import { TimetableScreen } from './timetable/TimetableRoot';
+import { AssignmentsScreen } from './assignments/AssignmentsRoot';
+import { ExamsScreen } from './exams/ExamsRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -25,12 +28,18 @@ export const DashboardScreen: React.FC = () => {
         return <TeachersScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'CLASSES_SUBJECTS':
         return <AcademicStructureScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'ATTENDANCE_REPORT':
+        return <AttendanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'TIMETABLE':
+        return <TimetableScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'ASSIGNMENTS':
+        return <AssignmentsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'EXAMS':
+        return <ExamsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'RECENT_ACTIVITIES':
         return <RecentActivitiesDestination onNavigate={setCurrentDestination} />;
       case 'UPCOMING_EVENTS':
         return <UpcomingEventsDestination onNavigate={setCurrentDestination} />;
-      case 'ATTENDANCE_REPORT':
-        return <AttendanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'FEES_FINANCE_REPORT':
         return <FeesFinanceDestination onNavigate={setCurrentDestination} />;
       default:
