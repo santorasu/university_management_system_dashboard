@@ -1,0 +1,795 @@
+/* ==========================================================================
+   EduSync Teacher Management Styles (Figma Node 21:876 Parity)
+   ========================================================================== */
+
+.edusync-teachers-flow-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edusync-teachers-view {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* Notification banner */
+.edusync-teachers-notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  border-radius: var(--edusync-radius-md, 8px);
+}
+
+/* Top bar */
+.edusync-teachers-view__top-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.edusync-teachers-view__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edusync-teachers-view__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 4 KPI Cards Grid */
+.edusync-teacher-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.edusync-teacher-kpi-card {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-kpi-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edusync-teacher-kpi-card__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-kpi-card__value-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.edusync-teacher-kpi-card__value {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--edusync-text-navy, #14213d);
+}
+
+.edusync-teacher-kpi-card__pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.edusync-teacher-kpi-card__pill--primary {
+  background-color: var(--edusync-brand-subtle, #eef2ff);
+  color: var(--edusync-brand-primary, #3659d9);
+  border: 1px solid #c7d2fe;
+}
+
+.edusync-teacher-kpi-card__pill--success {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.edusync-teacher-kpi-card__pill--warning {
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.edusync-teacher-kpi-card__pill--neutral {
+  background-color: #f2f4f7;
+  color: #475467;
+  border: 1px solid #e4e7ec;
+}
+
+.edusync-teacher-kpi-card__sub {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-kpi-card__sub--amber {
+  color: var(--edusync-status-warning, #92400e);
+}
+
+/* Consolidated 2-Column Grid */
+.edusync-teachers-consolidated-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Directory Card */
+.edusync-teacher-directory-card {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-directory-card--full {
+  width: 100%;
+}
+
+.edusync-teacher-directory-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.edusync-teacher-directory-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.edusync-teacher-directory-card__count {
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+/* Filters */
+.edusync-teacher-directory-card__filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.edusync-teacher-directory-card__filters--full {
+  gap: 12px;
+}
+
+.edusync-teacher-directory-card__search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+}
+
+.edusync-teacher-directory-card__search-wrap--lg {
+  min-width: 260px;
+}
+
+.edusync-teacher-directory-card__search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 14px 0 38px;
+  font-size: 13px;
+  border: 1px solid var(--edusync-border-strong, #d0d5dd);
+  border-radius: var(--edusync-radius-md, 8px);
+  background-color: var(--edusync-surface-default, #ffffff);
+  color: var(--edusync-text-primary, #172033);
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+
+.edusync-teacher-directory-card__search-input:focus {
+  border-color: var(--edusync-brand-primary, #3659d9);
+  box-shadow: 0 0 0 3px rgba(54, 89, 217, 0.12);
+}
+
+.edusync-teacher-directory-card__select-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edusync-teacher-directory-card__select {
+  height: 40px;
+  padding: 0 32px 0 12px;
+  font-size: 13px;
+  border: 1px solid var(--edusync-border-strong, #d0d5dd);
+  border-radius: var(--edusync-radius-md, 8px);
+  background-color: var(--edusync-surface-default, #ffffff);
+  color: var(--edusync-text-primary, #172033);
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.edusync-teacher-directory-card__select:focus {
+  border-color: var(--edusync-brand-primary, #3659d9);
+}
+
+/* Teacher Table Cell */
+.edusync-teacher-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edusync-teacher-cell__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--edusync-brand-navy, #14213d);
+  flex-shrink: 0;
+}
+
+.edusync-teacher-cell__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--edusync-brand-navy, #14213d);
+  cursor: pointer;
+}
+
+.edusync-teacher-cell__name:hover {
+  color: var(--edusync-brand-primary, #3659d9);
+  text-decoration: underline;
+}
+
+/* Subject Tag */
+.edusync-subject-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: var(--edusync-brand-subtle, #eef2ff);
+  color: var(--edusync-brand-primary, #3659d9);
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+
+/* Right Quick Profile */
+.edusync-teacher-quick-profile {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-quick-profile--empty {
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  color: var(--edusync-text-muted, #98a2b3);
+}
+
+.edusync-teacher-quick-profile__header {
+  border-bottom: 1px solid var(--edusync-border-default, #e4e7ec);
+  padding-bottom: 14px;
+}
+
+.edusync-teacher-quick-profile__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+}
+
+.edusync-teacher-quick-profile__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edusync-teacher-quick-profile__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.edusync-teacher-quick-profile__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--edusync-brand-primary, #3659d9);
+  flex-shrink: 0;
+}
+
+.edusync-teacher-quick-profile__identity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edusync-teacher-quick-profile__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+  cursor: pointer;
+}
+
+.edusync-teacher-quick-profile__name:hover {
+  color: var(--edusync-brand-primary, #3659d9);
+}
+
+.edusync-teacher-quick-profile__meta {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-quick-profile__badge-row {
+  margin-top: 4px;
+}
+
+.edusync-teacher-quick-profile__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--edusync-border-default, #e4e7ec);
+  padding-top: 14px;
+}
+
+.edusync-teacher-quick-profile__section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+}
+
+.edusync-teacher-quick-profile__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edusync-teacher-quick-profile__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.edusync-teacher-quick-profile__row-label {
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-quick-profile__row-value {
+  color: var(--edusync-text-primary, #172033);
+  font-weight: 500;
+}
+
+.edusync-teacher-quick-profile__period-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.edusync-teacher-quick-profile__period-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-quick-profile__period-class {
+  font-weight: 500;
+  color: var(--edusync-text-primary, #172033);
+}
+
+.edusync-teacher-quick-profile__avail-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edusync-teacher-quick-profile__avail-hours {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-quick-profile__avail-note {
+  font-size: 11px;
+  color: var(--edusync-text-muted, #98a2b3);
+}
+
+/* Teacher Rating Box */
+.edusync-teacher-rating-box {
+  background-color: #fafbfc;
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-md, 8px);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.edusync-teacher-rating-box__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.edusync-teacher-rating-box__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+}
+
+.edusync-teacher-rating-box__score-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edusync-teacher-rating-box__score {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213d);
+}
+
+.edusync-teacher-rating-box__stars,
+.edusync-rating-stars {
+  color: #f59e0b;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.edusync-teacher-rating-box__reviews {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-rating-box__note {
+  font-size: 11px;
+  color: var(--edusync-text-muted, #98a2b3);
+}
+
+.edusync-teacher-quick-profile__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Add / Edit Teacher Form (Figma 24:1826)
+   ========================================================================== */
+
+.edusync-teacher-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edusync-teacher-form-card {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-form-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+  border-bottom: 1px solid var(--edusync-border-default, #e4e7ec);
+  padding-bottom: 12px;
+}
+
+.edusync-teacher-form-grid {
+  display: grid;
+  gap: 16px 20px;
+}
+
+.edusync-teacher-form-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.edusync-teacher-form-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.edusync-teacher-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.edusync-teacher-form-footer__notice {
+  font-size: 13px;
+  color: var(--edusync-status-warning, #92400e);
+}
+
+.edusync-teacher-form-footer__btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Full Teacher Profile Styles (Figma 24:2188)
+   ========================================================================== */
+
+.edusync-teacher-profile-hero-card {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-profile-hero-card__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.edusync-teacher-profile-hero-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--edusync-brand-primary, #3659d9);
+  flex-shrink: 0;
+}
+
+.edusync-teacher-profile-hero-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edusync-teacher-profile-hero-card__name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+}
+
+.edusync-teacher-profile-hero-card__id {
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-profile-hero-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.edusync-teacher-profile-hero-card__dept {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--edusync-text-primary, #172033);
+}
+
+.edusync-teacher-profile-hero-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.edusync-teacher-profile-card {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  border-radius: var(--edusync-radius-lg, 12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--edusync-elevation-01);
+}
+
+.edusync-teacher-profile-card--full {
+  width: 100%;
+}
+
+.edusync-teacher-profile-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+  border-bottom: 1px solid var(--edusync-border-default, #e4e7ec);
+  padding-bottom: 12px;
+}
+
+.edusync-teacher-profile-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edusync-teacher-profile-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #f2f4f7;
+}
+
+.edusync-teacher-profile-card__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.edusync-teacher-profile-card__label {
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-profile-card__value {
+  color: var(--edusync-text-primary, #172033);
+  font-weight: 500;
+}
+
+.edusync-teacher-profile-card__subject-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edusync-teacher-profile-card__period-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.edusync-teacher-profile-card__period-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+  padding: 6px 0;
+}
+
+.edusync-teacher-profile-card__period-class {
+  font-weight: 500;
+  color: var(--edusync-text-primary, #172033);
+}
+
+.edusync-teacher-profile-avail-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.edusync-teacher-profile-avail-grid__left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edusync-teacher-profile-avail-grid__emp-line {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+  margin: 0;
+}
+
+.edusync-teacher-profile-avail-grid__qual-line {
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-teacher-profile-avail-grid__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.edusync-teacher-profile-avail-grid__hours-line {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--edusync-text-navy, #14213d);
+}
+
+.edusync-teacher-profile-avail-grid__note {
+  font-size: 12px;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+/* Rating Cell in Feedback Table */
+.edusync-rating-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edusync-rating-number {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--edusync-text-navy, #14213d);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .edusync-teachers-consolidated-grid {
+    grid-template-columns: 1fr;
+  }
+  .edusync-teacher-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .edusync-teacher-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

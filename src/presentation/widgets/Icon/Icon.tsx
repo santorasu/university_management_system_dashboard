@@ -21,9 +21,19 @@ export type IconName =
   | 'bell'
   | 'layout-dashboard'
   | 'graduation-cap'
-  | 'users'
   | 'book-open'
-  | 'settings';
+  | 'settings'
+  | 'user-check'
+  | 'calendar-days'
+  | 'notebook-pen'
+  | 'clipboard-check'
+  | 'wallet'
+  | 'messages-square'
+  | 'folder-open'
+  | 'calendar-check'
+  | 'chart-no-axes-combined'
+  | 'users'
+  | 'user-cog';
 
 interface IconProps {
   name: IconName;

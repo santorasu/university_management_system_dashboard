@@ -57,6 +57,16 @@ export type AuthScreenId =
   | '12_RESET_SUCCESS'
   | 'DASHBOARD';
 
+export type DashboardDestination =
+  | 'OVERVIEW'
+  | 'STUDENTS'
+  | 'TEACHERS'
+  | 'CLASSES_SUBJECTS'
+  | 'RECENT_ACTIVITIES'
+  | 'UPCOMING_EVENTS'
+  | 'ATTENDANCE_REPORT'
+  | 'FEES_FINANCE_REPORT';
+
 export interface ScreenMetadata {
   id: AuthScreenId;
   figmaName: string;

@@ -22,6 +22,7 @@
   font-weight: 600;
   color: var(--edusync-text-secondary);
   border-bottom: 1px solid var(--edusync-border-default);
+  vertical-align: middle;
 }
 
 .edusync-table td {
@@ -30,6 +31,7 @@
   line-height: var(--edusync-body-default-line);
   color: var(--edusync-text-primary);
   border-bottom: 1px solid var(--edusync-border-default);
+  vertical-align: middle;
 }
 
 .edusync-table tbody tr:last-child td {

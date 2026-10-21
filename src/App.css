@@ -1,7 +1,297 @@
+/* ==========================================================================
+   EduSync Global App Styles & Master Utilities
+   ========================================================================== */
+
 .edusync-app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
   position: relative;
+  background-color: var(--edusync-background-default, #f6f8fc);
+}
+
+/* ==========================================================================
+   Global Breadcrumb Navigation System
+   ========================================================================== */
+
+.edusync-dashboard-hero__breadcrumb,
+.edusync-dash-breadcrumb {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: var(--edusync-font-family, 'Inter', sans-serif);
+  font-size: 13px !important;
+  color: var(--edusync-text-secondary, #667085) !important;
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.edusync-dashboard-hero__crumb,
+.edusync-dash-breadcrumb span {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.edusync-dashboard-hero__crumb--link,
+.edusync-dash-breadcrumb__link {
+  color: var(--edusync-text-secondary, #667085) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+  font-weight: 500 !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.edusync-dashboard-hero__crumb--link:hover,
+.edusync-dash-breadcrumb__link:hover {
+  color: var(--edusync-brand-primary, #3659d9) !important;
+  background-color: rgba(54, 89, 217, 0.08) !important;
+  text-decoration: none !important;
+}
+
+.edusync-dashboard-hero__crumb-sep,
+.edusync-dash-breadcrumb__separator {
+  color: var(--edusync-text-muted, #98a2b3) !important;
+  font-size: 12px !important;
+  margin: 0 4px !important;
+  user-select: none !important;
+}
+
+.edusync-dashboard-hero__crumb--current,
+.edusync-dash-breadcrumb__current {
+  color: var(--edusync-text-navy, #14213d) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   Master Badge Pill System
+   ========================================================================== */
+
+.edusync-badge-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  text-transform: capitalize;
+}
+
+.edusync-badge-pill--success {
+  background-color: #f0fdf4 !important;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0 !important;
+}
+
+.edusync-badge-pill--warning {
+  background-color: #fffbeb !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
+}
+
+.edusync-badge-pill--error {
+  background-color: #fef2f2 !important;
+  color: #dc2626 !important;
+  border: 1px solid #fecaca !important;
+}
+
+.edusync-badge-pill--info {
+  background-color: #eef2ff !important;
+  color: #3659d9 !important;
+  border: 1px solid #c7d2fe !important;
+}
+
+.edusync-badge-pill--neutral {
+  background-color: #f2f4f7 !important;
+  color: #667085 !important;
+  border: 1px solid #e4e7ec !important;
+}
+
+/* Back Button Pill Utility */
+.edusync-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  color: var(--edusync-text-primary, #172033);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--edusync-radius-md, 8px);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.edusync-btn-back:hover {
+  background-color: var(--edusync-surface-subtle, #f2f4f7);
+  border-color: var(--edusync-border-strong, #d0d5dd);
+  color: var(--edusync-brand-primary, #3659d9);
+}
+
+.edusync-btn-back-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid var(--edusync-border-default, #e4e7ec);
+  color: var(--edusync-text-secondary, #475467);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.edusync-btn-back-circle:hover {
+  background-color: var(--edusync-surface-subtle, #f2f4f7);
+  color: var(--edusync-brand-primary, #3659d9);
+  border-color: var(--edusync-brand-primary, #3659d9);
+  transform: translateX(-2px);
+}
+
+/* ==========================================================================
+   Global Button System (.edusync-btn parity)
+   ========================================================================== */
+.edusync-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--edusync-font-family, 'Inter', sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: var(--edusync-radius-md, 8px);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+  height: 40px;
+  padding: 0 16px;
+  text-decoration: none;
+}
+
+.edusync-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(54, 89, 217, 0.2);
+}
+
+.edusync-btn--primary {
+  background-color: var(--edusync-brand-primary, #3659d9);
+  border-color: var(--edusync-brand-primary, #3659d9);
+  color: #ffffff;
+}
+
+.edusync-btn--primary:hover:not(:disabled) {
+  background-color: var(--edusync-brand-primary-hover, #2944b3);
+  border-color: var(--edusync-brand-primary-hover, #2944b3);
+}
+
+.edusync-btn--primary:active:not(:disabled) {
+  background-color: #1e3594;
+  border-color: #1e3594;
+}
+
+.edusync-btn--secondary {
+  background-color: var(--edusync-surface-default, #ffffff);
+  border-color: var(--edusync-border-default, #e4e7ec);
+  color: var(--edusync-text-primary, #172033);
+}
+
+.edusync-btn--secondary:hover:not(:disabled) {
+  background-color: var(--edusync-surface-subtle, #f2f4f7);
+  border-color: var(--edusync-border-strong, #d0d5dd);
+  color: var(--edusync-brand-primary, #3659d9);
+}
+
+.edusync-btn--secondary:active:not(:disabled) {
+  background-color: #e4e7ec;
+}
+
+.edusync-btn--sm {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.edusync-btn--xs {
+  height: 28px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  min-width: 50px;
+}
+
+.edusync-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Table Footer & Pagination System
+   ========================================================================== */
+.edusync-table-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding-top: 16px !important;
+  margin-top: 8px !important;
+  border-top: 1px solid var(--edusync-border-default, #e4e7ec) !important;
+  box-sizing: border-box !important;
+}
+
+.edusync-table-footer__info {
+  font-size: 13px !important;
+  color: var(--edusync-text-secondary, #667085) !important;
+  font-weight: 500 !important;
+}
+
+.edusync-table-footer .edusync-pagination {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: auto !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+  margin: 0 !important;
+}
+
+.edusync-table-footer .edusync-pagination__pages {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* ==========================================================================
+   Search Icon Positioning
+   ========================================================================== */
+.edusync-input-search-icon {
+  position: absolute !important;
+  left: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--edusync-text-muted, #98a2b3) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
