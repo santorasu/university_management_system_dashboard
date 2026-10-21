@@ -633,7 +633,88 @@ Always enforce these strict architectural invariants on every screen in every mo
 
 ---
 
-## 17. Next Steps & Feature Implementation Roadmap
+## 17. School Operations — Library, Documents & School Events Flow (Node `69:1320`)
+
+Authoritative specification for the 4 canonical screens and 4 interactive modals of the Library, Documents, and School Events module:
+
+### Canonical Screens:
+1. **Screen 1: Library — Inventory Overview (`#69:1321`)**:
+   - **Hero Header**: 3-tier breadcrumbs (`Dashboard / Library & Documents / Library Inventory`), circular back button `←`, title `Library Inventory`, subtitle `Manage books, availability, borrowing, returns, and overdue items`, action buttons `← Dashboard` and `+ Add book`.
+   - **Persistent Sub-Navigation Tabs**: Placed directly below the hero header (`Library Inventory`, `Book Details & Lending`, `Document Management`, `School Events`).
+   - **4 KPI Metric Cards**: Placed directly UNDER the sub-navigation tabs:
+     - `Total titles` (`1,284` | `Across all categories` | Blue left border `#3659D9`)
+     - `Available copies` (`936` | `Ready to issue` | Green left border `#148C57`)
+     - `Currently issued` (`278` | `Active loans` | Amber left border `#B86E0F`)
+     - `Overdue books` (`24` | `Needs follow-up` | Red left border `#BF2E33`)
+   - **65% / 35% Split Layout**:
+     - **Left (65%)**: Book Inventory table card with search field (`Search by title, author, or ISBN...`), category dropdown filter (`Computer Science`, `Programming`, `Mathematics`, `Science`, `Language`), availability dropdown filter (`Available`, `Low stock`, `Out of stock`), and row actions `View` / `Lend`.
+     - **Right (35%)**: `Overdue book tracking` card listing borrowers with overdue days (`Rafi Ahmed`, `Ayesha Rahman`, `Nusrat Jahan`), `Send overdue notices` button, and Lending Policies compliance reference.
+
+2. **Screen 2: Library — Book Details and Lending (`#69:1416`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Library & Documents / Book Details & Lending`), circular back button `←`, title `Book Details & Lending`, subtitle `Review a selected title, issue and return records, and borrowing history`, action button `← Catalogue`.
+   - **Persistent Subnav Tabs & 4 KPI Cards**: Maintained directly beneath header.
+   - **Top 50/50 Grid**:
+     - **Left (50%)**: `Selected book details` card with book title (`Clean Code`), author, ISBN, category (`Programming`), shelf location (`A-01`), edition (`1st edition`), total copies (`5`), available copies (`3`), circulating copies (`2`), and description.
+     - **Right (50%)**: `Issue / return book` form card (Borrower type [Student, Teacher], search borrower name/ID, Issue date, Due date, `Confirm issue` button, return loan ID search, and `Record return` button).
+   - **Bottom Table**: `Borrowing history` table tracking active, overdue, and returned loan records with inline `Return` settling action.
+
+3. **Screen 3: Documents — Student and Teacher Records (`#69:1511`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Library & Documents / Document Management`), circular back button `←`, title `Document Management`, subtitle `Manage student and teacher records, attachments, and document status`, action `+ Upload document`.
+   - **Persistent Subnav Tabs**: Maintained directly under hero header (3 tabs: `Library Inventory`, `Book Details & Lending`, `Document Management`).
+   - **4 KPI Cards (Document Metrics)**: Placed directly UNDER tabs:
+     - `Student documents` (`1,842` | `Across enrolled students` | Blue left border)
+     - `Teacher documents` (`326` | `Staff records` | Amber left border)
+     - `Pending review` (`17` | `Needs verification` | Red left border)
+     - `Missing documents` (`28` | `Follow-up required` | Red left border)
+   - **65% / 35% Split Layout**:
+     - **Left (65%)**: Document records table with search, filters for record type (Students/Teachers), category (Student identity, Academic record, Guardian details, Employment, Qualification), status (Verified, Pending review, Missing), and direct download links.
+     - **Right (35%)**: `Upload document` quick panel with owner select, category select, file dropzone, upload button, and `Document workflow` status legend.
+
+### Interactive Modals for Library & Documents (Nodes `#263:1320 – #263:1405`):
+- **Documents — Upload in Progress (`#263:1320`)**: Progress bar (68%), file size upload indicator (8.4 MB of 12.4 MB), `Complete upload` and `Simulate failure` actions.
+- **Documents — Upload Successful (`#263:1365`)**: Green circular checkmark, confirmation text `The document was uploaded and is now attached to the selected record`, `Back to documents` and `View records` buttons.
+- **Documents — Upload Failed (`#263:1405`)**: Red exclamation icon, error guidance, `Retry upload` and `Back to documents` buttons.
+
+---
+
+## 18. School Operations — Dedicated School Events & Calendar Module
+
+### Navigation & Destination Routing:
+- **Sidebar Position**: School Operations → `Events` (`id: 'events'`, destination: `UPCOMING_EVENTS`).
+- **Layout Standard**: 1400px centered container (`max-width: 1400px; margin: 0 auto; padding: 24px 32px; box-sizing: border-box;`) with symmetrical two-side equal padding.
+- **Persistent Subnav Tabs**:
+  1. `Calendar & Event Editor` (`EVENTS_CALENDAR`)
+  2. `Events Directory & Schedule` (`EVENTS_DIRECTORY`)
+- **4 Dedicated Event KPI Cards (Directly beneath Subnav Tabs)**:
+  - `Total events` (`24` | `Across school calendar` | Blue left border `#3659D9`)
+  - `Upcoming` (`8` | `Next 30 days` | Emerald left border `#10B981`)
+  - `This month` (`6` | `October 2026` | Purple left border `#8B5CF6`)
+  - `Completed` (`16` | `Past academic events` | Gray left border `#64748B`)
+
+### Screens:
+1. **Screen 1: Calendar and Event Editor (`#69:1610`)**:
+   - **Hero Header**: Breadcrumbs (`Dashboard / Events / Calendar & Event Editor`), circular back button `←`, title `School Events`, subtitle `Plan academic events and holidays with clear dates, times, and audiences`, action buttons (`View directory`, `+ Create event`).
+   - **65% / 35% Split Layout**:
+     - **Left (65%)**: Month calendar view (October 2026, 7-column grid SUN to SAT) with month navigation (`<`, `Today`, `>`), day cells, and colored category pills:
+       - `Assembly` (`#6366F1` School)
+       - `Holiday` (`#EF4444` Holiday)
+       - `Exam` (`#3659D9` Academic)
+       - `Sports` (`#10B981` Sports)
+       - `PTM` (`#0EA5E9` Meeting)
+       - `Cultural Day` (`#F59E0B` Cultural)
+     - **Right (35%)**:
+       - `Upcoming events` chronological queue with date, time, audience badges.
+       - `Create / edit event` form card (Event title, category/type, date, start time, end time, audience, location, Save draft, and `Save event` button).
+
+2. **Screen 2: Events Directory & Schedule**:
+   - Full-width tabular directory of all scheduled events with search, category filter, status filter, start/end dates, target audience, venue, and status pills (`Upcoming`, `Ongoing`, `Completed`, `Cancelled`).
+
+### Interactive Modal:
+- **Event Saved Confirmation (`#263:1445`)**: Calendar badge icon, title `School event scheduled successfully`, body `The event has been saved to the school calendar and notifications have been queued for the designated audience.`, action buttons `Back to calendar` and `Review event`.
+
+---
+
+## 19. Next Steps & Feature Implementation Roadmap
 
 1. **Step 1 (Completed)**: Brand Design System, Tokens, 18 Master Custom Widgets, and Specimen Gallery.
 2. **Step 2 (Completed)**: 12-Screen Authentication Access Flow with state machine, mock latency, and error states.
@@ -646,11 +727,19 @@ Always enforce these strict architectural invariants on every screen in every mo
 9. **Step 9 (Completed)**: Academics — Assignments & Class Materials Module (`48:1320` - 4 canonical screens).
 10. **Step 10 (Completed)**: Academics — Exams & Results Module (`51:1320` - 4 canonical screens).
 11. **Step 11 (Completed)**: School Operations — Fees & Finance / Student Billing & Invoicing Module (`53:1320` - 4 canonical screens).
-12. **Step 12 (Completed)**: **School Operations — Notices, Messages & Notifications Module (`63:1320` - 4 canonical screens & 4 modals)**:
-    - `Notices — Overview` (`#63:1321`)
-    - `Notices — Create and Edit` (`#63:1434`)
-    - `Messages — Inbox and Conversation` (`#63:1545`)
-    - `Notifications — History` (`#63:1662`)
-    - 4 Modals: `Notice Preview` (`#262:1320`), `Compose Message` (`#262:1364`), `Message Sent` (`#262:1412`), `Export Complete` (`#262:1450`).
-13. **Step 13 (Upcoming)**: School Operations — Library & Documents Management Module.
+12. **Step 12 (Completed)**: School Operations — Notices, Messages & Notifications Module (`63:1320` - 4 canonical screens & 4 modals).
+13. **Step 13 (Completed)**: **School Operations — Library & Document Management Module (`69:1320` - 3 canonical screens & 3 modals)**:
+    - `Library — Inventory Overview` (`#69:1321`)
+    - `Library — Book Details and Lending` (`#69:1416`)
+    - `Documents — Student and Teacher Records` (`#69:1511`)
+    - 3 Modals: `Upload in Progress` (`#263:1320`), `Upload Successful` (`#263:1365`), `Upload Failed` (`#263:1405`).
+14. **Step 14 (Completed)**: **School Operations — Dedicated School Events & Calendar Module (`69:1610`, `263:1445`)**:
+    - Dedicated sidebar tab `Events` (`UPCOMING_EVENTS`)
+    - `Calendar & Event Editor` (`#69:1610`)
+    - `Events Directory & Schedule`
+    - 4 Event KPI cards beneath subnav tabs
+    - Modal: `Event Saved` (`#263:1445`)
+15. **Step 15 (Upcoming)**: Administration — Reports & Analytics / School Settings / User Management.
+
+
 

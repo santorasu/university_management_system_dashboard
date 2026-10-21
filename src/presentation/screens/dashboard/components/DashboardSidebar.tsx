@@ -50,7 +50,7 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({
       items: [
         { id: 'finance', label: 'Fees & Finance', icon: 'wallet', destination: 'FEES_FINANCE_REPORT' },
         { id: 'notices', label: 'Notices & Messages', icon: 'messages-square', destination: 'NOTICES_MESSAGES' },
-        { id: 'library', label: 'Library & Documents', icon: 'folder-open' },
+        { id: 'library', label: 'Library & Documents', icon: 'folder-open', destination: 'LIBRARY_DOCUMENTS' },
         { id: 'events', label: 'Events', icon: 'calendar-check', destination: 'UPCOMING_EVENTS' },
       ],
     },

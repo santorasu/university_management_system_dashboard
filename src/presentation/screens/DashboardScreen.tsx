@@ -3,7 +3,6 @@ import { DashboardSidebar } from './dashboard/components/DashboardSidebar';
 import { DashboardHeader } from './dashboard/components/DashboardHeader';
 import { DashboardOverview } from './dashboard/DashboardOverview';
 import { RecentActivitiesDestination } from './dashboard/destinations/RecentActivitiesDestination';
-import { UpcomingEventsDestination } from './dashboard/destinations/UpcomingEventsDestination';
 import { FinanceScreen } from './finance/FinanceRoot';
 import { StudentsScreen } from './students/StudentsRoot';
 import { TeachersScreen } from './teachers/TeachersRoot';
@@ -13,6 +12,8 @@ import { TimetableScreen } from './timetable/TimetableRoot';
 import { AssignmentsScreen } from './assignments/AssignmentsRoot';
 import { ExamsScreen } from './exams/ExamsRoot';
 import { NoticesScreen } from './notices/NoticesRoot';
+import { LibraryScreen } from './library/LibraryRoot';
+import { EventsScreen } from './events/EventsRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -39,10 +40,12 @@ export const DashboardScreen: React.FC = () => {
         return <ExamsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'NOTICES_MESSAGES':
         return <NoticesScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'LIBRARY_DOCUMENTS':
+        return <LibraryScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'RECENT_ACTIVITIES':
         return <RecentActivitiesDestination onNavigate={setCurrentDestination} />;
       case 'UPCOMING_EVENTS':
-        return <UpcomingEventsDestination onNavigate={setCurrentDestination} />;
+        return <EventsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'FEES_FINANCE_REPORT':
         return <FinanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       default:
