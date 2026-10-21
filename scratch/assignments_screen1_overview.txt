@@ -1,0 +1,193 @@
+[CANVAS] "09 — Assignments & Class Materials" #48:1320
+  [FRAME] "Assignments — Overview" #48:1321 template=EL-56fe9a5c
+    [INSTANCE] "Shared Admin Sidebar" #48:1322 template=EL-b714711b
+      [FRAME] "Brand" #I48:1322;15:5906 template=EL-55f8a713
+        [INSTANCE] "EduSync logo" #I48:1322;15:5907 template=EL-f74e5ad5
+          [IMAGE-SVG] "Connected book symbol" #I48:1322;15:5907;2:12000 template=EL-7536b9fe
+          [TEXT] #I48:1322;15:5907;2:12001 template=EL-25ebe967
+        [TEXT] #I48:1322;15:5912 template=EL-cce6831a
+      [FRAME] "Navigation" #I48:1322;15:5913 template=EL-d8a3e5e9
+        [FRAME] "Navigation section" #I48:1322;15:5914 template=EL-cf7afb66
+          [TEXT] #I48:1322;15:5915 template=EL-c55e6cdf
+          [FRAME] "Section items" #I48:1322;15:5916 template=EL-6e926975
+            [FRAME] "Navigation item" #I48:1322;15:5917 template=EL-29fbd109
+              [IMAGE-SVG] "layout-dashboard" #I48:1322;15:6314 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5919 template=EL-8da396b6
+        [FRAME] "Navigation section" #I48:1322;15:5920 template=EL-cf7afb66
+          [TEXT] #I48:1322;15:5921 template=EL-bc605c13
+          [FRAME] "Section items" #I48:1322;15:5922 template=EL-6e926975
+            [FRAME] "Navigation item" #I48:1322;15:5923 template=EL-29fbd109
+              [IMAGE-SVG] "graduation-cap" #I48:1322;15:6317 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5925 template=EL-a4ad4746
+            [FRAME] "Navigation item" #I48:1322;15:5926 template=EL-29fbd109
+              [IMAGE-SVG] "users" #I48:1322;15:6320 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5928 template=EL-82166614
+            [FRAME] "Navigation item" #I48:1322;15:5929 template=EL-29fbd109
+              [IMAGE-SVG] "book-open" #I48:1322;15:6323 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5931 template=EL-97b39a71
+            [FRAME] "Navigation item" #I48:1322;15:5932 template=EL-29fbd109
+              [IMAGE-SVG] "user-check" #I48:1322;15:6326 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5934 template=EL-c6d9bca4
+            [FRAME] "Navigation item" #I48:1322;15:5935 template=EL-193b61ff
+              [IMAGE-SVG] "calendar-days" #I48:1322;15:6329 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5937 template=EL-614bf079
+            [FRAME] "Navigation item" #I48:1322;15:5938 template=EL-401ade35
+              [IMAGE-SVG] "notebook-pen" #I48:1322;15:6332 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5940 template=EL-72772c33
+            [FRAME] "Navigation item" #I48:1322;15:5941 template=EL-29fbd109
+              [IMAGE-SVG] "clipboard-check" #I48:1322;15:6335 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5943 template=EL-f91ef483
+        [FRAME] "Navigation section" #I48:1322;15:5944 template=EL-cf7afb66
+          [TEXT] #I48:1322;15:5945 template=EL-c40b5021
+          [FRAME] "Section items" #I48:1322;15:5946 template=EL-6e926975
+            [FRAME] "Navigation item" #I48:1322;15:5947 template=EL-29fbd109
+              [IMAGE-SVG] "wallet" #I48:1322;15:6338 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5949 template=EL-37828c7d
+            [FRAME] "Navigation item" #I48:1322;15:5950 template=EL-29fbd109
+              [IMAGE-SVG] "messages-square" #I48:1322;15:6341 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5952 template=EL-66bdf2a5
+            [FRAME] "Navigation item" #I48:1322;15:5953 template=EL-29fbd109
+              [IMAGE-SVG] "folder-open" #I48:1322;15:6344 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5955 template=EL-2bd19f20
+            [FRAME] "Navigation item" #I48:1322;15:5956 template=EL-29fbd109
+              [IMAGE-SVG] "calendar-check" #I48:1322;15:6347 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5958 template=EL-96c18e33
+        [FRAME] "Navigation section" #I48:1322;15:5959 template=EL-cf7afb66
+          [TEXT] #I48:1322;15:5960 template=EL-4dd9c138
+          [FRAME] "Section items" #I48:1322;15:5961 template=EL-6e926975
+            [FRAME] "Navigation item" #I48:1322;15:5962 template=EL-29fbd109
+              [IMAGE-SVG] "chart-no-axes-combined" #I48:1322;15:6350 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5964 template=EL-535cc812
+            [FRAME] "Navigation item" #I48:1322;15:5965 template=EL-29fbd109
+              [IMAGE-SVG] "user-cog" #I48:1322;15:6353 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5967 template=EL-dbebcc33
+            [FRAME] "Navigation item" #I48:1322;15:5968 template=EL-29fbd109
+              [IMAGE-SVG] "settings" #I48:1322;15:6356 template=EL-a73b2a19
+              [TEXT] #I48:1322;15:5970 template=EL-58667723
+      [FRAME] "School context" #I48:1322;15:5971 template=EL-5fb6ba22
+        [FRAME] "School identity" #I48:1322;15:5972 template=EL-f9efa70f
+          [IMAGE-SVG] "school" #I48:1322;15:6359 template=EL-a73b2a19
+          [FRAME] "School details" #I48:1322;15:5974 template=EL-929905f4
+            [TEXT] #I48:1322;15:5975 template=EL-16aa4aef
+            [TEXT] #I48:1322;15:5976 template=EL-0b3d47de
+    [INSTANCE] "Shared Admin Header" #48:1408 template=EL-1635c421
+      [FRAME] "Global search" #I48:1408;15:5979 template=EL-9c5e5755
+        [IMAGE-SVG] "search" #I48:1408;15:6362 template=EL-a73b2a19
+        [INSTANCE] "Search across school" #I48:1408;15:5981 template=EL-1f118df4
+          [FRAME] "Control" #I48:1408;15:5981;2:12809 template=EL-f3f40908
+            [TEXT] #I48:1408;15:5981;2:12810 template=EL-97f0d657
+      [FRAME] "Account controls" #I48:1408;15:5987 template=EL-dda368b5
+        [FRAME] "Term context" #I48:1408;15:5988 template=EL-235879b0
+          [IMAGE-SVG] "calendar-days" #I48:1408;15:6365 template=EL-d40fb4e5
+          [TEXT] #I48:1408;15:5990 template=EL-6d6cf872
+        [FRAME] "Notifications · 3 unread" #I48:1408;15:5991 template=EL-bc12da08
+          [IMAGE-SVG] "bell" #I48:1408;15:6368 template=EL-a73b2a19
+          [FRAME] "Unread count" #I48:1408;15:5993 template=EL-982b66d9
+            [TEXT] #I48:1408;15:5994 template=EL-d7d0bdc6
+        [FRAME] "Admin profile menu" #I48:1408;15:5995 template=EL-5efdc068
+          [FRAME] "Admin avatar" #I48:1408;15:5996 template=EL-34af18fa
+            [TEXT] #I48:1408;15:5997 template=EL-34faf971
+          [FRAME] "Admin identity" #I48:1408;15:5998 template=EL-e9c4af71
+            [TEXT] #I48:1408;15:5999 template=EL-3b443eef
+            [TEXT] #I48:1408;15:6000 template=EL-1f9faf15
+          [IMAGE-SVG] "chevron-down" #I48:1408;15:6371 template=EL-d40fb4e5
+    [FRAME] "Assignments — Overview content" #48:1435 template=EL-b85c0422
+      [TEXT] #48:1436 layout=layout_b83a695d fills=fill_d8d3cd31 textStyle=style_46739a1e text="Assignments & Class Materials"
+      [TEXT] #48:1437 layout=layout_574abbd6 fills=fill_ecf7a13f textStyle=style_c487cf45 text="Create assignments, track student work, and manage learning resources."
+      [RECTANGLE] "Create assignment button" #48:1438 template=EL-18e869d1
+      [TEXT] #48:1439 template=EL-575cfd1c
+      [RECTANGLE] "Total assignments KPI" #48:1440 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":32,"y":94},"dimensions":{"width":260,"height":82}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [RECTANGLE] "Total assignments accent" #48:1441 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":44,"y":108},"dimensions":{"width":4,"height":38}} fills=fill_4d3bb576 borderRadius=2px
+      [TEXT] #48:1442 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":56,"y":106},"dimensions":{"width":220,"height":14}} fills=fill_ecf7a13f textStyle=style_c487cf45 text="Total assignments"
+      [TEXT] #48:1443 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":56,"y":124},"dimensions":{"width":220,"height":27}} fills=fill_d8d3cd31 textStyle=style_ab60f218 text="248"
+      [TEXT] #48:1444 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":56,"y":153},"dimensions":{"width":220,"height":13}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Across all active classes"
+      [RECTANGLE] "Published KPI" #48:1445 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":316,"y":94},"dimensions":{"width":260,"height":82}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [RECTANGLE] "Published accent" #48:1446 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":328,"y":108},"dimensions":{"width":4,"height":38}} fills=fill_6c2cec0c borderRadius=2px
+      [TEXT] #48:1447 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":340,"y":106},"dimensions":{"width":220,"height":14}} fills=fill_ecf7a13f textStyle=style_c487cf45 text="Published"
+      [TEXT] #48:1448 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":340,"y":124},"dimensions":{"width":220,"height":27}} fills=fill_d8d3cd31 textStyle=style_ab60f218 text="186"
+      [TEXT] #48:1449 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":340,"y":153},"dimensions":{"width":220,"height":13}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Visible to students"
+      [RECTANGLE] "Pending submissions KPI" #48:1450 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":600,"y":94},"dimensions":{"width":260,"height":82}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [RECTANGLE] "Pending submissions accent" #48:1451 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":612,"y":108},"dimensions":{"width":4,"height":38}} fills=fill_55081b96 borderRadius=2px
+      [TEXT] #48:1452 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":624,"y":106},"dimensions":{"width":220,"height":14}} fills=fill_ecf7a13f textStyle=style_c487cf45 text="Pending submissions"
+      [TEXT] #48:1453 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":624,"y":124},"dimensions":{"width":220,"height":27}} fills=fill_d8d3cd31 textStyle=style_ab60f218 text="74"
+      [TEXT] #48:1454 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":624,"y":153},"dimensions":{"width":220,"height":13}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Awaiting student work"
+      [RECTANGLE] "Needs grading KPI" #48:1455 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":884,"y":94},"dimensions":{"width":260,"height":82}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [RECTANGLE] "Needs grading accent" #48:1456 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":896,"y":108},"dimensions":{"width":4,"height":38}} fills=fill_1426bee0 borderRadius=2px
+      [TEXT] #48:1457 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":908,"y":106},"dimensions":{"width":220,"height":14}} fills=fill_ecf7a13f textStyle=style_c487cf45 text="Needs grading"
+      [TEXT] #48:1458 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":908,"y":124},"dimensions":{"width":220,"height":27}} fills=fill_d8d3cd31 textStyle=style_ab60f218 text="32"
+      [TEXT] #48:1459 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":908,"y":153},"dimensions":{"width":220,"height":13}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Submissions to review"
+      [RECTANGLE] "Recent assignments panel" #48:1460 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":32,"y":194},"dimensions":{"width":720,"height":360}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1461 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":52,"y":212},"dimensions":{"width":400,"height":22}} fills=fill_d8d3cd31 textStyle=style_6db95e3f text="Recent assignments"
+      [TEXT] #48:1462 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":52,"y":238},"dimensions":{"width":450,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Latest created and updated coursework"
+      [RECTANGLE] "Table header" #48:1463 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":48,"y":266},"dimensions":{"width":688,"height":36}} fills=fill_0dcbb8e7 borderRadius=6px
+      [TEXT] #48:1464 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":58,"y":278},"dimensions":{"width":216,"height":14}} fills=fill_ecf7a13f textStyle=style_4429437a text="ASSIGNMENT"
+      [TEXT] #48:1465 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":294,"y":278},"dimensions":{"width":96,"height":14}} fills=fill_ecf7a13f textStyle=style_4429437a text="CLASS"
+      [TEXT] #48:1466 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":410,"y":278},"dimensions":{"width":92,"height":14}} fills=fill_ecf7a13f textStyle=style_4429437a text="DUE DATE"
+      [TEXT] #48:1467 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":522,"y":278},"dimensions":{"width":92,"height":14}} fills=fill_ecf7a13f textStyle=style_4429437a text="STATUS"
+      [TEXT] #48:1468 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":634,"y":278},"dimensions":{"width":92,"height":14}} fills=fill_ecf7a13f textStyle=style_4429437a text="SUBMISSIONS"
+      [RECTANGLE] "Row divider 0" #48:1469 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":48,"y":302},"dimensions":{"width":688,"height":1}} fills=fill_844cad3f
+      [TEXT] #48:1470 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":58,"y":315},"dimensions":{"width":216,"height":16}} fills=fill_6ebc4f7e textStyle=style_66c34925 text="Algebra — Worksheet 04"
+      [TEXT] #48:1471 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":294,"y":315},"dimensions":{"width":96,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Class 8-A"
+      [TEXT] #48:1472 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":410,"y":315},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="22 Oct"
+      [RECTANGLE] "Published badge" #48:1473 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":520,"y":311},"dimensions":{"width":81,"height":24}} fills=fill_0c5e2b6f borderRadius=12px
+      [TEXT] #48:1474 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":528,"y":316},"dimensions":{"width":65,"height":14}} fills=fill_6c2cec0c textStyle=style_66c34925 text="Published"
+      [TEXT] #48:1475 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":634,"y":315},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="24 / 32"
+      [RECTANGLE] "Row divider 1" #48:1476 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":48,"y":348},"dimensions":{"width":688,"height":1}} fills=fill_844cad3f
+      [TEXT] #48:1477 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":58,"y":361},"dimensions":{"width":216,"height":16}} fills=fill_6ebc4f7e textStyle=style_66c34925 text="Chapter 3 Reading"
+      [TEXT] #48:1478 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":294,"y":361},"dimensions":{"width":96,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Class 7-B"
+      [TEXT] #48:1479 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":410,"y":361},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="23 Oct"
+      [RECTANGLE] "Draft badge" #48:1480 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":520,"y":357},"dimensions":{"width":53,"height":24}} fills=fill_73fd5686 borderRadius=12px
+      [TEXT] #48:1481 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":528,"y":362},"dimensions":{"width":37,"height":14}} fills=fill_ecf7a13f textStyle=style_66c34925 text="Draft"
+      [TEXT] #48:1482 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":634,"y":361},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="—"
+      [RECTANGLE] "Row divider 2" #48:1483 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":48,"y":394},"dimensions":{"width":688,"height":1}} fills=fill_844cad3f
+      [TEXT] #48:1484 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":58,"y":407},"dimensions":{"width":216,"height":16}} fills=fill_6ebc4f7e textStyle=style_66c34925 text="Science Lab Report"
+      [TEXT] #48:1485 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":294,"y":407},"dimensions":{"width":96,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Class 9-A"
+      [TEXT] #48:1486 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":410,"y":407},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="20 Oct"
+      [RECTANGLE] "Published badge" #48:1487 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":520,"y":403},"dimensions":{"width":81,"height":24}} fills=fill_0c5e2b6f borderRadius=12px
+      [TEXT] #48:1488 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":528,"y":408},"dimensions":{"width":65,"height":14}} fills=fill_6c2cec0c textStyle=style_66c34925 text="Published"
+      [TEXT] #48:1489 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":634,"y":407},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="27 / 30"
+      [RECTANGLE] "Row divider 3" #48:1490 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":48,"y":440},"dimensions":{"width":688,"height":1}} fills=fill_844cad3f
+      [TEXT] #48:1491 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":58,"y":453},"dimensions":{"width":216,"height":16}} fills=fill_6ebc4f7e textStyle=style_66c34925 text="English Essay"
+      [TEXT] #48:1492 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":294,"y":453},"dimensions":{"width":96,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Class 8-B"
+      [TEXT] #48:1493 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":410,"y":453},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="18 Oct"
+      [RECTANGLE] "Late badge" #48:1494 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":520,"y":449},"dimensions":{"width":46,"height":24}} fills=fill_6b8eeb88 borderRadius=12px
+      [TEXT] #48:1495 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":528,"y":454},"dimensions":{"width":30,"height":14}} fills=fill_18ccc788 textStyle=style_66c34925 text="Late"
+      [TEXT] #48:1496 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":634,"y":453},"dimensions":{"width":92,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="19 / 28"
+      [RECTANGLE] "Submission status panel" #48:1497 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":772,"y":194},"dimensions":{"width":380,"height":360}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1498 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":212},"dimensions":{"width":300,"height":22}} fills=fill_d8d3cd31 textStyle=style_6db95e3f text="Submission status"
+      [TEXT] #48:1499 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":238},"dimensions":{"width":330,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Across currently published assignments"
+      [RECTANGLE] "Submitted dot" #48:1500 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":794,"y":279},"dimensions":{"width":8,"height":8}} fills=fill_6c2cec0c borderRadius=4px
+      [TEXT] #48:1501 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":812,"y":274},"dimensions":{"width":190,"height":18}} fills=fill_6ebc4f7e textStyle=style_c487cf45 text="Submitted"
+      [TEXT] #48:1502 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":1030,"y":274},"dimensions":{"width":88,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="412"
+      [RECTANGLE] "Submitted divider" #48:1503 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":308},"dimensions":{"width":330,"height":1}} fills=fill_844cad3f
+      [RECTANGLE] "Pending dot" #48:1504 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":794,"y":339},"dimensions":{"width":8,"height":8}} fills=fill_55081b96 borderRadius=4px
+      [TEXT] #48:1505 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":812,"y":334},"dimensions":{"width":190,"height":18}} fills=fill_6ebc4f7e textStyle=style_c487cf45 text="Pending"
+      [TEXT] #48:1506 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":1030,"y":334},"dimensions":{"width":88,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="74"
+      [RECTANGLE] "Pending divider" #48:1507 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":368},"dimensions":{"width":330,"height":1}} fills=fill_844cad3f
+      [RECTANGLE] "Late dot" #48:1508 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":794,"y":399},"dimensions":{"width":8,"height":8}} fills=fill_18ccc788 borderRadius=4px
+      [TEXT] #48:1509 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":812,"y":394},"dimensions":{"width":190,"height":18}} fills=fill_6ebc4f7e textStyle=style_c487cf45 text="Late"
+      [TEXT] #48:1510 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":1030,"y":394},"dimensions":{"width":88,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="26"
+      [RECTANGLE] "Late divider" #48:1511 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":428},"dimensions":{"width":330,"height":1}} fills=fill_844cad3f
+      [RECTANGLE] "Graded dot" #48:1512 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":794,"y":459},"dimensions":{"width":8,"height":8}} fills=fill_1426bee0 borderRadius=4px
+      [TEXT] #48:1513 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":812,"y":454},"dimensions":{"width":190,"height":18}} fills=fill_6ebc4f7e textStyle=style_c487cf45 text="Graded"
+      [TEXT] #48:1514 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":1030,"y":454},"dimensions":{"width":88,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="356"
+      [RECTANGLE] "Graded divider" #48:1515 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":792,"y":488},"dimensions":{"width":330,"height":1}} fills=fill_844cad3f
+      [RECTANGLE] "Quick actions panel" #48:1516 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":32,"y":574},"dimensions":{"width":1120,"height":230}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1517 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":52,"y":594},"dimensions":{"width":400,"height":22}} fills=fill_d8d3cd31 textStyle=style_6db95e3f text="Manage coursework"
+      [TEXT] #48:1518 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":52,"y":620},"dimensions":{"width":800,"height":16}} fills=fill_ecf7a13f textStyle=style_0665b73a text="Jump into assignment workflows or the shared learning-resource library."
+      [RECTANGLE] "Assignment list action card" #48:1519 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":52,"y":656},"dimensions":{"width":250,"height":120}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1520 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":66,"y":672},"dimensions":{"width":220,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="Assignment list"
+      [TEXT] #48:1521 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":66,"y":699},"dimensions":{"width":220,"height":30}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Search, filter, and review assignments"
+      [TEXT] #48:1522 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":66,"y":747},"dimensions":{"width":100,"height":16}} fills=fill_4d3bb576 textStyle=style_66c34925 text="Open →"
+      [RECTANGLE] "Create assignment action card" #48:1523 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":322,"y":656},"dimensions":{"width":250,"height":120}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1524 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":336,"y":672},"dimensions":{"width":220,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="Create assignment"
+      [TEXT] #48:1525 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":336,"y":699},"dimensions":{"width":220,"height":30}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Set class, subject, deadlines, and attachments"
+      [TEXT] #48:1526 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":336,"y":747},"dimensions":{"width":100,"height":16}} fills=fill_4d3bb576 textStyle=style_66c34925 text="Open →"
+      [RECTANGLE] "Submission tracking action card" #48:1527 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":592,"y":656},"dimensions":{"width":250,"height":120}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1528 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":606,"y":672},"dimensions":{"width":220,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="Submission tracking"
+      [TEXT] #48:1529 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":606,"y":699},"dimensions":{"width":220,"height":30}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Review submitted, pending, and late work"
+      [TEXT] #48:1530 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":606,"y":747},"dimensions":{"width":100,"height":16}} fills=fill_4d3bb576 textStyle=style_66c34925 text="Open →"
+      [RECTANGLE] "Class materials action card" #48:1531 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":862,"y":656},"dimensions":{"width":250,"height":120}} fills=fill_658ab2fa strokes=fill_844cad3f strokeWeight=1px borderRadius=12px
+      [TEXT] #48:1532 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":876,"y":672},"dimensions":{"width":220,"height":18}} fills=fill_d8d3cd31 textStyle=style_c5d2a607 text="Class materials"
+      [TEXT] #48:1533 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":876,"y":699},"dimensions":{"width":220,"height":30}} fills=fill_ecf7a13f textStyle=style_b9dbba5d text="Manage files and learning resources"
+      [TEXT] #48:1534 layout={"mode":"none","sizing":{},"locationRelativeToParent":{"x":876,"y":747},"dimensions":{"width":100,"height":16}} fills=fill_4d3bb576 textStyle=style_66c34925 text="Open →"

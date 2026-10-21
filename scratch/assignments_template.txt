@@ -1,0 +1,754 @@
+NAME: "University Management System"
+
+GLOBAL_VARS:
+fill_bd4b5e6d:
+  - '#F6F8FC'
+fill_d8d3cd31:
+  - '#14213D'
+fill_658ab2fa:
+  - '#FFFFFF'
+layout_177c5efc:
+  mode: none
+  sizing:
+    horizontal: hug
+    vertical: hug
+EduSync/Label/Small:
+  fontFamily: Inter
+  fontStyle: Medium
+  fontWeight: 500
+  fontSize: 12
+  lineHeight: 16px
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_9c53aade:
+  - '#CED5E4'
+layout_56d3c81c:
+  mode: none
+  sizing:
+    horizontal: fill
+    vertical: hug
+layout_c90251f9:
+  mode: row
+  alignSelf: stretch
+  padding: 0px 12px
+  alignItems: center
+  gap: 12px
+  sizing:
+    horizontal: fill
+    vertical: fixed
+  dimensions:
+    height: 40
+EduSync/Label/Default:
+  fontFamily: Inter
+  fontStyle: Medium
+  fontWeight: 500
+  fontSize: 14
+  lineHeight: 20px
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+EduSync/Body/Small:
+  fontFamily: Inter
+  fontStyle: Regular
+  fontWeight: 400
+  fontSize: 12
+  lineHeight: 18px
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_c4995c12:
+  - '#667085'
+EduSync/Body/Default:
+  fontFamily: Inter
+  fontStyle: Regular
+  fontWeight: 400
+  fontSize: 14
+  lineHeight: 20px
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_4d3bb576:
+  - '#3659D9'
+layout_b83a695d:
+  mode: none
+  sizing: {}
+  locationRelativeToParent:
+    x: 32
+    y: 24
+  dimensions:
+    width: 820
+    height: 32
+style_46739a1e:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 24
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+layout_574abbd6:
+  mode: none
+  sizing: {}
+  locationRelativeToParent:
+    x: 32
+    y: 58
+  dimensions:
+    width: 850
+    height: 20
+style_c487cf45:
+  fontFamily: Inter
+  fontStyle: Regular
+  fontWeight: 400
+  fontSize: 12
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_ecf7a13f:
+  - '#6B788F'
+layout_40daa503:
+  mode: none
+  sizing: {}
+  locationRelativeToParent:
+    x: 1012
+    y: 34
+  dimensions:
+    width: 128
+    height: 16
+style_c456853f:
+  fontFamily: Inter
+  fontStyle: Medium
+  fontWeight: 500
+  fontSize: 12
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_844cad3f:
+  - '#DEE3ED'
+style_ab60f218:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 23
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+style_b9dbba5d:
+  fontFamily: Inter
+  fontStyle: Regular
+  fontWeight: 400
+  fontSize: 10
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_6c2cec0c:
+  - '#148C57'
+fill_55081b96:
+  - '#B86E0F'
+fill_1426bee0:
+  - '#6B4AB8'
+style_6db95e3f:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 16
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+style_0665b73a:
+  fontFamily: Inter
+  fontStyle: Regular
+  fontWeight: 400
+  fontSize: 11
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_0dcbb8e7:
+  - '#F5F7FB'
+style_4429437a:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 10
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+style_66c34925:
+  fontFamily: Inter
+  fontStyle: Medium
+  fontWeight: 500
+  fontSize: 11
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_6ebc4f7e:
+  - '#1F293B'
+fill_0c5e2b6f:
+  - '#E3F7EB'
+fill_73fd5686:
+  - '#EDF0F5'
+fill_6b8eeb88:
+  - '#FFEBEB'
+fill_18ccc788:
+  - '#C23838'
+style_c5d2a607:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 13
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+style_63aa6fa3:
+  fontFamily: Inter
+  fontStyle: Medium
+  fontWeight: 500
+  fontSize: 10
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+style_5dea1e0b:
+  fontFamily: Inter
+  fontStyle: Semi Bold
+  fontWeight: 600
+  fontSize: 14
+  textAlignHorizontal: LEFT
+  textAlignVertical: TOP
+fill_b704a96d:
+  - '#FFF5DE'
+fill_9e36ed01:
+  - '#EBF0F7'
+
+ELEMENTS:
+EL-56fe9a5c:
+  type: FRAME
+  layout:
+    mode: none
+    sizing: {}
+    dimensions:
+      width: 1440
+      height: 1024
+  fills: fill_bd4b5e6d
+EL-b714711b:
+  type: INSTANCE
+  layout:
+    mode: column
+    padding: 20px 16px
+    alignItems: stretch
+    gap: 20px
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    locationRelativeToParent:
+      x: 0
+      y: 0
+    dimensions:
+      width: 256
+      height: 1024
+  fills: fill_d8d3cd31
+  componentId: 15:6395
+EL-55f8a713:
+  type: FRAME
+  layout:
+    mode: column
+    alignSelf: stretch
+    padding: 0px 0px 0px 8px
+    gap: 4px
+    sizing:
+      horizontal: fill
+      vertical: hug
+EL-f74e5ad5:
+  type: INSTANCE
+  layout:
+    mode: row
+    padding: 5.599999904632568px
+    alignItems: center
+    gap: 8.399999618530273px
+    sizing:
+      horizontal: hug
+      vertical: hug
+  componentId: 2:13958
+EL-7536b9fe:
+  type: IMAGE-SVG
+  layout:
+    mode: none
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    dimensions:
+      width: 39.2
+      height: 39.2
+  fills: fill_658ab2fa
+EL-25ebe967:
+  type: TEXT
+  layout: layout_177c5efc
+  text: EduSync
+  textStyle:
+    fontFamily: Inter
+    fontStyle: Bold
+    fontWeight: 700
+    fontSize: 30.799999237060547
+    letterSpacing: '-0.0386em'
+    textAlignHorizontal: LEFT
+    textAlignVertical: TOP
+  fills: fill_658ab2fa
+EL-cce6831a:
+  type: TEXT
+  layout: layout_177c5efc
+  text: SCHOOL ADMINISTRATION
+  textStyle: EduSync/Label/Small
+  fills: fill_9c53aade
+EL-d8a3e5e9:
+  type: FRAME
+  layout:
+    mode: column
+    alignSelf: stretch
+    alignItems: stretch
+    gap: 16px
+    sizing:
+      horizontal: fill
+      vertical: hug
+EL-cf7afb66:
+  type: FRAME
+  layout:
+    mode: column
+    alignSelf: stretch
+    alignItems: stretch
+    gap: 6px
+    sizing:
+      horizontal: fill
+      vertical: hug
+EL-c55e6cdf:
+  type: TEXT
+  layout: layout_56d3c81c
+  text: OVERVIEW
+  textStyle: EduSync/Label/Small
+  fills: fill_9c53aade
+  opacity: 0.699999988079071
+EL-6e926975:
+  type: FRAME
+  layout:
+    mode: column
+    alignSelf: stretch
+    alignItems: stretch
+    gap: 2px
+    sizing:
+      horizontal: fill
+      vertical: hug
+EL-29fbd109:
+  type: FRAME
+  layout: layout_c90251f9
+  borderRadius: 8px
+EL-a73b2a19:
+  type: IMAGE-SVG
+  layout:
+    mode: none
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    dimensions:
+      width: 20
+      height: 20
+EL-8da396b6:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Dashboard
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-bc605c13:
+  type: TEXT
+  layout: layout_56d3c81c
+  text: ACADEMICS
+  textStyle: EduSync/Label/Small
+  fills: fill_9c53aade
+  opacity: 0.699999988079071
+EL-a4ad4746:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Students
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-82166614:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Teachers
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-97b39a71:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Classes & Subjects
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-c6d9bca4:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Attendance
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-193b61ff:
+  type: FRAME
+  layout: layout_c90251f9
+  fills:
+    - '#17243D'
+  borderRadius: 8px
+EL-614bf079:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Timetable
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-401ade35:
+  type: FRAME
+  layout: layout_c90251f9
+  fills:
+    - '#293B61'
+  borderRadius: 8px
+EL-72772c33:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Assignments & Materials
+  textStyle: EduSync/Label/Default
+  fills: fill_658ab2fa
+EL-f91ef483:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Exams & Results
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-c40b5021:
+  type: TEXT
+  layout: layout_56d3c81c
+  text: SCHOOL OPERATIONS
+  textStyle: EduSync/Label/Small
+  fills: fill_9c53aade
+  opacity: 0.699999988079071
+EL-37828c7d:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Fees & Finance
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-66bdf2a5:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Notices & Messages
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-2bd19f20:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Library & Documents
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-96c18e33:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Events
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-4dd9c138:
+  type: TEXT
+  layout: layout_56d3c81c
+  text: ADMINISTRATION
+  textStyle: EduSync/Label/Small
+  fills: fill_9c53aade
+  opacity: 0.699999988079071
+EL-535cc812:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Reports & Analytics
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-dbebcc33:
+  type: TEXT
+  layout: layout_177c5efc
+  text: User Management
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-58667723:
+  type: TEXT
+  layout: layout_177c5efc
+  text: School Settings
+  textStyle: EduSync/Label/Default
+  fills: fill_9c53aade
+EL-5fb6ba22:
+  type: FRAME
+  layout:
+    mode: column
+    alignSelf: stretch
+    justifyContent: flex-end
+    alignItems: stretch
+    sizing:
+      horizontal: fill
+      vertical: fill
+EL-f9efa70f:
+  type: FRAME
+  layout:
+    mode: row
+    alignSelf: stretch
+    padding: 12px
+    alignItems: center
+    gap: 12px
+    sizing:
+      horizontal: fill
+      vertical: hug
+  strokes:
+    - '#293A60'
+  strokeWeight: 1px
+  borderRadius: 8px
+EL-929905f4:
+  type: FRAME
+  layout:
+    mode: column
+    gap: 4px
+    sizing:
+      horizontal: fill
+      vertical: hug
+EL-16aa4aef:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Maple Grove School
+  textStyle: EduSync/Label/Small
+  fills: fill_658ab2fa
+EL-0b3d47de:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Academic year 2026–27
+  textStyle: EduSync/Body/Small
+  fills: fill_9c53aade
+EL-1635c421:
+  type: INSTANCE
+  layout:
+    mode: row
+    padding: 0px 24px
+    justifyContent: space-between
+    alignItems: center
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    locationRelativeToParent:
+      x: 256
+      y: 0
+    dimensions:
+      width: 1184
+      height: 80
+  fills: fill_658ab2fa
+  strokes:
+    - '#E4E7EC'
+  strokeWeight: 0px 0px 1px
+  componentId: 15:6482
+EL-9c5e5755:
+  type: FRAME
+  layout:
+    mode: row
+    alignItems: center
+    gap: 12px
+    sizing:
+      horizontal: fixed
+      vertical: hug
+    dimensions:
+      width: 410
+EL-1f118df4:
+  type: INSTANCE
+  layout:
+    mode: column
+    gap: 8px
+    sizing:
+      horizontal: fill
+      vertical: hug
+  componentId: 2:13463
+EL-f3f40908:
+  type: FRAME
+  layout:
+    mode: row
+    alignSelf: stretch
+    padding: 10px 12px
+    alignItems: center
+    gap: 8px
+    sizing:
+      horizontal: fill
+      vertical: fixed
+    dimensions:
+      height: 40
+  fills: fill_658ab2fa
+  strokes: fill_c4995c12
+  strokeWeight: 1px
+  borderRadius: 8px
+EL-97f0d657:
+  type: TEXT
+  layout: layout_56d3c81c
+  text: Search students, teachers, and more…
+  textStyle: EduSync/Body/Default
+  fills: fill_c4995c12
+EL-dda368b5:
+  type: FRAME
+  layout:
+    mode: row
+    alignItems: center
+    gap: 24px
+    sizing:
+      horizontal: hug
+      vertical: hug
+EL-235879b0:
+  type: FRAME
+  layout:
+    mode: row
+    alignItems: center
+    gap: 8px
+    sizing:
+      horizontal: hug
+      vertical: hug
+EL-d40fb4e5:
+  type: IMAGE-SVG
+  layout:
+    mode: none
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    dimensions:
+      width: 16
+      height: 16
+EL-6d6cf872:
+  type: TEXT
+  layout: layout_177c5efc
+  text: 2026–27 · Term 1
+  textStyle: EduSync/Label/Small
+  fills: fill_c4995c12
+EL-bc12da08:
+  type: FRAME
+  layout:
+    mode: row
+    justifyContent: center
+    alignItems: center
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    dimensions:
+      width: 40
+      height: 40
+EL-982b66d9:
+  type: FRAME
+  layout:
+    mode: column
+    justifyContent: center
+    alignItems: center
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    position: absolute
+    locationRelativeToParent:
+      x: 22
+      y: 0
+    dimensions:
+      width: 18
+      height: 18
+  fills: fill_4d3bb576
+  borderRadius: 999px
+EL-d7d0bdc6:
+  type: TEXT
+  layout: layout_177c5efc
+  text: '3'
+  textStyle: EduSync/Label/Small
+  fills: fill_658ab2fa
+EL-5efdc068:
+  type: FRAME
+  layout:
+    mode: row
+    alignItems: center
+    gap: 12px
+    sizing:
+      horizontal: hug
+      vertical: hug
+EL-34af18fa:
+  type: FRAME
+  layout:
+    mode: column
+    justifyContent: center
+    alignItems: center
+    sizing:
+      horizontal: fixed
+      vertical: fixed
+    dimensions:
+      width: 36
+      height: 36
+  fills:
+    - '#EEF2FF'
+  borderRadius: 999px
+EL-34faf971:
+  type: TEXT
+  layout: layout_177c5efc
+  text: AM
+  textStyle: EduSync/Label/Default
+  fills: fill_4d3bb576
+EL-e9c4af71:
+  type: FRAME
+  layout:
+    mode: column
+    gap: 2px
+    sizing:
+      horizontal: hug
+      vertical: hug
+EL-3b443eef:
+  type: TEXT
+  layout: layout_177c5efc
+  text: Alex Morgan
+  textStyle: EduSync/Label/Default
+  fills:
+    - '#172033'
+EL-1f9faf15:
+  type: TEXT
+  layout: layout_177c5efc
+  text: School Administrator
+  textStyle: EduSync/Body/Small
+  fills: fill_c4995c12
+EL-b85c0422:
+  type: FRAME
+  layout:
+    mode: none
+    sizing: {}
+    locationRelativeToParent:
+      x: 256
+      y: 80
+    dimensions:
+      width: 1184
+      height: 944
+  fills: fill_bd4b5e6d
+EL-18e869d1:
+  type: RECTANGLE
+  layout:
+    mode: none
+    sizing: {}
+    locationRelativeToParent:
+      x: 1000
+      y: 24
+    dimensions:
+      width: 152
+      height: 36
+  fills: fill_4d3bb576
+  borderRadius: 8px
+EL-575cfd1c:
+  type: TEXT
+  layout: layout_40daa503
+  text: Create assignment
+  textStyle: style_c456853f
+  fills: fill_658ab2fa
+
+COMPONENTS:
+15:6395:
+  id: 15:6395
+  key: ce7e48144769d8cc626a1b8566b441181ec2b7da
+  name: EduSync / AdminWeb / Sidebar
+2:13958:
+  id: 2:13958
+  key: d5dd1b931c9340443adb9399447723cd68a1364f
+  name: Treatment=Reversed
+  componentSetId: 2:13975
+15:6482:
+  id: 15:6482
+  key: c8beaeb7aba1a5c96bf4940ebf055a67fc032bd6
+  name: EduSync / AdminWeb / Header
+2:13463:
+  id: 2:13463
+  key: 060d726b5dae96d2fdc063afa700cd9e7a23a556
+  name: Kind=Text, State=Default
+  componentSetId: 2:13973
+
+COMPONENT_SETS:
+2:13975:
+  id: 2:13975
+  key: 357d922b62632ec492ff5b1d371bf74e95592a1b
+  name: EduSync / BrandLogo
+  description: 'Authoritative local BrandLogo variants. Specimen boards use instances. Web: Admin only. Mobile: Teacher, Student, Parent only; Admin web only.'
+2:13973:
+  id: 2:13973
+  key: fa4b07419fd7cec91d08bd30e9cf97b80fa17f82
+  name: EduSync / Input
+  description: 'Authoritative local Input variants. Specimen boards use instances. Web: Admin only. Mobile: Teacher, Student, Parent only; Admin web only.'
+
+NODES:

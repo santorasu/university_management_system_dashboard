@@ -87,11 +87,11 @@ export const AcademicStructureOverviewScreen: React.FC<AcademicStructureOverview
         </div>
       </div>
 
-      {/* 2. 4 KPI STAT CARDS */}
-      <AcademicStructureKpis />
-
-      {/* 3. SUB-NAVIGATION TABS */}
+      {/* 2. SUB-NAVIGATION TABS */}
       <AcademicNavTabs />
+
+      {/* 3. 4 KPI STAT CARDS (Placed below tabbar) */}
+      <AcademicStructureKpis />
 
       {/* 4. FILTER TOOLBAR */}
       <div className="academic-filter-bar">

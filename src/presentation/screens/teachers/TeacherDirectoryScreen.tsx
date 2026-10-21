@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTeacherFlow } from '../../../application/state/teacher-flow.context';
 import { TeacherKpiCards } from './components/TeacherKpiCards';
+import { TeacherNavTabs } from './components/TeacherNavTabs';
 import { Icon } from '../../widgets/Icon/Icon';
 
 interface TeacherDirectoryScreenProps {
@@ -18,11 +19,10 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
     setDepartment,
     setStatus,
     setAvailability,
-    goToConsolidatedOverview,
+    goToDirectory,
     goToAddTeacher,
     goToEditTeacher,
     goToProfile,
-    goToFeedback,
   } = useTeacherFlow();
 
   return (
@@ -42,7 +42,7 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
             <span className="edusync-dashboard-hero__crumb-sep">/</span>
             <span
               className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToConsolidatedOverview}
+              onClick={goToDirectory}
               role="button"
               tabIndex={0}
             >
@@ -58,45 +58,41 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={goToConsolidatedOverview}
-              title="Back to teachers overview"
-              aria-label="Back to teachers overview"
+              onClick={onNavigateToDashboard}
+              title="Back to Dashboard"
+              aria-label="Back to Dashboard"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Teachers directory</h1>
+            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Teachers</h1>
           </div>
           <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
             Manage teacher profiles, subject assignments, employment, availability, and student feedback.
           </p>
         </div>
 
-        <div className="edusync-teachers-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="edusync-teachers-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
-            onClick={goToConsolidatedOverview}
+            onClick={onNavigateToDashboard}
           >
-            ← Back to overview
-          </button>
-          <button
-            type="button"
-            className="edusync-btn edusync-btn--secondary"
-            onClick={goToFeedback}
-          >
-            Teacher Feedback
+            ← Dashboard
           </button>
           <button
             type="button"
             className="edusync-btn edusync-btn--primary"
             onClick={goToAddTeacher}
           >
-            Add teacher
+            + Add teacher
           </button>
         </div>
       </div>
 
-      {/* 4 KPI Cards */}
+      {/* Sub-Navigation Tabs */}
+      <TeacherNavTabs />
+
+      {/* 4 KPI Cards (Placed below tabbar) */}
       <TeacherKpiCards stats={stats} />
 
       {/* Full-Width Directory Card */}

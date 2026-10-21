@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTeacherFlow } from '../../../application/state/teacher-flow.context';
+import { TeacherNavTabs } from './components/TeacherNavTabs';
 import { Icon } from '../../widgets/Icon/Icon';
 
 interface TeacherFeedbackScreenProps {
@@ -18,7 +19,7 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
     setFeedbackRating,
     setFeedbackStatus,
     goToDirectory,
-    goToConsolidatedOverview,
+    goToAddTeacher,
   } = useTeacherFlow();
 
   const stats = feedbackStats || {
@@ -49,7 +50,7 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
             <span className="edusync-dashboard-hero__crumb-sep">/</span>
             <span
               className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToConsolidatedOverview}
+              onClick={goToDirectory}
               role="button"
               tabIndex={0}
             >
@@ -65,9 +66,9 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={goToConsolidatedOverview}
-              title="Back to teachers overview"
-              aria-label="Back to teachers overview"
+              onClick={onNavigateToDashboard}
+              title="Back to Dashboard"
+              aria-label="Back to Dashboard"
             >
               ←
             </button>
@@ -82,21 +83,24 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
-            onClick={goToConsolidatedOverview}
+            onClick={onNavigateToDashboard}
           >
-            ← Back to teachers
+            ← Dashboard
           </button>
           <button
             type="button"
-            className="edusync-btn edusync-btn--secondary"
-            onClick={goToDirectory}
+            className="edusync-btn edusync-btn--primary"
+            onClick={goToAddTeacher}
           >
-            Directory list
+            + Add teacher
           </button>
         </div>
       </div>
 
-      {/* 4 Feedback KPI Cards */}
+      {/* Sub-Navigation Tabs */}
+      <TeacherNavTabs />
+
+      {/* 4 Feedback KPI Cards (Placed below tabbar) */}
       <div className="edusync-teacher-kpis">
         <div className="edusync-teacher-kpi-card">
           <div className="edusync-teacher-kpi-card__top">

@@ -62,10 +62,14 @@ export type DashboardDestination =
   | 'STUDENTS'
   | 'TEACHERS'
   | 'CLASSES_SUBJECTS'
+  | 'ATTENDANCE_REPORT'
+  | 'TIMETABLE'
+  | 'ASSIGNMENTS'
+  | 'EXAMS'
   | 'RECENT_ACTIVITIES'
   | 'UPCOMING_EVENTS'
-  | 'ATTENDANCE_REPORT'
-  | 'FEES_FINANCE_REPORT';
+  | 'FEES_FINANCE_REPORT'
+  | 'NOTICES_MESSAGES';
 
 export interface ScreenMetadata {
   id: AuthScreenId;
