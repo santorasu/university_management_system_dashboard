@@ -438,42 +438,142 @@ The complete Exams & Results module conforms 1:1 with Figma node `51:1320` acros
 
 ---
 
-## 13. Next Steps & Feature Implementation Roadmap
+## 13. Fees & Finance Architecture (Figma Node `53:1320`)
 
-Follow this step-by-step sequence for subsequent phases:
+The complete Fees & Finance / Student Billing & Invoicing module conforms 1:1 with Figma node `53:1320` across 4 canonical screens:
+
+### Screen 1: `Fees — Finance Overview` (`#53:1321`)
+- **Breadcrumbs**: `Dashboard / Fees & Finance / Overview`.
+- **Navigation Triad**: Circular `←` back arrow returning to Dashboard, `+ Assign Fees` secondary action, and `Record Payment` primary CTA.
+- **Module Navigation Tabs**: Pinned directly below hero: `Finance Overview`, `Categories & Assignment`, `Invoices & Payments`, `Dues & Reports`.
+- **4 KPI Stat Cards** (with left vertical accent bars in standard sequence):
+  - Total fees assigned: `৳ 48,50,000` ("Current academic year", primary blue `#3659D9` bar)
+  - Collected so far: `৳ 36,72,500` ("75.7% collection rate", green `#148C57` bar)
+  - Outstanding dues: `৳ 11,77,500` ("184 students with dues", amber `#B86E0F` bar)
+  - Overdue balance: `৳ 3,26,000` ("62 payments overdue", red `#C23838` bar)
+- **Middle Row (Split Grid: 65% / 35%)**:
+  - **Left (Monthly Fee Collection Bar Chart)**: Academic Year 2026–27 collections in BDT (Jan through Aug bars with hover amount tooltips).
+  - **Right (Payment Status Breakdown)**:
+    - Paid: `৳ 36,72,500` (green dot, 75.7% progress)
+    - Pending: `৳ 5,18,000` (amber dot, 10.7% progress)
+    - Overdue: `৳ 3,26,000` (red dot, 6.7% progress)
+    - Partially Paid: `৳ 1,33,500` (blue dot, 2.8% progress)
+- **Recent Payments Table Card**: Student Name & ID, Invoice ID code pill, Date, Payment Method (bKash, Bank transfer, Cash), Amount, and Status badge (`Paid`, `Partially Paid`, `Overdue`, `Pending`), plus `View all →` linking to Invoices.
+- **Bottom 4 Quick Action Cards**:
+  - `Fee Categories`: Setup tuition, transport and term fees (`Open →`).
+  - `Student Fee Assignment`: Assign fees to classes and students (`Open →`).
+  - `Invoices & Payments`: Track and collect student payments (`Open →`).
+  - `Dues & Receipts`: Manage outstanding dues and receipts (`Open →`).
+
+### Screen 2: `Fees — Categories and Student Assignment` (`#53:1660`)
+- **Breadcrumbs**: `Dashboard / Fees & Finance / Categories & Assignment`.
+- **Navigation Triad**: Circular `←` back arrow returning to Overview, `+ Add Category` secondary button, and `Assign Fees to Class` primary CTA.
+- **Split View (55% / 45%)**:
+  - **Left (Active Fee Categories Table)**: Category name, Frequency (`Monthly`, `One-time`, `Per term`), Default Amount (Tuition ৳ 2,500, Admission ৳ 8,000, Exam ৳ 1,200, Transport ৳ 1,500, Lab & activity ৳ 2,000), and `Use in Batch` action.
+  - **Right (Assign Fees to Class Form)**: Academic Year, Class & Section (`Class 8 · Section A`), Fee Category dropdown, Billing Period, Due Date, and Discount/Waiver input with `Assign Fee to Class (42 Students)` submit.
+- **Bottom Card (Recent Student Fee Assignments)**: Table with Student, Class, Fee Head, Amount, Due Date, and Status badge (`Paid`, `Partially Paid`, `Overdue`, `Pending`).
+
+### Screen 3: `Fees — Invoices and Payment Records` (`#53:1997`)
+- **Breadcrumbs**: `Dashboard / Fees & Finance / Invoices & Payments`.
+- **Navigation Triad**: Circular `←` back arrow, `+ New Invoice` button, and `Record Payment` CTA.
+- **Search & Filter Toolbar**: Search query for Student name, ID or invoice, Status dropdown (`All`, `Paid`, `Partially Paid`, `Pending`, `Overdue`, `Payment failed`), and Billing Period.
+- **Payment Alert Banner**: Highlights gateway failure for `INV-26-1007` (Sadia Akter · Class 7-B) with direct `Inspect Invoice →` button.
+- **Split View (65% / 35% Inspector)**:
+  - **Left (Invoice Directory Table)**: Invoice ID, Student Name & ID, Fee Head, Amount, Balance Due, and Status badge. Clicking any row selects the invoice in the inspector.
+  - **Right (Selected Invoice Inspector Card - e.g. `INV-26-1042` Tanvir Hasan)**:
+    - Code pill, student metadata, billing head, issue/due dates, last payment method.
+    - Financial summary: Fee amount (`৳ 2,500`), Discount (`- ৳ 200`), Amount paid (`৳ 1,000`), Remaining Balance Due (`৳ 1,300`).
+    - Actions: `Record Payment` (primary), `View Payment Slip`, `Download PDF Invoice ↓`.
+
+### Screen 4: `Fees — Dues, Receipts and Reports` (`#53:2335`)
+- **Breadcrumbs**: `Dashboard / Fees & Finance / Dues & Reports`.
+- **Navigation Triad**: Circular `←` back arrow, `Send Dues Reminders` action, and `Export Audit Report` CTA.
+- **4 Dues KPI Stat Cards**:
+  - Outstanding invoices: `184` (amber `#B86E0F`)
+  - Overdue invoices: `62` (red `#C23838`)
+  - Discounts applied: `৳ 84,500` (purple `#6B4AB8`)
+  - Receipts issued: `1,248` (green `#148C57`)
+- **Split View (55% / 45%)**:
+  - **Left (Outstanding & Overdue Invoices)**: Student, Fee Head, Due Date with days late highlight, Balance Due, and individual `Send SMS` trigger.
+  - **Right (Official Payment Receipt Preview - `#RCP-2026-1248`)**: Authenticated slip with Maple Grove School heading, `PAID` stamp, Student details, Purpose, bKash method, Total Paid (`৳ 2,500`), Export PDF and Print Slip buttons.
+- **Financial Reports & Statements Grid**: 4 download tiles:
+  - `Collection Summary Report` (`Download CSV ↗`)
+  - `Outstanding Dues Statement` (`Download PDF ↗`)
+  - `Discounts & Scholarship Audit` (`Download Excel ↗`)
+  - `Gateway Reconciliation` (`Download CSV ↗`)
+- **Interactive Modals**:
+  - `RecordPaymentModal`: Amount, payment method, date, transaction remarks with auto-updating balance and receipt generation.
+  - `AddCategoryModal`: Category name, frequency, default amount, and description.
+  - `AssignFeeModal`: Class-wide fee assignment batch processor.
+  - `ReceiptModal`: Printable official school money receipt slip.
+
+---
+
+## 14. Universal Layout & Navigation Consistency Standards (Zero Deviation Governance)
+
+To guarantee that the user never encounters layout discrepancies, inconsistent breadcrumbs, or non-matching components across modules, all present and future modules MUST enforce these non-negotiable rules:
+
+### 1. Viewport & Symmetrical 2-Side Equal Padding Invariant (Image 1 Standard):
+- The outer viewport wrapper (`.edusync-dashboard-content`) enforces:
+  ```css
+  padding: 24px 32px 48px;
+  box-sizing: border-box;
+  width: 100%;
+  ```
+- Every inner module container (`.academic-structure-container`, `.edusync-dash-overview`, `.edusync-teachers-view`, `.edusync-students-view`, `.attendance-container`, `.timetable-container`, `.assignments-container`, `.exams-container`, `.finance-container`) MUST strictly enforce:
+  ```css
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 24px;
+  box-sizing: border-box;
+  ```
+- **Equal 2-Side Padding**: The combination of `margin: 0 auto;` on a `max-width: 1400px` container inside a centered viewport ensures identical, symmetrical margins/padding on both left and right sides across any display width. Never allow containers to stretch unconstrained to viewport edges.
+
+### 2. Standard Default Landing Layout (Image 1 Parity):
+- Directory modules (Teachers, Students, Classes & Subjects) MUST land by default on the clean, full-width directory table screen (`TEACHERS_DIRECTORY`, `STUDENTS_DIRECTORY`, etc.).
+- Never land on a compressed split-screen view by default. Users can toggle into split views (such as `Overview & Profile`) via the sub-navigation tabs.
+
+### 3. Sub-Navigation Tabs Directly Beneath Hero (Persistent Tabbar Standard):
+- Sub-navigation tabs (`.academic-nav-tabs`, `.edusync-nav-tabs`) must be placed directly beneath the Hero Header, maintaining a persistent vertical position across all sub-screens.
+- The 4 KPI stat cards must be placed directly beneath the sub-navigation tabs, so when switching tabs, the tab bar remains stably pinned at the top without jumping.
+- Active tabs must display the brand primary blue underline (`border-radius: 2px 2px 0 0; height: 2px; background: #3659D9; color: #3659D9; font-weight: 600;`).
+
+### 4. 3-Layer Breadcrumb Standard:
+- Breadcrumbs must follow exact 3-level hierarchy:
+  `Dashboard / [Module Name] / [Current Screen Name]`
+- Ancestor crumbs must be interactive link buttons (`.academic-hero__crumb--link` or `.edusync-dashboard-hero__crumb--link`).
+- The active current crumb (`.academic-hero__crumb--current` or `.edusync-dashboard-hero__crumb--current`) must be **bold navy `#14213D`**.
+- Separators must be subtle forward slashes `/` (`#D0D5DD` / `#98A2B3`).
+
+### 5. Circular Back Navigation Arrow:
+- Beside every module `<h1>` title, a circular button (`width: 36px; height: 36px; border-radius: 50%`) with `←` must be rendered.
+- On sub-screens, clicking returns to the module's primary overview/directory; on the module overview, clicking returns to the Admin Dashboard.
+
+### 6. 4 KPI Stat Cards Grid:
+- When rendering summary metric cards, display a clean 4-column responsive grid (`repeat(4, 1fr)`) with card title, primary count, and status pill / subtext.
+
+### 7. Filter Toolbar & Full-Width Data Cards:
+- Position the filter toolbar (search input with icon, dropdown selects, and a `Filters` button) directly above the data card.
+- Data tables must occupy 100% card width with clear column headers, status badges, and action buttons.
+
+---
+
+## 15. Next Steps & Feature Implementation Roadmap
 
 1. **Step 1 (Completed)**: Brand Design System, Tokens, 18 Master Custom Widgets, and Specimen Gallery.
 2. **Step 2 (Completed)**: 12-Screen Authentication Access Flow with state machine, mock latency, and error states.
-3. **Step 3 (Completed)**: Admin Dashboard Overview (`15:6394`) and 4 destination views (`Recent Activities`, `Upcoming Events`, `Attendance Report`, `Fees & Finance Report`).
+3. **Step 3 (Completed)**: Admin Dashboard Overview (`15:6394`) and 4 destination views.
 4. **Step 4 (Completed)**: Academics — Student Management Module (`20:2104` - 4 canonical screens).
 5. **Step 5 (Completed)**: Academics — Teacher Management & Feedback Module (`21:876` - 5 canonical screens).
 6. **Step 6 (Completed)**: Academics — Classes, Subjects & Academic Structure Module (`29:1501` - 4 canonical screens).
 7. **Step 7 (Completed)**: Academics — Student & Class Attendance Module (`31:876` - 4 canonical screens).
 8. **Step 8 (Completed)**: Academics — Timetable & Scheduling Module (`40:1195` - 4 canonical screens).
 9. **Step 9 (Completed)**: Academics — Assignments & Class Materials Module (`48:1320` - 4 canonical screens).
-10. **Step 10 (Completed)**: **Academics — Exams & Results Module (`51:1320` - 4 canonical screens)**:
-    - `Exams — Overview` (`#51:1321`)
-    - `Exams — Create and Schedule` (`#51:1551`)
-    - `Exams — Marks Entry and Review` (`#51:1756`)
-    - `Exams — Results and Report Cards` (`#51:1992`)
-11. **Step 11 (Upcoming)**: **School Operations — Fees & Finance / Invoicing Module**:
-    - Invoice generation, fee collection recording form, payment receipts, and automated reminder triggers.
-
----
-
-## 14. Universal Flow Navigation & Breadcrumb Standard
-
-To ensure users never get trapped and can effortlessly navigate back through complex flows, all modules and sub-screens must strictly follow this navigation triad:
-
-1. **Interactive Breadcrumbs**:
-   - Every sub-screen must render clickable ancestor crumbs (`.edusync-dashboard-hero__crumb--link`) with clear separators (`/`), hover underline/color change, and `role="button"`.
-   - Clicking `Dashboard` returns to `OVERVIEW`. Clicking module roots (e.g. `Students`, `Teachers`, or `Assignments`) returns to their respective consolidated overviews.
-
-2. **Circular Header Back Arrow (`.edusync-btn-back-circle`)**:
-   - Every detail, form, or sub-view header must position a circular `←` button directly beside the `<h1>` title (e.g. `Student profile`, `Add student`, `Teacher profile`, `Assignment list`, `Create assignment`).
-   - Clicking this arrow immediately returns to the parent overview.
-
-3. **Prominent Header Action Buttons**:
-   - Top-right action bars must provide explicit secondary buttons (`← Back to overview`, `← Dashboard`, `Directory list`) alongside primary actions (`Edit`, `Save`, `Publish`, `＋ Create assignment`).
-   - Forms (Add/Edit) must provide both top-bar back buttons and bottom-bar `Cancel` buttons.
-   - Module sub-navigation tabs (`<*NavTabs />`) must always be placed directly below the hero header on all screens, keeping navigation intuitive, unified, and consistent across EduSync.
+10. **Step 10 (Completed)**: Academics — Exams & Results Module (`51:1320` - 4 canonical screens).
+11. **Step 11 (Completed)**: **School Operations — Fees & Finance / Student Billing & Invoicing Module (`53:1320` - 4 canonical screens)**:
+    - `Fees — Finance Overview` (`#53:1321`)
+    - `Fees — Categories and Student Assignment` (`#53:1660`)
+    - `Fees — Invoices and Payment Records` (`#53:1997`)
+    - `Fees — Dues, Receipts and Reports` (`#53:2335`)
+12. **Step 12 (Upcoming)**: **School Operations — Notices, Messages & Communications Module**.

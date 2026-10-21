@@ -2,6 +2,7 @@ import React from 'react';
 import { useTeacherFlow } from '../../../application/state/teacher-flow.context';
 import { TeacherKpiCards } from './components/TeacherKpiCards';
 import { TeacherQuickProfile } from './components/TeacherQuickProfile';
+import { TeacherNavTabs } from './components/TeacherNavTabs';
 import { Icon } from '../../widgets/Icon/Icon';
 
 interface ConsolidatedOverviewScreenProps {
@@ -40,8 +41,17 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
               Dashboard
             </span>
             <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+            <span
+              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+              onClick={goToDirectory}
+              role="button"
+              tabIndex={0}
+            >
               Teachers
+            </span>
+            <span className="edusync-dashboard-hero__crumb-sep">/</span>
+            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+              Overview
             </span>
           </nav>
 
@@ -72,22 +82,18 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
           </button>
           <button
             type="button"
-            className="edusync-btn edusync-btn--secondary"
-            onClick={goToDirectory}
-          >
-            Directory list
-          </button>
-          <button
-            type="button"
             className="edusync-btn edusync-btn--primary"
             onClick={goToAddTeacher}
           >
-            Add teacher
+            + Add teacher
           </button>
         </div>
       </div>
 
-      {/* 4 KPI Cards */}
+      {/* Sub-Navigation Tabs */}
+      <TeacherNavTabs />
+
+      {/* 4 KPI Cards (Placed below tabbar) */}
       <TeacherKpiCards stats={stats} />
 
       {/* Split Grid: Left Directory Table (60%), Right Quick Profile (40%) */}

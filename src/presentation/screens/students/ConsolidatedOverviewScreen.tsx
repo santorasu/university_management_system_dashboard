@@ -2,6 +2,7 @@ import React from 'react';
 import { useStudentFlow } from '../../../application/state/student-flow.context';
 import { StudentKpiCards } from './components/StudentKpiCards';
 import { StudentQuickProfile } from './components/StudentQuickProfile';
+import { StudentNavTabs } from './components/StudentNavTabs';
 import { Icon } from '../../widgets/Icon/Icon';
 
 interface ConsolidatedOverviewScreenProps {
@@ -40,8 +41,17 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
               Dashboard
             </span>
             <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+            <span
+              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+              onClick={goToDirectory}
+              role="button"
+              tabIndex={0}
+            >
               Students
+            </span>
+            <span className="edusync-dashboard-hero__crumb-sep">/</span>
+            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+              Overview
             </span>
           </nav>
 
@@ -72,22 +82,18 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
           </button>
           <button
             type="button"
-            className="edusync-btn edusync-btn--secondary"
-            onClick={goToDirectory}
-          >
-            Directory list
-          </button>
-          <button
-            type="button"
             className="edusync-btn edusync-btn--primary"
             onClick={goToAddStudent}
           >
-            Add student
+            + Add student
           </button>
         </div>
       </div>
 
-      {/* 4 KPI Cards */}
+      {/* Sub-Navigation Tabs */}
+      <StudentNavTabs />
+
+      {/* 4 KPI Cards (Placed below tabbar) */}
       <StudentKpiCards stats={stats} mode="consolidated" />
 
       {/* Split Grid: Left Directory Table (62%), Right Quick Profile (38%) */}

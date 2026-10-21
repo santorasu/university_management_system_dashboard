@@ -4,7 +4,7 @@ import { DashboardHeader } from './dashboard/components/DashboardHeader';
 import { DashboardOverview } from './dashboard/DashboardOverview';
 import { RecentActivitiesDestination } from './dashboard/destinations/RecentActivitiesDestination';
 import { UpcomingEventsDestination } from './dashboard/destinations/UpcomingEventsDestination';
-import { FeesFinanceDestination } from './dashboard/destinations/FeesFinanceDestination';
+import { FinanceScreen } from './finance/FinanceRoot';
 import { StudentsScreen } from './students/StudentsRoot';
 import { TeachersScreen } from './teachers/TeachersRoot';
 import { AcademicStructureScreen } from './academic-structure/AcademicStructureRoot';
@@ -41,7 +41,7 @@ export const DashboardScreen: React.FC = () => {
       case 'UPCOMING_EVENTS':
         return <UpcomingEventsDestination onNavigate={setCurrentDestination} />;
       case 'FEES_FINANCE_REPORT':
-        return <FeesFinanceDestination onNavigate={setCurrentDestination} />;
+        return <FinanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       default:
         return <DashboardOverview onNavigate={setCurrentDestination} />;
     }

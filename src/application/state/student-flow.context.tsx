@@ -42,7 +42,7 @@ const StudentFlowContext = createContext<StudentFlowContextValue | undefined>(un
 const repository = new MockStudentRepository();
 
 export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [subScreen, setSubScreen] = useState<StudentSubScreen>('STUDENTS_CONSOLIDATED');
+  const [subScreen, setSubScreen] = useState<StudentSubScreen>('STUDENTS_DIRECTORY');
   const [students, setStudents] = useState<Student[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
