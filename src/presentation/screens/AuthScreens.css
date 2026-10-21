@@ -1,0 +1,115 @@
+.edusync-auth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  text-align: left;
+}
+
+.edusync-auth-card__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edusync-auth-card__title {
+  margin: 0;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-h1-size);
+  line-height: var(--edusync-h1-line);
+  font-weight: var(--edusync-h1-weight);
+  color: var(--edusync-text-navy);
+}
+
+.edusync-auth-card__subtitle {
+  margin: 0;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-lg-size);
+  line-height: var(--edusync-body-lg-line);
+  color: var(--edusync-text-secondary);
+}
+
+.edusync-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.edusync-form-group-with-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edusync-recovery-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.edusync-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-label-default-size);
+  line-height: var(--edusync-label-default-line);
+  font-weight: 500;
+  color: var(--edusync-brand-primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.edusync-link-btn:hover {
+  text-decoration: underline;
+}
+
+.edusync-auth-subtext {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-default-size);
+  line-height: var(--edusync-body-default-line);
+  color: var(--edusync-text-secondary);
+  margin: 0;
+}
+
+.edusync-auth-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.edusync-auth-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.edusync-session-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--edusync-radius-md);
+  background-color: var(--edusync-status-warning-subtle);
+  border: 1px solid var(--edusync-status-warning-border);
+  color: var(--edusync-status-warning);
+}
+
+.edusync-session-box__title {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-label-default-size);
+  line-height: var(--edusync-label-default-line);
+  font-weight: 600;
+}
+
+.edusync-session-box__desc {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-default-size);
+  line-height: var(--edusync-body-default-line);
+}

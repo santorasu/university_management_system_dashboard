@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --edusync-brand-navy: #14213D;
+  --edusync-brand-primary: #3659D9;
+  --edusync-brand-primary-hover: #2944b3;
+  --edusync-brand-primary-active: #1f3796;
+  --edusync-brand-subtle: #EEF2FF;
+
+  /* Surfaces & Backgrounds */
+  --edusync-background-default: #F6F8FC;
+  --edusync-surface-default: #FFFFFF;
+  --edusync-surface-subtle: #F2F4F7;
+
+  /* Text Colors */
+  --edusync-text-navy: #14213D;
+  --edusync-text-primary: #172033;
+  --edusync-text-secondary: #667085;
+  --edusync-text-muted: #98A2B3;
+  --edusync-text-inverse: #FFFFFF;
+
+  /* Borders */
+  --edusync-border-default: #E4E7EC;
+  --edusync-border-strong: #D0D5DD;
+  --edusync-border-subtle: #F2F4F7;
+  --edusync-border-focus: #3659D9;
+  --edusync-border-error: #DC2626;
+
+  /* Status Tokens */
+  --edusync-status-success: #15803D;
+  --edusync-status-success-subtle: #F0FDF4;
+  --edusync-status-success-border: #BBF7D0;
+
+  --edusync-status-warning: #92400E;
+  --edusync-status-warning-subtle: #FFFBEB;
+  --edusync-status-warning-border: #FDE68A;
+
+  --edusync-status-error: #DC2626;
+  --edusync-status-error-subtle: #FEF2F2;
+  --edusync-status-error-border: #FECACA;
+
+  --edusync-status-info: #3659D9;
+  --edusync-status-info-subtle: #EEF2FF;
+  --edusync-status-info-border: #C7D2FE;
+
+  /* Typography */
+  --edusync-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --edusync-display-size: 48px;
+  --edusync-display-line: 56px;
+  --edusync-display-weight: 700;
+
+  --edusync-wordmark-size: 44px;
+  --edusync-wordmark-weight: 700;
+  --edusync-wordmark-spacing: -0.0386em;
+
+  --edusync-h1-size: 32px;
+  --edusync-h1-line: 40px;
+  --edusync-h1-weight: 700;
+
+  --edusync-h2-size: 24px;
+  --edusync-h2-line: 32px;
+  --edusync-h2-weight: 600;
+
+  --edusync-h3-size: 20px;
+  --edusync-h3-line: 28px;
+  --edusync-h3-weight: 600;
+
+  --edusync-h4-size: 18px;
+  --edusync-h4-line: 28px;
+  --edusync-h4-weight: 600;
+
+  --edusync-body-lg-size: 16px;
+  --edusync-body-lg-line: 24px;
+  --edusync-body-lg-weight: 400;
+
+  --edusync-body-default-size: 14px;
+  --edusync-body-default-line: 20px;
+  --edusync-body-default-weight: 400;
+
+  --edusync-body-sm-size: 12px;
+  --edusync-body-sm-line: 18px;
+  --edusync-body-sm-weight: 400;
+
+  --edusync-label-lg-size: 16px;
+  --edusync-label-lg-line: 24px;
+  --edusync-label-lg-weight: 500;
+
+  --edusync-label-default-size: 14px;
+  --edusync-label-default-line: 20px;
+  --edusync-label-default-weight: 500;
+
+  --edusync-label-sm-size: 12px;
+  --edusync-label-sm-line: 16px;
+  --edusync-label-sm-weight: 500;
+
+  /* Elevation */
+  --edusync-elevation-01: 0px 1px 3px 0px rgba(20, 33, 61, 0.06), 0px 1px 2px 0px rgba(20, 33, 61, 0.04);
+  --edusync-elevation-02: 0px 4px 12px 0px rgba(20, 33, 61, 0.08);
+  --edusync-elevation-03: 0px 16px 40px 0px rgba(20, 33, 61, 0.16);
+
+  /* Radii */
+  --edusync-radius-sm: 6px;
+  --edusync-radius-md: 8px;
+  --edusync-radius-lg: 12px;
+  --edusync-radius-full: 9999px;
+
+  /* Layout */
+  --edusync-brand-panel-width: 560px;
+  --edusync-auth-content-width: 448px;
+}

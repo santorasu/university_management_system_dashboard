@@ -1,0 +1,64 @@
+.edusync-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+}
+
+.edusync-brand-logo--on-dark {
+  color: #FFFFFF;
+}
+
+.edusync-brand-logo--on-light {
+  color: var(--edusync-brand-primary);
+}
+
+.edusync-brand-logo--on-light .edusync-brand-logo__wordmark {
+  color: var(--edusync-text-navy);
+}
+
+.edusync-brand-logo__symbol-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* LG Size - Default in Left Brand Panel */
+.edusync-brand-logo--lg .edusync-brand-logo__svg {
+  width: 56px;
+  height: 56px;
+}
+.edusync-brand-logo--lg .edusync-brand-logo__wordmark {
+  font-family: var(--edusync-font-family);
+  font-weight: var(--edusync-wordmark-weight);
+  font-size: var(--edusync-wordmark-size);
+  letter-spacing: var(--edusync-wordmark-spacing);
+  line-height: 1;
+}
+
+/* MD Size */
+.edusync-brand-logo--md .edusync-brand-logo__svg {
+  width: 38px;
+  height: 38px;
+}
+.edusync-brand-logo--md .edusync-brand-logo__wordmark {
+  font-family: var(--edusync-font-family);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* SM Size */
+.edusync-brand-logo--sm .edusync-brand-logo__svg {
+  width: 24px;
+  height: 24px;
+}
+.edusync-brand-logo--sm .edusync-brand-logo__wordmark {
+  font-family: var(--edusync-font-family);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}

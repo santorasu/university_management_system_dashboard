@@ -1,0 +1,45 @@
+.edusync-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 33, 61, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: edusync-fade-in 0.2s ease-out;
+}
+
+.edusync-dialog {
+  background-color: var(--edusync-surface-default);
+  border: 1px solid var(--edusync-border-default);
+  border-radius: var(--edusync-radius-lg);
+  box-shadow: var(--edusync-elevation-03);
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  box-sizing: border-box;
+  animation: edusync-scale-up 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+@keyframes edusync-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes edusync-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

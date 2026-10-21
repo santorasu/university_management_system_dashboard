@@ -1,0 +1,192 @@
+.edusync-auth-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--edusync-background-default);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   LEFT BRAND PANEL
+   ========================================================================== */
+.edusync-brand-panel {
+  width: var(--edusync-brand-panel-width);
+  background-color: var(--edusync-brand-navy);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+/* Decorative Brand Orbits from Figma */
+.edusync-brand-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--edusync-brand-primary);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.edusync-brand-orbit--outer {
+  width: 440px;
+  height: 440px;
+  top: 170px;
+  left: 310px;
+}
+
+.edusync-brand-orbit--inner {
+  width: 360px;
+  height: 360px;
+  top: 210px;
+  left: 350px;
+}
+
+.edusync-brand-panel__top {
+  position: relative;
+  z-index: 2;
+}
+
+.edusync-brand-panel__middle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.edusync-brand-promise__accent {
+  width: 48px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--edusync-brand-primary);
+}
+
+.edusync-brand-promise__headline {
+  margin: 0;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-display-size);
+  line-height: var(--edusync-display-line);
+  font-weight: var(--edusync-display-weight);
+  color: #FFFFFF;
+}
+
+.edusync-brand-promise__sub {
+  margin: 0;
+  max-width: 384px;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-lg-size);
+  line-height: var(--edusync-body-lg-line);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.edusync-brand-panel__bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.edusync-brand-panel__copyright {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-sm-size);
+  line-height: var(--edusync-body-sm-line);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   RIGHT AUTHENTICATION WORKSPACE
+   ========================================================================== */
+.edusync-auth-workspace {
+  flex: 1;
+  background-color: var(--edusync-background-default);
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+}
+
+.edusync-auth-workspace__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edusync-school-context {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--edusync-text-secondary);
+}
+
+.edusync-school-context__name {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-label-default-size);
+  line-height: var(--edusync-label-default-line);
+  font-weight: 500;
+}
+
+.edusync-auth-workspace__content {
+  width: 100%;
+  max-width: var(--edusync-auth-content-width);
+  margin: auto 0;
+  padding: 32px 0;
+}
+
+.edusync-auth-workspace__footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--edusync-font-family);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--edusync-text-secondary);
+}
+
+.edusync-auth-workspace__security {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edusync-auth-workspace__help {
+  color: var(--edusync-text-secondary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .edusync-auth-page {
+    flex-direction: column;
+  }
+
+  .edusync-brand-panel {
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  .edusync-brand-orbit {
+    display: none;
+  }
+
+  .edusync-auth-workspace {
+    padding: 32px 24px;
+  }
+
+  .edusync-auth-workspace__footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

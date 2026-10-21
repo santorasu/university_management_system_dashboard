@@ -1,0 +1,58 @@
+.edusync-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--edusync-border-default);
+  width: 100%;
+}
+
+.edusync-tab-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 12px 4px 16px;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-label-default-size);
+  line-height: var(--edusync-label-default-line);
+  font-weight: 500;
+  color: var(--edusync-text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+  transition: color 0.15s ease;
+}
+
+.edusync-tab-btn:hover {
+  color: var(--edusync-text-primary);
+}
+
+.edusync-tab-btn--active {
+  color: var(--edusync-brand-primary);
+  font-weight: 600;
+}
+
+.edusync-tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--edusync-brand-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+.edusync-tab-badge {
+  background-color: var(--edusync-surface-subtle);
+  color: var(--edusync-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.edusync-tab-badge--active {
+  background-color: var(--edusync-brand-subtle);
+  color: var(--edusync-brand-primary);
+}

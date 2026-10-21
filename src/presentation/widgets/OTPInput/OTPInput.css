@@ -1,0 +1,52 @@
+.edusync-otp-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.edusync-otp-digit {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--edusync-radius-md);
+  border: 1px solid var(--edusync-border-strong);
+  background-color: var(--edusync-surface-default);
+  text-align: center;
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-h2-size);
+  line-height: var(--edusync-h2-line);
+  font-weight: 600;
+  color: var(--edusync-text-primary);
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.edusync-otp-digit:focus {
+  border-color: var(--edusync-brand-primary);
+  box-shadow: 0 0 0 3px rgba(54, 89, 217, 0.15);
+}
+
+.edusync-otp-container--error .edusync-otp-digit {
+  border-color: var(--edusync-border-error);
+}
+
+.edusync-otp-container--error .edusync-otp-digit:focus {
+  border-color: var(--edusync-border-error);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.edusync-otp-digit:disabled {
+  background-color: var(--edusync-surface-subtle);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .edusync-otp-digit {
+    width: 44px;
+    height: 48px;
+    font-size: 20px;
+  }
+}

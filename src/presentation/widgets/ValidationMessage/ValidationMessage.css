@@ -1,0 +1,37 @@
+.edusync-validation-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.edusync-validation-msg__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edusync-validation-msg__text {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-sm-size);
+  line-height: var(--edusync-body-sm-line);
+  font-weight: 400;
+}
+
+.edusync-validation-msg--error {
+  color: var(--edusync-status-error);
+}
+
+.edusync-validation-msg--success {
+  color: var(--edusync-status-success);
+}
+
+.edusync-validation-msg--warning {
+  color: var(--edusync-status-warning);
+}
+
+.edusync-validation-msg--info {
+  color: var(--edusync-text-secondary);
+}

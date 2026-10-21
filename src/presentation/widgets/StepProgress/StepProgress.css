@@ -1,0 +1,32 @@
+.edusync-step-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.edusync-step-progress__bars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edusync-step-progress__bar {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--edusync-border-default);
+  transition: background-color 0.2s ease;
+}
+
+.edusync-step-progress__bar--active {
+  background-color: var(--edusync-brand-primary);
+}
+
+.edusync-step-progress__label {
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-body-sm-size);
+  line-height: var(--edusync-body-sm-line);
+  font-weight: 500;
+  color: var(--edusync-text-secondary);
+}

@@ -1,0 +1,46 @@
+.edusync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--edusync-radius-full);
+  font-family: var(--edusync-font-family);
+  font-size: var(--edusync-label-sm-size);
+  line-height: var(--edusync-label-sm-line);
+  font-weight: 500;
+  box-sizing: border-box;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.edusync-badge__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edusync-badge--info {
+  background-color: var(--edusync-brand-subtle);
+  color: var(--edusync-brand-primary);
+}
+
+.edusync-badge--success {
+  background-color: var(--edusync-status-success-subtle);
+  color: var(--edusync-status-success);
+}
+
+.edusync-badge--warning {
+  background-color: var(--edusync-status-warning-subtle);
+  color: var(--edusync-status-warning);
+}
+
+.edusync-badge--error {
+  background-color: var(--edusync-status-error-subtle);
+  color: var(--edusync-status-error);
+}
+
+.edusync-badge--neutral {
+  background-color: var(--edusync-surface-subtle);
+  color: var(--edusync-text-secondary);
+}
