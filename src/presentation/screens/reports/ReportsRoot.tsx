@@ -1,7 +1,6 @@
 import React from 'react';
 import { ReportsFlowProvider, useReportsFlow } from '../../../application/state/reports-flow.context';
 import { ReportsNavTabs } from './components/ReportsNavTabs';
-import { ReportFiltersBar } from './components/ReportFiltersBar';
 import { ReportExportModal } from './components/ReportExportModal';
 import { ReportsOverviewScreen } from './screens/ReportsOverviewScreen';
 import { ReportsAcademicPerformanceScreen } from './screens/ReportsAcademicPerformanceScreen';
@@ -74,28 +73,48 @@ const ReportsContent: React.FC<ReportsScreenProps> = ({ onNavigateToDashboard })
       {/* Hero Header */}
       <div className="reports-hero">
         <div className="reports-hero__left">
-          <button
-            type="button"
-            className="reports-back-btn"
-            onClick={onNavigateToDashboard}
-            title="Back to Dashboard"
-            aria-label="Back to Dashboard"
-          >
-            ←
-          </button>
-          <div>
-            <div className="reports-breadcrumbs">
-              Dashboard / Reports & Analytics / {header.breadcrumb}
+          <nav className="reports-hero__crumbs" aria-label="Breadcrumb">
+            <button
+              type="button"
+              className="reports-hero__crumb--link"
+              onClick={onNavigateToDashboard}
+            >
+              Dashboard
+            </button>
+            <span className="reports-hero__crumb-sep">/</span>
+            <span style={{ fontWeight: 500 }}>Administration</span>
+            <span className="reports-hero__crumb-sep">/</span>
+            <span className="reports-hero__crumb--current">{header.breadcrumb}</span>
+          </nav>
+
+          <div className="reports-hero__title-row">
+            <button
+              type="button"
+              className="edusync-btn-back-circle"
+              onClick={onNavigateToDashboard}
+              title="Return to Dashboard"
+              aria-label="Back to Dashboard"
+            >
+              ←
+            </button>
+            <div>
+              <h1 className="reports-hero__title">{header.title}</h1>
+              <p className="reports-hero__subtitle">{header.subtitle}</p>
             </div>
-            <h1 className="reports-title">{header.title}</h1>
-            <p className="reports-subtitle">{header.subtitle}</p>
           </div>
         </div>
 
         <div className="reports-hero__actions">
           <button
             type="button"
-            className="reports-primary-btn"
+            className="edusync-btn edusync-btn--secondary"
+            onClick={onNavigateToDashboard}
+          >
+            ← Dashboard
+          </button>
+          <button
+            type="button"
+            className="edusync-btn edusync-btn--primary"
             onClick={() => openExportModal(header.title)}
           >
             <Icon name={header.actionIcon} size={16} />
@@ -107,10 +126,7 @@ const ReportsContent: React.FC<ReportsScreenProps> = ({ onNavigateToDashboard })
       {/* Persistent Sub Navigation Tabs */}
       <ReportsNavTabs />
 
-      {/* Filter Bar */}
-      <ReportFiltersBar />
-
-      {/* Active Screen View */}
+      {/* Active Screen View (4 KPI cards sit directly below tabs, followed by filter bar) */}
       {renderSubScreen()}
 
       {/* Interactive Export Modal */}

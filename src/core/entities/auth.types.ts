@@ -71,7 +71,9 @@ export type DashboardDestination =
   | 'FEES_FINANCE_REPORT'
   | 'NOTICES_MESSAGES'
   | 'LIBRARY_DOCUMENTS'
-  | 'REPORTS_ANALYTICS';
+  | 'REPORTS_ANALYTICS'
+  | 'USER_MANAGEMENT'
+  | 'SCHOOL_SETTINGS';
 
 export interface ScreenMetadata {
   id: AuthScreenId;
