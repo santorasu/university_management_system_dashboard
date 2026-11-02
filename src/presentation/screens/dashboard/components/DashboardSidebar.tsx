@@ -58,8 +58,8 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({
       title: 'ADMINISTRATION',
       items: [
         { id: 'reports', label: 'Reports & Analytics', icon: 'chart-no-axes-combined', destination: 'REPORTS_ANALYTICS' },
-        { id: 'users', label: 'User Management', icon: 'user-cog' },
-        { id: 'settings', label: 'School Settings', icon: 'settings' },
+        { id: 'users', label: 'User Management', icon: 'user-cog', destination: 'USER_MANAGEMENT' },
+        { id: 'settings', label: 'School Settings', icon: 'settings', destination: 'SCHOOL_SETTINGS' },
       ],
     },
   ];
