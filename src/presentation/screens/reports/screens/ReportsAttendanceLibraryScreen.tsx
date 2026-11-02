@@ -1,6 +1,7 @@
 import React from 'react';
 import { useReportsFlow } from '../../../../application/state/reports-flow.context';
 import { Badge } from '../../../widgets/Badge/Badge';
+import { ReportFiltersBar } from '../components/ReportFiltersBar';
 
 export const ReportsAttendanceLibraryScreen: React.FC = () => {
   const { attendanceData, isLoading, openExportModal } = useReportsFlow();
@@ -42,6 +43,9 @@ export const ReportsAttendanceLibraryScreen: React.FC = () => {
           <div className="reports-kpi-sub">{kpis.overdueLoansSub}</div>
         </div>
       </div>
+
+      {/* Filter Bar (Placed directly beneath KPI cards for consistency with all modules) */}
+      <ReportFiltersBar />
 
       {/* 2 Charts in 50/50 Row */}
       <div className="reports-charts-row">
