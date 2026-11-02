@@ -718,29 +718,29 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 ### Navigation & Destination Routing:
 - **Sidebar Position**: Administration → `Reports & Analytics` (`id: 'reports'`, destination: `REPORTS_ANALYTICS`).
-- **Layout Standard**: 1400px centered container (`max-width: 1400px; margin: 0 auto; padding: 24px 32px; box-sizing: border-box;`) with symmetrical two-side equal padding.
-- **Top Header**: Circular back button (`←` navigating to Dashboard overview), breadcrumbs (`Dashboard / Reports & Analytics / ...`), primary action button (`Export report`, `Print report`, `Export finance report`, `Export activity report`).
+- **Layout Standard**: Symmetrical 1400px centered container (`width: 100%; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box;`) with zero inner duplicate padding, matching the 2-side viewport padding of all prior modules.
+- **Top Header Triad**: Circular back button (`.edusync-btn-back-circle` navigating to Dashboard overview), interactive breadcrumbs (`Dashboard / Administration / ...`), primary & secondary action buttons (`← Dashboard`, `Export report`, `Print report`, `Export finance report`, `Export activity report`).
 - **Persistent Subnav Tabs**:
+  - Full-width underline style with 2px active indicator (`.reports-nav-tabs`, `.reports-nav-tab`, `.reports-nav-tab--active`):
   1. `Overview` (`OVERVIEW` - `#73:1640`)
   2. `Academic Performance` (`ACADEMIC_PERFORMANCE` - `#73:1778`)
   3. `Fees & Payments` (`FEES_PAYMENTS` - `#73:1890`)
   4. `Attendance & Library` (`ATTENDANCE_LIBRARY` - `#73:2005`)
-- **Persistent Filter Bar (Directly beneath Subnav Tabs)**:
-  - Date range input field (`01 Oct – 18 Oct 2026`)
-  - Academic year select (`2026–27`, `2025–26`, `2024–25`)
-  - Class select (`All classes`, `Class 6` to `Class 12`)
-  - Section select (`All sections`, `Section A`, `Section B`, `Section C`)
-  - `Apply filters` button (`#3659D9`)
-  - `Reset` button
-  - `Export CSV` action button
+- **Universal Flow Order**:
+  1. Hero Header & Breadcrumb Triad
+  2. Sub-Navigation Tabs
+  3. 4 KPI Stat Metric Cards (Directly beneath tabbar)
+  4. Filter Bar (`ReportFiltersBar`) (Directly beneath KPI cards)
+  5. Charts & Tabular Details
 
 ### Screens:
 1. **Screen 1: Reports — Overview (`#73:1640`)**:
-   - **4 KPI Cards (Directly beneath Filter Bar)**:
+   - **4 KPI Cards (Directly beneath Subnav Tabs)**:
      - `Students enrolled` (`2,846` | `+6.2% vs last term` | Blue left border `#3659D9`)
      - `Attendance rate` (`94.2%` | `Within target` | Emerald left border `#10B981`)
      - `Exam pass rate` (`87.6%` | `Across published results` | Purple left border `#8B5CF6`)
      - `Fees collected` (`৳36.7L` | `75.7% of assigned fees` | Amber left border `#D97706`)
+   - **Filter Bar** (Directly beneath KPI cards)
    - **Charts Row (50% / 50%)**:
      - **Left (50%)**: `Enrollment trend` (Summary by period / category) with vertical bar columns (May: `210`, Jun: `238`, Jul: `260`, Aug: `272`, Sep: `281`, Oct: `296`).
      - **Right (50%)**: `Monthly fee collection` (Summary by period / category) with vertical bar columns (May: `28`, Jun: `34`, Jul: `30`, Aug: `42`, Sep: `38`, Oct: `47`).
@@ -750,11 +750,12 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 2. **Screen 2: Reports — Academic Performance (`#73:1778`)**:
    - **Hero Action**: `Print report`.
-   - **4 KPI Cards**:
+   - **4 KPI Cards (Directly beneath Subnav Tabs)**:
      - `Total students` (`2,846` | `Across active classes` | Blue left border `#3659D9`)
      - `Teachers` (`146` | `Active teaching staff` | Emerald left border `#10B981`)
      - `Classes / sections` (`42 / 68` | `Current academic year` | Purple left border `#8B5CF6`)
      - `Exam pass rate` (`87.6%` | `Published results` | Amber left border `#D97706`)
+   - **Filter Bar** (Directly beneath KPI cards)
    - **Charts Row (50% / 50%)**:
      - **Left (50%)**: `Enrollment by month` trajectory.
      - **Right (50%)**: `Class performance` horizontal progress bars (Class 6: `82%`, Class 7: `85%`, Class 8: `89%`, Class 9: `86%`, Class 10: `91%`).
@@ -762,11 +763,12 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 3. **Screen 3: Reports — Fees and Payments (`#73:1890`)**:
    - **Hero Action**: `Export finance report`.
-   - **4 KPI Cards**:
+   - **4 KPI Cards (Directly beneath Subnav Tabs)**:
      - `Fees assigned` (`৳48.5L` | `Current academic year` | Blue left border `#3659D9`)
      - `Collected` (`৳36.7L` | `75.7% collection rate` | Emerald left border `#10B981`)
      - `Outstanding dues` (`৳11.8L` | `Across 8 classes` | Purple left border `#8B5CF6`)
      - `Overdue balance` (`৳3.26L` | `Needs follow-up` | Red left border `#EF4444`)
+   - **Filter Bar** (Directly beneath KPI cards)
    - **Charts Row (50% / 50%)**:
      - **Left (50%)**: `Monthly fee collection (৳ lakh)` (May: `2.8`, Jun: `3.4`, Jul: `3.0`, Aug: `4.2`, Sep: `3.8`, Oct: `4.7`).
      - **Right (50%)**: `Payment status breakdown` share by status (`Paid` `66%`, `Partially paid` `17%`, `Pending` `12%`, `Overdue` `6%`).
@@ -774,11 +776,12 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 4. **Screen 4: Reports — Attendance and Library (`#73:2005`)**:
    - **Hero Action**: `Export activity report`.
-   - **4 KPI Cards**:
+   - **4 KPI Cards (Directly beneath Subnav Tabs)**:
      - `Average attendance` (`94.2%` | `Selected date range` | Blue left border `#3659D9`)
      - `Absent records` (`168` | `Across all classes` | Red left border `#EF4444`)
      - `Books issued` (`278` | `Selected period` | Purple left border `#8B5CF6`)
      - `Overdue loans` (`24` | `Pending returns` | Amber left border `#D97706`)
+   - **Filter Bar** (Directly beneath KPI cards)
    - **Charts Row (50% / 50%)**:
      - **Left (50%)**: `Attendance by week` (W1: `92%`, W2: `95%`, W3: `93%`, W4: `96%`, W5: `94%`).
      - **Right (50%)**: `Library activity` (Jun: `180`, Jul: `206`, Aug: `224`, Sep: `218`, Oct: `249`, Nov: `278`).
@@ -793,7 +796,75 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 ---
 
-## 20. Next Steps & Feature Implementation Roadmap
+## 20. Administration — User Management Module (`#77:1320` - Screens 1 & 2)
+
+### Navigation & Destination Routing:
+- **Sidebar Position**: Administration → `User Management` (`id: 'users'`, destination: `USER_MANAGEMENT`).
+- **Layout Standard**: Symmetrical 1400px centered container (`width: 100%; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box;`) with zero inner duplicate padding, matching the 2-side viewport padding of all prior modules.
+- **Top Header Triad**: Circular back button (`.edusync-btn-back-circle`), interactive breadcrumbs (`Dashboard / Administration / ...`), primary & secondary action buttons (`← Dashboard`, `+ Create account` or `Back to directory`).
+- **Persistent Subnav Tabs (`UsersNavTabs.tsx`)**:
+  - Full-width underline style (`.users-nav-tabs`, `.users-nav-tab`, `.users-nav-tab--active`):
+  1. `Account Directory` (`DIRECTORY`)
+  2. `Create & Edit Account` (`CREATE_EDIT`)
+
+### Screens:
+1. **Screen 1: Users — Account Directory (`#77:1321`)**:
+   - **4 KPI Cards (Directly beneath Subnav Tabs)**:
+     - `Total accounts` (`3,024` | `Across supported roles` | Blue left border `#3659D9`)
+     - `Active accounts` (`2,946` | `Access enabled` | Emerald left border `#10B981`)
+     - `Inactive accounts` (`78` | `Access disabled` | Amber left border `#D97706`)
+     - `Recent activity` (`186` | `Last 7 days` | Purple left border `#8B5CF6`)
+   - **User Accounts Directory Table Card**:
+     - Filter row: Search field (`Search by name, email, or user ID...`), Role select (`All supported roles`, `Admin`, `Teacher`, `Student`, `Parent`), Status select (`All statuses`, `Active`, `Inactive`), Apply & Reset buttons.
+     - Table columns: `USER / ID`, `ROLE`, `STATUS`, `LAST ACTIVITY`, `ACCESS`, `ACTIONS`.
+     - Roles & permission badges: `Admin` (Web only), `Teacher` (Mobile app), `Student` (Mobile app), `Parent` (Mobile app).
+     - Inline actions: `Edit`, `Activate`, `Deactivate`.
+   - **Supported Roles & Permission Boundaries Card**:
+     - Summary of role access (Admin is Web-only; Teacher, Student, Parent are Mobile app).
+
+2. **Screen 2: Users — Create, Edit & Security (`#77:1459`)**:
+   - **65% / 35% Split Layout**:
+     - **Left (65%)**: `Account details` form with Full name, Email address, Role select, Linked profile, Username / ID, Account status, Contact number, and Temporary password fields.
+     - **Right (35%)**: `Account security` panel with sensitive action triggers:
+       - `Reset password` ("Send a secure reset link to the account email" → `Send reset link`).
+       - `Deactivate account` ("Temporarily block sign-in for this account" → `Deactivate`).
+       - `Reactivate account` ("Restore sign-in access for a disabled account" → `Reactivate`).
+   - **Sensitive Action Confirmation Dialog**: Modal prompting explicit confirmation before executing password reset or account status changes.
+
+---
+
+## 21. Administration — School Settings Module (`#77:1320` - Screens 3 & 4)
+
+### Navigation & Destination Routing:
+- **Sidebar Position**: Administration → `School Settings` (`id: 'settings'`, destination: `SCHOOL_SETTINGS`).
+- **Layout Standard**: Symmetrical 1400px centered container (`width: 100%; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box;`) with zero inner duplicate padding, matching the 2-side viewport padding of all prior modules.
+- **Top Header Triad**: Circular back button (`.edusync-btn-back-circle`), interactive breadcrumbs (`Dashboard / Administration / ...`), secondary action button (`← Dashboard`).
+- **Persistent Subnav Tabs (`SettingsNavTabs.tsx`)**:
+  - Full-width underline style (`.settings-nav-tabs`, `.settings-nav-tab`, `.settings-nav-tab--active`):
+  1. `School Profile & Academics` (`PROFILE_ACADEMICS` - `#77:1571`)
+  2. `Attendance, Notifications & Security` (`ATTENDANCE_SECURITY` - `#77:1686`)
+
+### Screens:
+1. **Screen 3: Settings — School Profile & Academics (`#77:1571`)**:
+   - **Top 60% / 40% Split**:
+     - **Left (60%)**: `School profile` card with emblem upload box, School name (`Maple Grove School`), Official email (`info@maplegrove.edu`), Phone number (`+880 2 5550 0000`), Address, and `Save profile` action.
+     - **Right (40%)**: `Academic configuration` card with Academic year (`2026–27`), Term structure (`3 terms`), Start date, End date, Grading scale (`A+ to F · 0–100`), Passing grade (`33%`), Maximum marks (`100`), and `Save changes` action.
+   - **Bottom Card**: `Class & grading configuration` card defining school-wide defaults: Class structure (`Classes 1–10`), Section labels (`A, B, C`), Grading method (`Marks and grade points`), Grade point scheme (`4.00 scale`), and `Save defaults` action.
+
+2. **Screen 4: Settings — Attendance, Notifications & Security (`#77:1686`)**:
+   - **Top 50% / 50% Split**:
+     - **Left (50%)**: `Attendance settings` panel with School start time (`08:00 AM`), Late cutoff (`08:30 AM`), Marking window (`Daily`), Absence threshold (`1 consecutive day`), and interactive toggles for Reason requirement, Parent notification, and Correction requests.
+     - **Right (50%)**: `Notification preferences` panel with interactive toggles for Published notices, Direct messages, Fee reminders, Exam results, and Library overdue alerts.
+   - **Bottom 60% / 40% Split**:
+     - **Left (60%)**: `Security & session policies` panel with Minimum password length (`12 characters`), Password expiry (`90 days`), Session timeout (`30 minutes inactive`), Maximum login attempts (`5 attempts`), and toggles for Strong passwords, 2FA for Admin, and Session revocation.
+     - **Right (40%)**: `Permission boundaries` note detailing platform segregation and critical rules.
+
+### Interactive Modal:
+- **Settings — Changes Saved (`#264:1320`)**: Circular green checkmark `✓`, title `Settings saved successfully`, guidance note, and `Back to settings` action.
+
+---
+
+## 22. Next Steps & Feature Implementation Roadmap
 
 1. **Step 1 (Completed)**: Brand Design System, Tokens, 18 Master Custom Widgets, and Specimen Gallery.
 2. **Step 2 (Completed)**: 12-Screen Authentication Access Flow with state machine, mock latency, and error states.
@@ -809,13 +880,15 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 12. **Step 12 (Completed)**: School Operations — Notices, Messages & Notifications Module (`63:1320` - 4 canonical screens & 4 modals).
 13. **Step 13 (Completed)**: School Operations — Library & Document Management Module (`69:1320` - 3 canonical screens & 3 modals).
 14. **Step 14 (Completed)**: School Operations — Dedicated School Events & Calendar Module (`69:1610`, `263:1445` - 2 screens & 1 modal).
-15. **Step 15 (Completed)**: **Administration — Reports & Analytics Module (`73:1639` - 4 canonical screens & 1 export modal)**:
-    - `Reports — Overview` (`#73:1640`)
-    - `Reports — Academic Performance` (`#73:1778`)
-    - `Reports — Fees and Payments` (`#73:1890`)
-    - `Reports — Attendance and Library` (`#73:2005`)
-    - Filter Bar, 4 KPI cards, Bar Charts, Tables & `ReportExportModal`.
-16. **Step 16 (Upcoming)**: Administration — User Management / School Settings.
+15. **Step 15 (Completed)**: Administration — Reports & Analytics Module (`73:1639` - 4 canonical screens & 1 export modal).
+16. **Step 16 (Completed)**: **Administration — User Management & School Settings Module (`77:1320`, `264:1320` - 4 canonical screens & 2 modals)**:
+    - `Users — Account Directory` (`#77:1321`)
+    - `Users — Create, Edit & Security` (`#77:1459`)
+    - `Settings — School Profile & Academics` (`#77:1571`)
+    - `Settings — Attendance, Notifications & Security` (`#77:1686`)
+    - Modals: `Sensitive Action Confirmation` & `Settings Saved` (`#264:1320`).
+17. **Step 17 (Next)**: Final Polish, End-to-End Visual Verification & Comprehensive User Delivery.
+
 
 
 

@@ -15,6 +15,8 @@ import { NoticesScreen } from './notices/NoticesRoot';
 import { LibraryScreen } from './library/LibraryRoot';
 import { EventsScreen } from './events/EventsRoot';
 import { ReportsScreen } from './reports/ReportsRoot';
+import { UsersScreen } from './users/UsersRoot';
+import { SettingsScreen } from './settings/SettingsRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -51,6 +53,10 @@ export const DashboardScreen: React.FC = () => {
         return <FinanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'REPORTS_ANALYTICS':
         return <ReportsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'USER_MANAGEMENT':
+        return <UsersScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'SCHOOL_SETTINGS':
+        return <SettingsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       default:
         return <DashboardOverview onNavigate={setCurrentDestination} />;
     }
