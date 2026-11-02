@@ -70,7 +70,8 @@ export type DashboardDestination =
   | 'UPCOMING_EVENTS'
   | 'FEES_FINANCE_REPORT'
   | 'NOTICES_MESSAGES'
-  | 'LIBRARY_DOCUMENTS';
+  | 'LIBRARY_DOCUMENTS'
+  | 'REPORTS_ANALYTICS';
 
 export interface ScreenMetadata {
   id: AuthScreenId;

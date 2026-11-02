@@ -14,6 +14,7 @@ import { ExamsScreen } from './exams/ExamsRoot';
 import { NoticesScreen } from './notices/NoticesRoot';
 import { LibraryScreen } from './library/LibraryRoot';
 import { EventsScreen } from './events/EventsRoot';
+import { ReportsScreen } from './reports/ReportsRoot';
 import type { DashboardDestination } from '../../core/entities/auth.types';
 import './DashboardScreen.css';
 
@@ -48,6 +49,8 @@ export const DashboardScreen: React.FC = () => {
         return <EventsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       case 'FEES_FINANCE_REPORT':
         return <FinanceScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
+      case 'REPORTS_ANALYTICS':
+        return <ReportsScreen onNavigateToDashboard={() => setCurrentDestination('OVERVIEW')} />;
       default:
         return <DashboardOverview onNavigate={setCurrentDestination} />;
     }

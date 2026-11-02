@@ -714,7 +714,86 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 
 ---
 
-## 19. Next Steps & Feature Implementation Roadmap
+## 19. Administration — Reports & Analytics Module (`#73:1639`)
+
+### Navigation & Destination Routing:
+- **Sidebar Position**: Administration → `Reports & Analytics` (`id: 'reports'`, destination: `REPORTS_ANALYTICS`).
+- **Layout Standard**: 1400px centered container (`max-width: 1400px; margin: 0 auto; padding: 24px 32px; box-sizing: border-box;`) with symmetrical two-side equal padding.
+- **Top Header**: Circular back button (`←` navigating to Dashboard overview), breadcrumbs (`Dashboard / Reports & Analytics / ...`), primary action button (`Export report`, `Print report`, `Export finance report`, `Export activity report`).
+- **Persistent Subnav Tabs**:
+  1. `Overview` (`OVERVIEW` - `#73:1640`)
+  2. `Academic Performance` (`ACADEMIC_PERFORMANCE` - `#73:1778`)
+  3. `Fees & Payments` (`FEES_PAYMENTS` - `#73:1890`)
+  4. `Attendance & Library` (`ATTENDANCE_LIBRARY` - `#73:2005`)
+- **Persistent Filter Bar (Directly beneath Subnav Tabs)**:
+  - Date range input field (`01 Oct – 18 Oct 2026`)
+  - Academic year select (`2026–27`, `2025–26`, `2024–25`)
+  - Class select (`All classes`, `Class 6` to `Class 12`)
+  - Section select (`All sections`, `Section A`, `Section B`, `Section C`)
+  - `Apply filters` button (`#3659D9`)
+  - `Reset` button
+  - `Export CSV` action button
+
+### Screens:
+1. **Screen 1: Reports — Overview (`#73:1640`)**:
+   - **4 KPI Cards (Directly beneath Filter Bar)**:
+     - `Students enrolled` (`2,846` | `+6.2% vs last term` | Blue left border `#3659D9`)
+     - `Attendance rate` (`94.2%` | `Within target` | Emerald left border `#10B981`)
+     - `Exam pass rate` (`87.6%` | `Across published results` | Purple left border `#8B5CF6`)
+     - `Fees collected` (`৳36.7L` | `75.7% of assigned fees` | Amber left border `#D97706`)
+   - **Charts Row (50% / 50%)**:
+     - **Left (50%)**: `Enrollment trend` (Summary by period / category) with vertical bar columns (May: `210`, Jun: `238`, Jul: `260`, Aug: `272`, Sep: `281`, Oct: `296`).
+     - **Right (50%)**: `Monthly fee collection` (Summary by period / category) with vertical bar columns (May: `28`, Jun: `34`, Jul: `30`, Aug: `42`, Sep: `38`, Oct: `47`).
+   - **Split Row (63% / 35%)**:
+     - **Left (63%)**: `Recent report activity` table with headers (`REPORT`, `PERIOD`, `UPDATED`, `STATUS`), tracking `Student enrollment`, `Attendance summary`, `Fee collection`, and `Exam results` with `Ready` success badges.
+     - **Right (35%)**: `Report categories` (Share by status) breakdown with colored legend boxes: `Academic` (`42%`), `Attendance` (`25%`), `Finance` (`23%`), `Library` (`10%`).
+
+2. **Screen 2: Reports — Academic Performance (`#73:1778`)**:
+   - **Hero Action**: `Print report`.
+   - **4 KPI Cards**:
+     - `Total students` (`2,846` | `Across active classes` | Blue left border `#3659D9`)
+     - `Teachers` (`146` | `Active teaching staff` | Emerald left border `#10B981`)
+     - `Classes / sections` (`42 / 68` | `Current academic year` | Purple left border `#8B5CF6`)
+     - `Exam pass rate` (`87.6%` | `Published results` | Amber left border `#D97706`)
+   - **Charts Row (50% / 50%)**:
+     - **Left (50%)**: `Enrollment by month` trajectory.
+     - **Right (50%)**: `Class performance` horizontal progress bars (Class 6: `82%`, Class 7: `85%`, Class 8: `89%`, Class 9: `86%`, Class 10: `91%`).
+   - **Bottom Table**: `Examination results by class` (`CLASS`, `STUDENTS`, `AVERAGE`, `PASS RATE`, `TOP SUBJECT`, `PUBLISHED`).
+
+3. **Screen 3: Reports — Fees and Payments (`#73:1890`)**:
+   - **Hero Action**: `Export finance report`.
+   - **4 KPI Cards**:
+     - `Fees assigned` (`৳48.5L` | `Current academic year` | Blue left border `#3659D9`)
+     - `Collected` (`৳36.7L` | `75.7% collection rate` | Emerald left border `#10B981`)
+     - `Outstanding dues` (`৳11.8L` | `Across 8 classes` | Purple left border `#8B5CF6`)
+     - `Overdue balance` (`৳3.26L` | `Needs follow-up` | Red left border `#EF4444`)
+   - **Charts Row (50% / 50%)**:
+     - **Left (50%)**: `Monthly fee collection (৳ lakh)` (May: `2.8`, Jun: `3.4`, Jul: `3.0`, Aug: `4.2`, Sep: `3.8`, Oct: `4.7`).
+     - **Right (50%)**: `Payment status breakdown` share by status (`Paid` `66%`, `Partially paid` `17%`, `Pending` `12%`, `Overdue` `6%`).
+   - **Bottom Table**: `Outstanding dues by class` (`CLASS`, `INVOICES`, `OUTSTANDING`, `OVERDUE`, `COLLECTION RATE`, `ACTION`).
+
+4. **Screen 4: Reports — Attendance and Library (`#73:2005`)**:
+   - **Hero Action**: `Export activity report`.
+   - **4 KPI Cards**:
+     - `Average attendance` (`94.2%` | `Selected date range` | Blue left border `#3659D9`)
+     - `Absent records` (`168` | `Across all classes` | Red left border `#EF4444`)
+     - `Books issued` (`278` | `Selected period` | Purple left border `#8B5CF6`)
+     - `Overdue loans` (`24` | `Pending returns` | Amber left border `#D97706`)
+   - **Charts Row (50% / 50%)**:
+     - **Left (50%)**: `Attendance by week` (W1: `92%`, W2: `95%`, W3: `93%`, W4: `96%`, W5: `94%`).
+     - **Right (50%)**: `Library activity` (Jun: `180`, Jul: `206`, Aug: `224`, Sep: `218`, Oct: `249`, Nov: `278`).
+   - **Bottom Table**: `Attendance and library details` (`CATEGORY`, `GROUP`, `TOTAL`, `RATE / STATUS`, `PERIOD`, `DETAILS`).
+
+### Interactive Modal:
+- **Report Export Modal**:
+  - Format selection pills (`PDF`, `EXCEL`, `CSV`).
+  - Toggle `Include visual trend charts and graphical metrics`.
+  - Progress animation bar (`Generating report package... 100%`).
+  - Confirmation card with instant simulated download trigger.
+
+---
+
+## 20. Next Steps & Feature Implementation Roadmap
 
 1. **Step 1 (Completed)**: Brand Design System, Tokens, 18 Master Custom Widgets, and Specimen Gallery.
 2. **Step 2 (Completed)**: 12-Screen Authentication Access Flow with state machine, mock latency, and error states.
@@ -728,18 +807,16 @@ Authoritative specification for the 4 canonical screens and 4 interactive modals
 10. **Step 10 (Completed)**: Academics — Exams & Results Module (`51:1320` - 4 canonical screens).
 11. **Step 11 (Completed)**: School Operations — Fees & Finance / Student Billing & Invoicing Module (`53:1320` - 4 canonical screens).
 12. **Step 12 (Completed)**: School Operations — Notices, Messages & Notifications Module (`63:1320` - 4 canonical screens & 4 modals).
-13. **Step 13 (Completed)**: **School Operations — Library & Document Management Module (`69:1320` - 3 canonical screens & 3 modals)**:
-    - `Library — Inventory Overview` (`#69:1321`)
-    - `Library — Book Details and Lending` (`#69:1416`)
-    - `Documents — Student and Teacher Records` (`#69:1511`)
-    - 3 Modals: `Upload in Progress` (`#263:1320`), `Upload Successful` (`#263:1365`), `Upload Failed` (`#263:1405`).
-14. **Step 14 (Completed)**: **School Operations — Dedicated School Events & Calendar Module (`69:1610`, `263:1445`)**:
-    - Dedicated sidebar tab `Events` (`UPCOMING_EVENTS`)
-    - `Calendar & Event Editor` (`#69:1610`)
-    - `Events Directory & Schedule`
-    - 4 Event KPI cards beneath subnav tabs
-    - Modal: `Event Saved` (`#263:1445`)
-15. **Step 15 (Upcoming)**: Administration — Reports & Analytics / School Settings / User Management.
+13. **Step 13 (Completed)**: School Operations — Library & Document Management Module (`69:1320` - 3 canonical screens & 3 modals).
+14. **Step 14 (Completed)**: School Operations — Dedicated School Events & Calendar Module (`69:1610`, `263:1445` - 2 screens & 1 modal).
+15. **Step 15 (Completed)**: **Administration — Reports & Analytics Module (`73:1639` - 4 canonical screens & 1 export modal)**:
+    - `Reports — Overview` (`#73:1640`)
+    - `Reports — Academic Performance` (`#73:1778`)
+    - `Reports — Fees and Payments` (`#73:1890`)
+    - `Reports — Attendance and Library` (`#73:2005`)
+    - Filter Bar, 4 KPI cards, Bar Charts, Tables & `ReportExportModal`.
+16. **Step 16 (Upcoming)**: Administration — User Management / School Settings.
+
 
 
 
