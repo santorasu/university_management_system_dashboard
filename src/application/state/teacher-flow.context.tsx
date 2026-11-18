@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import type {
   Teacher,
   TeacherStats,
@@ -55,16 +55,16 @@ const TeacherFlowContext = createContext<TeacherFlowContextValue | undefined>(un
 const repository = new MockTeacherRepository();
 
 export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [subScreen, setSubScreen] = useState<TeacherSubScreen>('TEACHERS_DIRECTORY');
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
-  const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
+  const [subScreen, setSubScreen] = useState<TeacherSubScreen>('TEACHERS_CONSOLIDATED');
+  const [allTeachers, setAllTeachers] = useState<Teacher[]>([]);
+  const [selectedTeacherId, setSelectedTeacherId] = useState<string>('tch-1');
   const [editingTeacher, setEditingTeacher] = useState<Teacher | null>(null);
   const [stats, setStats] = useState<TeacherStats | null>(null);
 
-  const [feedbackList, setFeedbackList] = useState<TeacherFeedback[]>([]);
+  const [allFeedback, setAllFeedback] = useState<TeacherFeedback[]>([]);
   const [feedbackStats, setFeedbackStats] = useState<TeacherFeedbackStats | null>(null);
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
 
   const [filters, setFilters] = useState<TeacherFilterOptions>({
@@ -82,34 +82,94 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
   });
 
   const loadData = useCallback(async () => {
-    setIsLoading(true);
     try {
       const [fetchedTeachers, fetchedStats, fetchedFeedback, fetchedFeedbackStats] =
         await Promise.all([
-          repository.getTeachers(filters),
+          repository.getTeachers(),
           repository.getTeacherStats(),
-          repository.getFeedback(feedbackFilters),
+          repository.getFeedback(),
           repository.getFeedbackStats(),
         ]);
-      setTeachers(fetchedTeachers);
+      setAllTeachers(fetchedTeachers);
       setStats(fetchedStats);
-      setFeedbackList(fetchedFeedback);
+      setAllFeedback(fetchedFeedback);
       setFeedbackStats(fetchedFeedbackStats);
-
-      if (!selectedTeacher && fetchedTeachers.length > 0) {
-        setSelectedTeacher(fetchedTeachers[0]);
-      } else if (selectedTeacher) {
-        const found = fetchedTeachers.find((t) => t.id === selectedTeacher.id);
-        if (found) setSelectedTeacher(found);
-      }
     } finally {
       setIsLoading(false);
     }
-  }, [filters, feedbackFilters, selectedTeacher]);
+  }, []);
 
   useEffect(() => {
     loadData();
   }, [loadData]);
+
+  const selectedTeacher = useMemo(() => {
+    return allTeachers.find((t) => t.id === selectedTeacherId) || allTeachers[0] || null;
+  }, [allTeachers, selectedTeacherId]);
+
+  const teachers = useMemo(() => {
+    let results = allTeachers;
+
+    if (filters.searchQuery) {
+      const q = filters.searchQuery.toLowerCase().trim();
+      results = results.filter(
+        (t) =>
+          t.fullName.toLowerCase().includes(q) ||
+          t.teacherId.toLowerCase().includes(q) ||
+          t.email.toLowerCase().includes(q) ||
+          t.subjects.some((s) => s.toLowerCase().includes(q))
+      );
+    }
+
+    if (filters.department && filters.department !== 'All departments') {
+      results = results.filter(
+        (t) => t.department.toLowerCase() === filters.department.toLowerCase()
+      );
+    }
+
+    if (filters.status && filters.status !== 'All statuses') {
+      results = results.filter(
+        (t) => t.status.toLowerCase() === filters.status.toLowerCase()
+      );
+    }
+
+    if (filters.availability && filters.availability !== 'Any status') {
+      results = results.filter(
+        (t) => t.availability.toLowerCase() === filters.availability.toLowerCase()
+      );
+    }
+
+    return results;
+  }, [allTeachers, filters]);
+
+  const feedbackList = useMemo(() => {
+    let results = allFeedback;
+
+    if (feedbackFilters.searchQuery) {
+      const q = feedbackFilters.searchQuery.toLowerCase().trim();
+      results = results.filter(
+        (fb) =>
+          fb.studentName.toLowerCase().includes(q) ||
+          fb.teacherName.toLowerCase().includes(q) ||
+          fb.feedbackText.toLowerCase().includes(q)
+      );
+    }
+
+    if (feedbackFilters.selectedTeacher && feedbackFilters.selectedTeacher !== 'All teachers') {
+      results = results.filter((fb) => fb.teacherName === feedbackFilters.selectedTeacher);
+    }
+
+    if (feedbackFilters.selectedRating && feedbackFilters.selectedRating !== 'All ratings') {
+      const star = parseFloat(feedbackFilters.selectedRating);
+      results = results.filter((fb) => fb.rating >= star);
+    }
+
+    if (feedbackFilters.selectedStatus && feedbackFilters.selectedStatus !== 'All statuses') {
+      results = results.filter((fb) => fb.status === feedbackFilters.selectedStatus);
+    }
+
+    return results;
+  }, [allFeedback, feedbackFilters]);
 
   const goToConsolidatedOverview = useCallback(() => setSubScreen('TEACHERS_CONSOLIDATED'), []);
   const goToDirectory = useCallback(() => setSubScreen('TEACHERS_DIRECTORY'), []);
@@ -122,11 +182,11 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
     setSubScreen('TEACHERS_ADD_EDIT');
   }, []);
   const goToProfile = useCallback((teacher: Teacher) => {
-    setSelectedTeacher(teacher);
+    setSelectedTeacherId(teacher.id);
     setSubScreen('TEACHERS_PROFILE');
   }, []);
   const goToFeedback = useCallback(() => setSubScreen('TEACHERS_FEEDBACK'), []);
-  const selectTeacher = useCallback((teacher: Teacher) => setSelectedTeacher(teacher), []);
+  const selectTeacher = useCallback((teacher: Teacher) => setSelectedTeacherId(teacher.id), []);
 
   const setSearchQuery = useCallback((q: string) => setFilters((p) => ({ ...p, searchQuery: q })), []);
   const setDepartment = useCallback((d: string) => setFilters((p) => ({ ...p, department: d })), []);
@@ -150,11 +210,10 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const saveTeacher = useCallback(
     async (data: Partial<Teacher>): Promise<boolean> => {
-      setIsLoading(true);
       try {
         if (editingTeacher) {
           const updated = await repository.updateTeacher(editingTeacher.id, data);
-          setSelectedTeacher(updated);
+          setSelectedTeacherId(updated.id);
           setNotification({
             message: `Teacher "${updated.fullName}" updated successfully.`,
             type: 'success',
@@ -167,7 +226,7 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
             .toUpperCase()
             .slice(0, 2);
           const created = await repository.createTeacher({
-            teacherId: data.teacherId || `TCH-2026-0${teachers.length + 10}`,
+            teacherId: data.teacherId || `TCH-2026-0${allTeachers.length + 10}`,
             fullName: data.fullName || 'New Teacher',
             avatarColor: '#EEF2FF',
             initials: initials || 'TC',
@@ -191,7 +250,7 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
             rating: 5.0,
             reviewCount: 0,
           });
-          setSelectedTeacher(created);
+          setSelectedTeacherId(created.id);
           setNotification({
             message: `Teacher "${created.fullName}" successfully added.`,
             type: 'success',
@@ -204,11 +263,9 @@ export const TeacherFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
         const errorMsg = err instanceof Error ? err.message : 'Failed to save teacher';
         setNotification({ message: errorMsg, type: 'error' });
         return false;
-      } finally {
-        setIsLoading(false);
       }
     },
-    [editingTeacher, loadData, teachers.length]
+    [allTeachers.length, editingTeacher, loadData]
   );
 
   return (

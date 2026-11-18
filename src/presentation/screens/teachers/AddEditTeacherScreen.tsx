@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTeacherFlow } from '../../../application/state/teacher-flow.context';
+import { TeacherNavTabs } from './components/TeacherNavTabs';
 import type { EmploymentType, TeacherAvailability, TeacherStatus } from '../../../core/entities/teacher.types';
 
 interface AddEditTeacherScreenProps {
@@ -89,53 +90,53 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
 
   return (
     <div className="edusync-teachers-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-teachers-view__top-bar">
-        <div className="edusync-teachers-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={goToConsolidatedOverview}
-              role="button"
-              tabIndex={0}
             >
               Teachers
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>
               {isEditMode ? 'Edit' : 'Add'}
             </span>
-          </nav>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
               onClick={goToConsolidatedOverview}
               title="Back to teachers overview"
-              aria-label="Back to teachers overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>
-              {isEditMode ? 'Edit teacher' : 'Add teacher'}
-            </h1>
+            <div>
+              <h1 className="academic-hero__title">
+                {isEditMode ? 'Edit teacher' : 'Add teacher'}
+              </h1>
+              <p className="academic-hero__subtitle">
+                Create or update a teacher record, employment details, and teaching assignments.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Create or update a teacher record, employment details, and teaching assignments.
-          </p>
         </div>
 
-        <div className="edusync-teachers-view__header-actions">
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -146,13 +147,16 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
         </div>
       </div>
 
+      {/* 2. SUB-NAVIGATION TABS (Persistent across screens) */}
+      <TeacherNavTabs />
+
       {errorMessage && (
         <div className="edusync-alert edusync-alert--error" style={{ marginBottom: '20px' }}>
           <span>{errorMessage}</span>
         </div>
       )}
 
-      {/* Form Container */}
+      {/* 3. FORM CONTAINER */}
       <form onSubmit={handleSubmit} className="edusync-teacher-form">
         {/* Card 1: Personal and contact information */}
         <div className="edusync-teacher-form-card">
@@ -207,7 +211,7 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
               <label className="edusync-form-label">Address</label>
               <input
                 type="text"
-                placeholder="Street, city, postal code"
+                placeholder="Street address, city"
                 className="edusync-form-input"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -229,7 +233,7 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
         {/* Card 2: Employment information */}
         <div className="edusync-teacher-form-card">
           <h3 className="edusync-teacher-form-card__title">Employment information</h3>
-          <div className="edusync-teacher-form-grid edusync-teacher-form-grid--4col">
+          <div className="edusync-teacher-form-grid edusync-teacher-form-grid--3col">
             <div className="edusync-form-group">
               <label className="edusync-form-label">Employment type</label>
               <select
@@ -258,21 +262,10 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
             </div>
 
             <div className="edusync-form-group">
-              <label className="edusync-form-label">Joining date</label>
-              <input
-                type="text"
-                placeholder="DD / MM / YYYY"
-                className="edusync-form-input"
-                value={joiningDate}
-                onChange={(e) => setJoiningDate(e.target.value)}
-              />
-            </div>
-
-            <div className="edusync-form-group">
               <label className="edusync-form-label">Qualification</label>
               <input
                 type="text"
-                placeholder="Enter qualification"
+                placeholder="e.g. M.Sc. Mathematics"
                 className="edusync-form-input"
                 value={qualification}
                 onChange={(e) => setQualification(e.target.value)}
@@ -288,10 +281,10 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
           </h3>
           <div className="edusync-teacher-form-grid edusync-teacher-form-grid--2col">
             <div className="edusync-form-group">
-              <label className="edusync-form-label">Assigned subjects *</label>
+              <label className="edusync-form-label">Assigned subjects (comma separated) *</label>
               <input
                 type="text"
-                placeholder="e.g. Mathematics, Physics"
+                placeholder="Mathematics, Physics"
                 className="edusync-form-input"
                 value={subjectsInput}
                 onChange={(e) => setSubjectsInput(e.target.value)}
@@ -300,10 +293,10 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
             </div>
 
             <div className="edusync-form-group">
-              <label className="edusync-form-label">Assigned classes *</label>
+              <label className="edusync-form-label">Assigned classes (comma separated) *</label>
               <input
                 type="text"
-                placeholder="e.g. 8A, 9A, 10B"
+                placeholder="8A, 9A, 10B"
                 className="edusync-form-input"
                 value={classesInput}
                 onChange={(e) => setClassesInput(e.target.value)}
@@ -315,6 +308,7 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
               <label className="edusync-form-label">Weekly teaching load</label>
               <input
                 type="text"
+                placeholder="18 periods / week"
                 className="edusync-form-input"
                 value={weeklyLoad}
                 onChange={(e) => setWeeklyLoad(e.target.value)}
@@ -322,7 +316,7 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
             </div>
 
             <div className="edusync-form-group">
-              <label className="edusync-form-label">Availability</label>
+              <label className="edusync-form-label">Availability status</label>
               <select
                 className="edusync-form-select"
                 value={availability}
@@ -337,10 +331,10 @@ export const AddEditTeacherScreen: React.FC<AddEditTeacherScreenProps> = ({
           </div>
         </div>
 
-        {/* Footer Actions */}
+        {/* Form Actions Footer */}
         <div className="edusync-teacher-form-footer">
           <span className="edusync-teacher-form-footer__notice">
-            Complete all required fields before saving.
+            Complete required fields before saving teacher record.
           </span>
           <div className="edusync-teacher-form-footer__btns">
             <button

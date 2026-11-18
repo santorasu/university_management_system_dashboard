@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStudentFlow } from '../../../application/state/student-flow.context';
+import { StudentNavTabs } from './components/StudentNavTabs';
 
 interface StudentProfileScreenProps {
   onNavigateToDashboard: () => void;
@@ -36,51 +37,49 @@ export const StudentProfileScreen: React.FC<StudentProfileScreenProps> = ({
 
   return (
     <div className="edusync-students-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-students-view__top-bar">
-        <div className="edusync-students-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={goToConsolidatedOverview}
-              role="button"
-              tabIndex={0}
             >
               Students
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Profile
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Profile</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
               onClick={goToConsolidatedOverview}
               title="Back to students overview"
-              aria-label="Back to students overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Student profile</h1>
+            <div>
+              <h1 className="academic-hero__title">Student profile</h1>
+              <p className="academic-hero__subtitle">
+                View student information, academic progress, attendance, and payments.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            View student information, academic progress, attendance, and payments.
-          </p>
         </div>
 
-        <div className="edusync-students-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -105,7 +104,10 @@ export const StudentProfileScreen: React.FC<StudentProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Hero Overview Card */}
+      {/* 2. SUB-NAVIGATION TABS */}
+      <StudentNavTabs />
+
+      {/* 3. HERO OVERVIEW CARD */}
       <div className="edusync-student-profile-hero-card">
         <div className="edusync-student-profile-hero-card__left">
           <div
@@ -144,7 +146,7 @@ export const StudentProfileScreen: React.FC<StudentProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Two-Column Details Grid */}
+      {/* 4. TWO-COLUMN DETAILS GRID */}
       <div className="edusync-student-profile-grid">
         {/* Left Card: Profile information */}
         <div className="edusync-student-profile-card">
@@ -201,7 +203,7 @@ export const StudentProfileScreen: React.FC<StudentProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Bottom Full-Width Card: Guardian & fee details */}
+      {/* 5. BOTTOM FULL-WIDTH CARD: Guardian & fee details */}
       <div className="edusync-student-profile-card edusync-student-profile-card--full">
         <h3 className="edusync-student-profile-card__title">Guardian &amp; fee details</h3>
         <div className="edusync-student-profile-fee-grid">

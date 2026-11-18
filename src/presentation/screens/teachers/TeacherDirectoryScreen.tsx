@@ -19,7 +19,7 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
     setDepartment,
     setStatus,
     setAvailability,
-    goToDirectory,
+    goToConsolidatedOverview,
     goToAddTeacher,
     goToEditTeacher,
     goToProfile,
@@ -27,51 +27,49 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
 
   return (
     <div className="edusync-teachers-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-teachers-view__top-bar">
-        <div className="edusync-teachers-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToDirectory}
-              role="button"
-              tabIndex={0}
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
+              onClick={goToConsolidatedOverview}
             >
               Teachers
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Directory
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Directory</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={onNavigateToDashboard}
-              title="Back to Dashboard"
-              aria-label="Back to Dashboard"
+              onClick={goToConsolidatedOverview}
+              title="Back to Teachers Overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Teachers</h1>
+            <div>
+              <h1 className="academic-hero__title">Teachers</h1>
+              <p className="academic-hero__subtitle">
+                Manage teacher profiles, subject assignments, employment, availability, and student feedback.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Manage teacher profiles, subject assignments, employment, availability, and student feedback.
-          </p>
         </div>
 
-        <div className="edusync-teachers-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -89,24 +87,24 @@ export const TeacherDirectoryScreen: React.FC<TeacherDirectoryScreenProps> = ({
         </div>
       </div>
 
-      {/* Sub-Navigation Tabs */}
+      {/* 2. SUB-NAVIGATION TABS */}
       <TeacherNavTabs />
 
-      {/* 4 KPI Cards (Placed below tabbar) */}
+      {/* 3. 4 KPI CARDS (Placed directly below tabbar) */}
       <TeacherKpiCards stats={stats} />
 
-      {/* Full-Width Directory Card */}
+      {/* 4. FULL-WIDTH DIRECTORY CARD */}
       <div className="edusync-teacher-directory-card edusync-teacher-directory-card--full">
         <div className="edusync-teacher-directory-card__header">
           <div>
             <h3 className="edusync-teacher-directory-card__title">Teacher directory</h3>
             <span className="edusync-teacher-directory-card__count">
-              {stats?.totalTeachers || 86} teacher records
+              {stats?.totalTeachers.toLocaleString() || '86'} records
             </span>
           </div>
         </div>
 
-        {/* Filters Toolbar */}
+        {/* Filter Toolbar */}
         <div className="edusync-teacher-directory-card__filters edusync-teacher-directory-card__filters--full">
           <div className="edusync-teacher-directory-card__search-wrap edusync-teacher-directory-card__search-wrap--lg">
             <Icon name="search" size={16} className="edusync-input-search-icon" />

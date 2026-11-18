@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStudentFlow } from '../../../application/state/student-flow.context';
+import { StudentNavTabs } from './components/StudentNavTabs';
 
 interface AddEditStudentScreenProps {
   onNavigateToDashboard: () => void;
@@ -78,53 +79,53 @@ export const AddEditStudentScreen: React.FC<AddEditStudentScreenProps> = ({
 
   return (
     <div className="edusync-students-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-students-view__top-bar">
-        <div className="edusync-students-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={goToConsolidatedOverview}
-              role="button"
-              tabIndex={0}
             >
               Students
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>
               {isEditMode ? 'Edit' : 'Add'}
             </span>
-          </nav>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
               onClick={goToConsolidatedOverview}
               title="Back to students overview"
-              aria-label="Back to students overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>
-              {isEditMode ? 'Edit student' : 'Add student'}
-            </h1>
+            <div>
+              <h1 className="academic-hero__title">
+                {isEditMode ? 'Edit student' : 'Add student'}
+              </h1>
+              <p className="academic-hero__subtitle">
+                Create a student record and assign their class, guardian, and account status.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Create a student record and assign their class, guardian, and account status.
-          </p>
         </div>
 
-        <div className="edusync-students-view__header-actions">
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -135,13 +136,16 @@ export const AddEditStudentScreen: React.FC<AddEditStudentScreenProps> = ({
         </div>
       </div>
 
+      {/* 2. SUB-NAVIGATION TABS (Persistent across screens) */}
+      <StudentNavTabs />
+
       {errorMessage && (
         <div className="edusync-alert edusync-alert--error" style={{ marginBottom: '20px' }}>
           <span>{errorMessage}</span>
         </div>
       )}
 
-      {/* Form Container */}
+      {/* 3. FORM CONTAINER */}
       <form onSubmit={handleSubmit} className="edusync-student-form">
         {/* Card 1: Personal information */}
         <div className="edusync-student-form-card">

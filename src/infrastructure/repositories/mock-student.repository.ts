@@ -220,7 +220,6 @@ export class MockStudentRepository implements IStudentRepository {
   ];
 
   async getStudents(filters?: Partial<StudentFilterOptions>): Promise<Student[]> {
-    await new Promise((resolve) => setTimeout(resolve, 60)); // mock network delay
     let results = [...this.students];
 
     if (filters?.searchQuery) {
@@ -249,7 +248,6 @@ export class MockStudentRepository implements IStudentRepository {
   }
 
   async getStudentById(id: string): Promise<Student | null> {
-    await new Promise((resolve) => setTimeout(resolve, 40));
     return this.students.find((s) => s.id === id || s.studentId === id) || null;
   }
 
@@ -267,7 +265,6 @@ export class MockStudentRepository implements IStudentRepository {
   }
 
   async createStudent(studentData: Omit<Student, 'id'>): Promise<Student> {
-    await new Promise((resolve) => setTimeout(resolve, 100));
     const newStudent: Student = {
       ...studentData,
       id: `stu-${Date.now()}`,
@@ -277,7 +274,6 @@ export class MockStudentRepository implements IStudentRepository {
   }
 
   async updateStudent(id: string, updates: Partial<Student>): Promise<Student> {
-    await new Promise((resolve) => setTimeout(resolve, 100));
     const index = this.students.findIndex((s) => s.id === id || s.studentId === id);
     if (index === -1) {
       throw new Error(`Student with id ${id} not found`);
@@ -290,7 +286,6 @@ export class MockStudentRepository implements IStudentRepository {
   }
 
   async deleteStudent(id: string): Promise<boolean> {
-    await new Promise((resolve) => setTimeout(resolve, 80));
     const index = this.students.findIndex((s) => s.id === id || s.studentId === id);
     if (index === -1) return false;
     this.students.splice(index, 1);

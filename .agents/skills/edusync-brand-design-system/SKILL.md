@@ -135,36 +135,103 @@ The authentication module models all 12 Figma screens (`node-id=4-425`):
 
 ## 6. Student Management Flow Architecture (Figma Node `20:2104`)
 
-Conforms 1:1 with Figma node `20:2104` across 4 canonical screens:
-- `Consolidated Overview` (`#20:2105`): Split 2-column view with directory and quick student profile.
-- `Student Directory` (`#24:2547`): Full-width 8-column table with multi-filters and pagination.
-- `Add / Edit Student` (`#24:987`): 3-card enrollment form with validation.
-- `Student Profile` (`#24:1354`): Comprehensive profile with academic & guardian summary.
+Conforms 1:1 with Figma node `20:2104` across 4 canonical screens, strictly enforcing cross-module navigation consistency, persistent subnav tabs, and unified KPI stat structures:
+
+### Universal Standard Navigation & Metric Patterns:
+- **Hero Navigation Triad (`.academic-hero`)**:
+  - Interactive breadcrumbs trail (`.academic-hero__crumbs`) using semantic `<button className="academic-hero__crumb--link">`.
+  - Circular back arrow button (`.academic-hero__back`) returning to previous/Dashboard.
+  - Action buttons cluster (`.academic-hero__actions`): secondary outline `← Dashboard` action button and primary blue `+ Add student` CTA.
+- **Persistent Sub-Navigation Tabs (`StudentNavTabs`)**:
+  - Present and persistent across all 4 screens (`Overview`, `Student Directory`, `Add Student`) with canonical order matching Academic Structure and Attendance modules.
+  - Ensures users never lose orientation when switching between directory tables, profile views, and registration forms.
+- **Unified 4-KPI Metric Grid (`.academic-kpis-grid`, `.academic-kpi-card`)**:
+  - Placed directly under the sub-navigation tabs in a 3-tier vertical stack (`.kpi-label`, `.kpi-value`, `.kpi-subtext`).
+  - Total students (`1,248`, `+32 this term`), Active (`1,180`, `94.5% of total`), On leave (`68`, `Current term`), Classes covered (`42`, `Across all grades`).
+- **Smooth State Architecture (No Shaking/Flickering)**:
+  - Like `AcademicStructureFlowProvider`, initial data load runs once on mount (`useEffect(..., [])`).
+  - Search and dropdown filtering are computed in-memory via `useMemo` with zero network delay simulation.
+  - Selected entity is tracked by ID (`selectedStudentId`) and derived via `useMemo` to eliminate circular effect loops.
+  - View containers omit repetitive `animation: fadeIn` CSS rules that trigger layout shaking.
+
+### Screen 1: `Student Management — Consolidated Overview` (`#20:2105`)
+- **Breadcrumbs**: `Dashboard / Students / Overview`
+- **Sub-Navigation Tabs**: `Overview` (active), `Student Directory`, `Add Student`.
+- **4 KPI Cards**: Standard vertical 3-tier grid.
+- **Split Layout (62% / 38%)**:
+  - **Left Table**: Search input (`Search name, student ID, roll...`), Class filter, Status filter, Interactive student rows with selection highlight border (`#3659D9`).
+  - **Right Quick Profile**: Avatar with initials, Student ID & Class, Active pill, Contact info, Guardian details, Attendance rate (`96.4%`), Fee status (`Paid`), and Action buttons (`View full profile` -> `STUDENTS_PROFILE`, `Edit student` -> `STUDENTS_ADD_EDIT`).
+
+### Screen 2: `Student Management — Directory` (`#24:2547`)
+- **Breadcrumbs**: `Dashboard / Students / Directory`
+- **Sub-Navigation Tabs**: `Overview`, `Student Directory` (active), `Add Student`.
+- **4 KPI Cards**: Standard vertical 3-tier grid.
+- **Full-Width Table Card**:
+  - Filter bar: Search, Class dropdown, Status dropdown, Blood group, Filters button, Export button.
+  - Columns: Student (Avatar + Name), Student ID, Class & Section, Roll No, Guardian, Contact, Status badge, Actions (`View` -> `STUDENTS_PROFILE`, `Edit` -> `STUDENTS_ADD_EDIT`).
+  - Pagination controls (`Showing 1–10 of 1,248 students`, Previous, 1, 2, Next).
+
+### Screen 3: `Student Management — Add / Edit Student` (`#24:987`)
+- **Breadcrumbs**: `Dashboard / Students / Add Student` (or `Edit Student`)
+- **Sub-Navigation Tabs**: `Overview`, `Student Directory`, `Add Student` (active).
+- **Form Sections (3 Elevation-01 Cards)**:
+  1. **Personal and contact information**: Full name *, Student ID *, Date of birth, Gender, Blood group, Email, Phone, Address.
+  2. **Academic & enrollment information**: Academic year dropdown, Class dropdown, Section dropdown, Roll number *, Admission date.
+  3. **Guardian & emergency information**: Guardian name *, Relationship dropdown, Guardian phone *, Guardian email, Emergency contact number.
+- **Actions**: Helper validation note, `Cancel` button, `Save student` primary CTA with full input verification.
+
+### Screen 4: `Student Management — Student Profile` (`#24:1354`)
+- **Breadcrumbs**: `Dashboard / Students / Profile`
+- **Sub-Navigation Tabs**: `Overview` (active), `Student Directory`, `Add Student`.
+- **Hero Overview Card**: Circular avatar (64x64), Student name, Student ID, Class & Section, Roll No, Active badge, Email, Phone.
+- **Two-Column Details Grid**:
+  - **Left Card**: Academic details (Class teacher, Admission date, Attendance rate `96.4%`, Previous term GPA `3.85`).
+  - **Right Card**: Guardian & emergency contact (Guardian name, relationship, phone, address).
+- **Full-Width Card**: Fee and payment status (Term 1 tuition fees, Billed `$1,200`, Paid `$1,200`, Status `Paid`).
 
 ---
 
 ## 7. Teacher Management Flow Architecture (Figma Node `21:876`)
 
-The complete teacher management module conforms 1:1 with Figma node `21:876` across 5 canonical screens:
+The complete teacher management module conforms 1:1 with Figma node `21:876` across 5 canonical screens, strictly enforcing cross-module navigation consistency, persistent subnav tabs, and unified KPI stat structures:
+
+### Universal Standard Navigation & Metric Patterns:
+- **Hero Navigation Triad (`.academic-hero`)**:
+  - Interactive breadcrumbs trail (`.academic-hero__crumbs`) using semantic `<button className="academic-hero__crumb--link">`.
+  - Circular back arrow button (`.academic-hero__back`) returning to previous/Dashboard.
+  - Action buttons cluster (`.academic-hero__actions`): secondary outline `← Dashboard` action button and primary blue `+ Add teacher` CTA.
+- **Persistent Sub-Navigation Tabs (`TeacherNavTabs`)**:
+  - Present and persistent across all 5 screens (`Overview`, `Teacher Directory`, `Feedback & Ratings`, `Add Teacher`) with canonical order matching Academic Structure and Attendance modules.
+  - Prevents context loss when switching between directory tables, profile views, feedback states, and onboarding forms.
+- **Unified 4-KPI Metric Grid (`.academic-kpis-grid`, `.academic-kpi-card`)**:
+  - Placed directly under the sub-navigation tabs in a 3-tier vertical stack (`.kpi-label`, `.kpi-value`, `.kpi-subtext`).
+  - Total teachers (`86`, `+4 this academic year`), Active (`79`, `91.9% of faculty`), On leave (`4`, `Current leave records`), Subjects covered (`24`, `Across 12 grades`).
+- **Smooth State Architecture (No Shaking/Flickering)**:
+  - Like `AcademicStructureFlowProvider`, initial data load runs once on mount (`useEffect(..., [])`).
+  - Search, department, rating, and status filtering are computed in-memory via `useMemo` with zero network delay simulation.
+  - Selected entity is tracked by ID (`selectedTeacherId`) and derived via `useMemo` to eliminate circular effect loops.
+  - View containers omit repetitive `animation: fadeIn` CSS rules that trigger layout shaking.
 
 ### Screen 1: `Teacher Management — Consolidated Overview` (`#21:877`)
-- **Breadcrumbs**: `Dashboard / Teachers`
-- **Actions**: `Back to directory` (secondary outline button -> `TEACHERS_DIRECTORY`), `Add teacher` (primary blue button -> `TEACHERS_ADD_EDIT`).
-- **4 KPI Cards**: Total teachers (`86`, `+4 this academic year`), Active (`79`, `91.9% of faculty`), On leave (`4`, `Current leave records`), Subjects covered (`24`, `Across 12 grades`).
+- **Breadcrumbs**: `Dashboard / Teachers / Overview`
+- **Sub-Navigation Tabs**: `Overview` (active), `Teacher Directory`, `Feedback & Ratings`, `Add Teacher`.
+- **4 KPI Cards**: Standard vertical 3-tier grid.
 - **Split Layout (60% / 40%)**:
   - **Left Table**: Search input (`Search name, teacher ID, email...`), Department filter, Status filter, Interactive teacher rows with selection highlight border (`#3659D9`).
   - **Right Quick Profile**: Avatar with initials, Teacher ID & Department, Active pill, Contact info, Assigned classes & subjects pills, Availability status, Teacher Rating card (`4.8` ★★★★★ 126 reviews) with **"View feedback"** button, and Action buttons (`View timetable`, `Edit teacher`).
 
 ### Screen 2: `Teacher Management — Directory` (`#24:2998`)
 - **Breadcrumbs**: `Dashboard / Teachers / Directory`
-- **Actions**: `Teacher Feedback` button (navigates to `TEACHERS_FEEDBACK`), `Overview` button (navigates to `TEACHERS_CONSOLIDATED`), `Add teacher` (primary blue button -> `TEACHERS_ADD_EDIT`).
-- **Full-Width Table**:
+- **Sub-Navigation Tabs**: `Overview`, `Teacher Directory` (active), `Feedback & Ratings`, `Add Teacher`.
+- **4 KPI Cards**: Standard vertical 3-tier grid.
+- **Full-Width Table Card**:
   - Filter bar: Search, Department, Status, Availability, Filters button, Export button.
-  - Columns: Teacher (Avatar + Name), Teacher ID, Subjects, Classes, Employment, Availability badge, Status badge, Actions (`Edit` button).
-  - Clicking teacher name opens `TEACHERS_PROFILE`. Clicking `Edit` opens `TEACHERS_ADD_EDIT`.
+  - Columns: Teacher (Avatar + Name), Teacher ID, Subjects, Classes, Employment, Availability badge, Status badge, Actions (`View` -> `TEACHERS_PROFILE`, `Edit` -> `TEACHERS_ADD_EDIT`).
+  - Pagination controls (`Showing 1–10 of 86 teachers`, Previous, 1, 2, Next).
 
-### Screen 3: `Teacher Management — Add Edit Teacher` (`#24:1826`)
-- **Breadcrumbs**: `Dashboard / Teachers / Add / Edit`
+### Screen 3: `Teacher Management — Add / Edit Teacher` (`#24:1826`)
+- **Breadcrumbs**: `Dashboard / Teachers / Add Teacher` (or `Edit Teacher`)
+- **Sub-Navigation Tabs**: `Overview`, `Teacher Directory`, `Feedback & Ratings`, `Add Teacher` (active).
 - **Form Sections (3 Elevation-01 Cards)**:
   1. **Personal and contact information**: Full name *, Teacher ID *, Email address, Phone number, Address, Joining date.
   2. **Employment information**: Employment type dropdown, Department dropdown, Joining date, Qualification.
@@ -173,17 +240,17 @@ The complete teacher management module conforms 1:1 with Figma node `21:876` acr
 
 ### Screen 4: `Teacher Management — Teacher Profile` (`#24:2188`)
 - **Breadcrumbs**: `Dashboard / Teachers / Profile`
-- **Actions**: `Back to directory`, `Edit teacher`.
+- **Sub-Navigation Tabs**: `Overview` (active), `Teacher Directory`, `Feedback & Ratings`, `Add Teacher`.
 - **Hero Overview Card**: Circular avatar (64x64), Teacher name, Teacher ID, Department, Active badge, Email, Phone.
 - **Two-Column Details Grid**:
-  - Contact information: Email, Phone, Address, Emergency contact, Preferred contact.
-  - Assigned classes & subjects: Subject pills, Class periods list (e.g. Grade 8 · A 4 periods/week).
+  - **Contact information**: Email, Phone, Address, Emergency contact, Preferred contact.
+  - **Assigned classes & subjects**: Subject pills, Class periods list (e.g. Grade 8 · A 4 periods/week).
 - **Full-Width Card**: Employment & availability (Full-time details, experience, hours, `Available` pill).
 
 ### Screen 5: `Teacher Management — Feedback States` (`#29:1320`)
 - **Breadcrumbs**: `Dashboard / Teachers / Feedback`
-- **Action**: `Back to directory` button.
-- **4 KPI Cards**: Total feedback (`248`), Average rating (`4.6 / 5`), New this month (`36`), Needs review (`12`).
+- **Sub-Navigation Tabs**: `Overview`, `Teacher Directory`, `Feedback & Ratings` (active), `Add Teacher`.
+- **4 KPI Cards**: Standard vertical 3-tier grid (Total feedback `248`, Average rating `4.6 / 5`, New this month `36`, Needs review `12`).
 - **Full-Width Table Card**:
   - Filter toolbar: Search, Teacher select, Rating select (5 stars, 4+ stars, 3+ stars), Status select (Published, New, Needs review), `Apply filters` button.
   - Columns: Student, Teacher, Rating (★★★★★ 5.0), Feedback text, Date, Status pill (`Published`, `New`, `Needs review`).

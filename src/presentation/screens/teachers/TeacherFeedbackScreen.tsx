@@ -18,7 +18,7 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
     setFeedbackTeacher,
     setFeedbackRating,
     setFeedbackStatus,
-    goToDirectory,
+    goToConsolidatedOverview,
     goToAddTeacher,
   } = useTeacherFlow();
 
@@ -35,51 +35,49 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
 
   return (
     <div className="edusync-teachers-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-teachers-view__top-bar">
-        <div className="edusync-teachers-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToDirectory}
-              role="button"
-              tabIndex={0}
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
+              onClick={goToConsolidatedOverview}
             >
               Teachers
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Feedback
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Feedback</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={onNavigateToDashboard}
-              title="Back to Dashboard"
-              aria-label="Back to Dashboard"
+              onClick={goToConsolidatedOverview}
+              title="Back to Teachers Overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Teacher Feedback</h1>
+            <div>
+              <h1 className="academic-hero__title">Teacher feedback</h1>
+              <p className="academic-hero__subtitle">
+                Review ratings and feedback submitted by students through the mobile app.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Review ratings and feedback submitted by students through the mobile app.
-          </p>
         </div>
 
-        <div className="edusync-teachers-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -97,55 +95,46 @@ export const TeacherFeedbackScreen: React.FC<TeacherFeedbackScreenProps> = ({
         </div>
       </div>
 
-      {/* Sub-Navigation Tabs */}
+      {/* 2. SUB-NAVIGATION TABS */}
       <TeacherNavTabs />
 
-      {/* 4 Feedback KPI Cards (Placed below tabbar) */}
-      <div className="edusync-teacher-kpis">
-        <div className="edusync-teacher-kpi-card">
-          <div className="edusync-teacher-kpi-card__top">
-            <span className="edusync-teacher-kpi-card__label">Total feedback</span>
-          </div>
-          <div className="edusync-teacher-kpi-card__value-wrap">
-            <span className="edusync-teacher-kpi-card__value">{stats.totalFeedback}</span>
-            <span className="edusync-teacher-kpi-card__sub">{stats.totalFeedbackLabel}</span>
-          </div>
+      {/* 3. 4 FEEDBACK KPI CARDS (Placed directly below tabbar) */}
+      <div className="academic-kpis-grid">
+        <div className="academic-kpi-card">
+          <span className="academic-kpi-card__label">Total feedback</span>
+          <span className="academic-kpi-card__value">{stats.totalFeedback}</span>
+          <span className="academic-kpi-card__subtext academic-kpi-card__subtext--neutral">
+            {stats.totalFeedbackLabel}
+          </span>
         </div>
 
-        <div className="edusync-teacher-kpi-card">
-          <div className="edusync-teacher-kpi-card__top">
-            <span className="edusync-teacher-kpi-card__label">Average rating</span>
-          </div>
-          <div className="edusync-teacher-kpi-card__value-wrap">
-            <span className="edusync-teacher-kpi-card__value">{stats.averageRating}</span>
-            <span className="edusync-teacher-kpi-card__sub">{stats.averageRatingLabel}</span>
-          </div>
+        <div className="academic-kpi-card">
+          <span className="academic-kpi-card__label">Average rating</span>
+          <span className="academic-kpi-card__value">{stats.averageRating}</span>
+          <span className="academic-kpi-card__subtext" style={{ color: '#15803D' }}>
+            <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#15803D', marginRight: 4 }}></span>
+            {stats.averageRatingLabel}
+          </span>
         </div>
 
-        <div className="edusync-teacher-kpi-card">
-          <div className="edusync-teacher-kpi-card__top">
-            <span className="edusync-teacher-kpi-card__label">New this month</span>
-          </div>
-          <div className="edusync-teacher-kpi-card__value-wrap">
-            <span className="edusync-teacher-kpi-card__value">{stats.newThisMonth}</span>
-            <span className="edusync-teacher-kpi-card__sub">{stats.newThisMonthLabel}</span>
-          </div>
+        <div className="academic-kpi-card">
+          <span className="academic-kpi-card__label">New this month</span>
+          <span className="academic-kpi-card__value">{stats.newThisMonth}</span>
+          <span className="academic-kpi-card__subtext" style={{ color: 'var(--edusync-brand-primary, #3659D9)' }}>
+            {stats.newThisMonthLabel}
+          </span>
         </div>
 
-        <div className="edusync-teacher-kpi-card">
-          <div className="edusync-teacher-kpi-card__top">
-            <span className="edusync-teacher-kpi-card__label">Needs review</span>
-          </div>
-          <div className="edusync-teacher-kpi-card__value-wrap">
-            <span className="edusync-teacher-kpi-card__value">{stats.needsReview}</span>
-            <span className="edusync-teacher-kpi-card__sub edusync-teacher-kpi-card__sub--amber">
-              {stats.needsReviewLabel}
-            </span>
-          </div>
+        <div className="academic-kpi-card">
+          <span className="academic-kpi-card__label">Needs review</span>
+          <span className="academic-kpi-card__value">{stats.needsReview}</span>
+          <span className="academic-kpi-card__subtext academic-kpi-card__subtext--review">
+            {stats.needsReviewLabel}
+          </span>
         </div>
       </div>
 
-      {/* Full-Width Student Feedback Table Card */}
+      {/* 4. FULL-WIDTH STUDENT FEEDBACK TABLE CARD */}
       <div className="edusync-teacher-directory-card edusync-teacher-directory-card--full">
         <div className="edusync-teacher-directory-card__header">
           <div>
