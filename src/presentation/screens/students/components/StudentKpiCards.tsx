@@ -21,57 +21,42 @@ export const StudentKpiCards: React.FC<StudentKpiCardsProps> = ({ stats, mode = 
   const currentStats = stats || defaultStats;
 
   return (
-    <div className="edusync-student-kpis">
-      <div className="edusync-student-kpi-card">
-        <div className="edusync-student-kpi-card__top">
-          <span className="edusync-student-kpi-card__label">Total students</span>
-        </div>
-        <div className="edusync-student-kpi-card__value-wrap">
-          <span className="edusync-student-kpi-card__value">
-            {currentStats.totalStudents.toLocaleString()}
-          </span>
-          <span className="edusync-student-kpi-card__pill edusync-student-kpi-card__pill--primary">
-            {currentStats.totalStudentsChange}
-          </span>
-        </div>
+    <div className="academic-kpis-grid">
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Total students</span>
+        <span className="academic-kpi-card__value">
+          {currentStats.totalStudents.toLocaleString()}
+        </span>
+        <span className="academic-kpi-card__subtext" style={{ color: 'var(--edusync-brand-primary, #3659D9)' }}>
+          {currentStats.totalStudentsChange}
+        </span>
       </div>
 
-      <div className="edusync-student-kpi-card">
-        <div className="edusync-student-kpi-card__top">
-          <span className="edusync-student-kpi-card__label">Active</span>
-        </div>
-        <div className="edusync-student-kpi-card__value-wrap">
-          <span className="edusync-student-kpi-card__value">
-            {currentStats.activeStudents.toLocaleString()}
-          </span>
-          <span className="edusync-student-kpi-card__pill edusync-student-kpi-card__pill--success">
-            {currentStats.activeEnrollmentPct}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Active</span>
+        <span className="academic-kpi-card__value">
+          {currentStats.activeStudents.toLocaleString()}
+        </span>
+        <span className="academic-kpi-card__subtext" style={{ color: '#15803D' }}>
+          <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#15803D', marginRight: 4 }}></span>
+          {currentStats.activeEnrollmentPct}
+        </span>
       </div>
 
-      <div className="edusync-student-kpi-card">
-        <div className="edusync-student-kpi-card__top">
-          <span className="edusync-student-kpi-card__label">Inactive</span>
-        </div>
-        <div className="edusync-student-kpi-card__value-wrap">
-          <span className="edusync-student-kpi-card__value">{currentStats.inactiveStudents}</span>
-          <span className="edusync-student-kpi-card__pill edusync-student-kpi-card__pill--warning">
-            {currentStats.inactiveLabel}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Inactive</span>
+        <span className="academic-kpi-card__value">{currentStats.inactiveStudents}</span>
+        <span className="academic-kpi-card__subtext academic-kpi-card__subtext--review" style={{ color: '#B45309' }}>
+          {currentStats.inactiveLabel}
+        </span>
       </div>
 
-      <div className="edusync-student-kpi-card">
-        <div className="edusync-student-kpi-card__top">
-          <span className="edusync-student-kpi-card__label">New this month</span>
-        </div>
-        <div className="edusync-student-kpi-card__value-wrap">
-          <span className="edusync-student-kpi-card__value">{currentStats.newThisMonth}</span>
-          <span className="edusync-student-kpi-card__pill edusync-student-kpi-card__pill--neutral">
-            {currentStats.newThisMonthLabel}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">New this month</span>
+        <span className="academic-kpi-card__value">{currentStats.newThisMonth}</span>
+        <span className="academic-kpi-card__subtext academic-kpi-card__subtext--neutral" style={{ color: 'var(--edusync-text-secondary, #667085)' }}>
+          {currentStats.newThisMonthLabel}
+        </span>
       </div>
     </div>
   );
