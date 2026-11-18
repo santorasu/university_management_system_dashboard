@@ -349,3 +349,191 @@
   align-items: center !important;
   justify-content: center !important;
 }
+
+
+/* ==========================================================================
+   Authoritative Global Module Hero & Triad Layout
+   ========================================================================== */
+.academic-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.academic-hero__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--edusync-text-secondary, #667085);
+  margin-bottom: 8px;
+}
+
+.academic-hero__crumb--link {
+  color: var(--edusync-brand-primary, #3659D9);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.academic-hero__crumb--link:hover {
+  text-decoration: underline;
+  color: var(--edusync-brand-primary-hover, #2944B3);
+}
+
+.academic-hero__crumb-sep {
+  color: var(--edusync-text-muted, #98A2B3);
+}
+
+.academic-hero__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.academic-hero__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.academic-hero__subtitle {
+  font-size: 14px;
+  color: var(--edusync-text-secondary, #667085);
+  margin: 4px 0 0 0;
+}
+
+.academic-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Authoritative Global Sub-Navigation Tabs
+   ========================================================================== */
+.academic-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--edusync-border-default, #E4E7EC);
+  padding-bottom: 0;
+  overflow-x: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.academic-nav-tab {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--edusync-text-secondary, #667085);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.academic-nav-tab:hover {
+  color: var(--edusync-brand-primary, #3659D9);
+}
+
+.academic-nav-tab--active {
+  color: var(--edusync-brand-primary, #3659D9);
+}
+
+.academic-nav-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--edusync-brand-primary, #3659D9);
+  border-radius: 2px 2px 0 0;
+}
+
+/* ==========================================================================
+   Authoritative Global 4 KPI Cards Grid
+   ========================================================================== */
+.academic-kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .academic-kpis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .academic-kpis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.academic-kpi-card {
+  background: #ffffff;
+  border: 1px solid var(--edusync-border-default, #E4E7EC);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(20, 33, 61, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.academic-kpi-card:hover {
+  box-shadow: 0 4px 12px rgba(20, 33, 61, 0.08);
+}
+
+.academic-kpi-card__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--edusync-text-secondary, #667085);
+  text-transform: capitalize;
+}
+
+.academic-kpi-card__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--edusync-text-navy, #14213D);
+  line-height: 1;
+}
+
+.academic-kpi-card__subtext {
+  font-size: 12px;
+  font-weight: 500;
+  color: #15803D;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.academic-kpi-card__subtext--neutral {
+  color: var(--edusync-text-secondary, #667085);
+}
+
+.academic-kpi-card__subtext--review {
+  color: #B45309;
+}

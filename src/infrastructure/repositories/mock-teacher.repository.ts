@@ -275,7 +275,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   ];
 
   async getTeachers(filters?: Partial<TeacherFilterOptions>): Promise<Teacher[]> {
-    await new Promise((resolve) => setTimeout(resolve, 60));
     let results = [...this.teachers];
 
     if (filters?.searchQuery) {
@@ -311,7 +310,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   }
 
   async getTeacherById(id: string): Promise<Teacher | null> {
-    await new Promise((resolve) => setTimeout(resolve, 40));
     return this.teachers.find((t) => t.id === id || t.teacherId === id) || null;
   }
 
@@ -329,7 +327,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   }
 
   async createTeacher(teacherData: Omit<Teacher, 'id'>): Promise<Teacher> {
-    await new Promise((resolve) => setTimeout(resolve, 100));
     const newTeacher: Teacher = {
       ...teacherData,
       id: `tch-${Date.now()}`,
@@ -339,7 +336,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   }
 
   async updateTeacher(id: string, updates: Partial<Teacher>): Promise<Teacher> {
-    await new Promise((resolve) => setTimeout(resolve, 100));
     const index = this.teachers.findIndex((t) => t.id === id || t.teacherId === id);
     if (index === -1) throw new Error(`Teacher with id ${id} not found`);
     this.teachers[index] = { ...this.teachers[index], ...updates };
@@ -347,7 +343,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   }
 
   async deleteTeacher(id: string): Promise<boolean> {
-    await new Promise((resolve) => setTimeout(resolve, 80));
     const index = this.teachers.findIndex((t) => t.id === id || t.teacherId === id);
     if (index === -1) return false;
     this.teachers.splice(index, 1);
@@ -355,7 +350,6 @@ export class MockTeacherRepository implements ITeacherRepository {
   }
 
   async getFeedback(filters?: Partial<FeedbackFilterOptions>): Promise<TeacherFeedback[]> {
-    await new Promise((resolve) => setTimeout(resolve, 60));
     let results = [...this.feedbackList];
 
     if (filters?.searchQuery) {

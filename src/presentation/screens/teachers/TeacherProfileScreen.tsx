@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTeacherFlow } from '../../../application/state/teacher-flow.context';
+import { TeacherNavTabs } from './components/TeacherNavTabs';
 
 interface TeacherProfileScreenProps {
   onNavigateToDashboard: () => void;
@@ -22,7 +23,13 @@ export const TeacherProfileScreen: React.FC<TeacherProfileScreenProps> = ({
       <div className="edusync-teachers-view">
         <p>
           No teacher selected.{' '}
-          <button onClick={goToConsolidatedOverview}>Back to teachers</button>
+          <button
+            type="button"
+            className="edusync-btn edusync-btn--secondary"
+            onClick={goToConsolidatedOverview}
+          >
+            ← Back to teachers
+          </button>
         </p>
       </div>
     );
@@ -30,51 +37,49 @@ export const TeacherProfileScreen: React.FC<TeacherProfileScreenProps> = ({
 
   return (
     <div className="edusync-teachers-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-teachers-view__top-bar">
-        <div className="edusync-teachers-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={goToConsolidatedOverview}
-              role="button"
-              tabIndex={0}
             >
               Teachers
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Profile
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Profile</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
               onClick={goToConsolidatedOverview}
               title="Back to teachers overview"
-              aria-label="Back to teachers overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Teacher profile</h1>
+            <div>
+              <h1 className="academic-hero__title">Teacher profile</h1>
+              <p className="academic-hero__subtitle">
+                View contact information, employment details, assigned classes, and availability.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            View contact information, employment details, assigned classes, and availability.
-          </p>
         </div>
 
-        <div className="edusync-teachers-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -99,7 +104,10 @@ export const TeacherProfileScreen: React.FC<TeacherProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Hero Overview Card */}
+      {/* 2. SUB-NAVIGATION TABS */}
+      <TeacherNavTabs />
+
+      {/* 3. HERO OVERVIEW CARD */}
       <div className="edusync-teacher-profile-hero-card">
         <div className="edusync-teacher-profile-hero-card__left">
           <div
@@ -138,7 +146,7 @@ export const TeacherProfileScreen: React.FC<TeacherProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Two-Column Grid */}
+      {/* 4. TWO-COLUMN GRID */}
       <div className="edusync-teacher-profile-grid">
         {/* Left Card: Contact Information */}
         <div className="edusync-teacher-profile-card">
@@ -200,7 +208,7 @@ export const TeacherProfileScreen: React.FC<TeacherProfileScreenProps> = ({
         </div>
       </div>
 
-      {/* Bottom Full-Width Card: Employment & availability */}
+      {/* 5. BOTTOM FULL-WIDTH CARD: Employment & availability */}
       <div className="edusync-teacher-profile-card edusync-teacher-profile-card--full">
         <h3 className="edusync-teacher-profile-card__title">Employment &amp; availability</h3>
         <div className="edusync-teacher-profile-avail-grid">

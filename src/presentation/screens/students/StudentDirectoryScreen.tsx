@@ -19,7 +19,7 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
     setSelectedClass,
     setSelectedStatus,
     setSelectedSection,
-    goToDirectory,
+    goToConsolidatedOverview,
     goToAddStudent,
     goToEditStudent,
     goToProfile,
@@ -27,51 +27,49 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
 
   return (
     <div className="edusync-students-view">
-      {/* Top Header & Breadcrumbs */}
-      <div className="edusync-students-view__top-bar">
-        <div className="edusync-students-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToDirectory}
-              role="button"
-              tabIndex={0}
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
+              onClick={goToConsolidatedOverview}
             >
               Students
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Directory
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Directory</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
-              onClick={onNavigateToDashboard}
-              title="Back to Dashboard"
-              aria-label="Back to Dashboard"
+              onClick={goToConsolidatedOverview}
+              title="Back to Students Overview"
+              aria-label="Back"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Students</h1>
+            <div>
+              <h1 className="academic-hero__title">Students</h1>
+              <p className="academic-hero__subtitle">
+                Manage student records, enrollment, guardians, and academic history.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Manage student records, enrollment, guardians, and academic history.
-          </p>
         </div>
 
-        <div className="edusync-students-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -89,13 +87,13 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
         </div>
       </div>
 
-      {/* Sub-Navigation Tabs */}
+      {/* 2. SUB-NAVIGATION TABS */}
       <StudentNavTabs />
 
-      {/* 4 KPI Cards (Placed below tabbar) */}
+      {/* 3. 4 KPI CARDS (Placed directly below tabbar) */}
       <StudentKpiCards stats={stats} mode="directory" />
 
-      {/* Full-Width Directory Card */}
+      {/* 4. FULL-WIDTH DIRECTORY CARD */}
       <div className="edusync-student-directory-card edusync-student-directory-card--full">
         <div className="edusync-student-directory-card__header">
           <div>
@@ -166,17 +164,17 @@ export const StudentDirectoryScreen: React.FC<StudentDirectoryScreenProps> = ({
           </div>
         </div>
 
-        {/* Directory Table */}
+        {/* Full Table */}
         <div className="edusync-table-container">
           <table className="edusync-table">
             <thead>
               <tr>
                 <th style={{ width: '22%' }}>Student</th>
                 <th style={{ width: '13%' }}>Student ID</th>
-                <th style={{ width: '13%' }}>Class / Section</th>
-                <th style={{ width: '15%' }}>Guardian</th>
-                <th style={{ width: '11%' }}>Attendance</th>
-                <th style={{ width: '10%' }}>Fee status</th>
+                <th style={{ width: '14%' }}>Class / Section</th>
+                <th style={{ width: '16%' }}>Guardian</th>
+                <th style={{ width: '10%' }}>Attendance</th>
+                <th style={{ width: '9%' }}>Fee status</th>
                 <th style={{ width: '9%' }}>Status</th>
                 <th style={{ width: '7%', textAlign: 'center' }}>Actions</th>
               </tr>

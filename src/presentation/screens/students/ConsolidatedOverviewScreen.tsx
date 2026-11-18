@@ -21,58 +21,49 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
     setSearchQuery,
     setSelectedClass,
     setSelectedStatus,
-    goToDirectory,
     goToAddStudent,
     goToProfile,
   } = useStudentFlow();
 
   return (
     <div className="edusync-students-view">
-      {/* Top Header & Breadcrumb */}
-      <div className="edusync-students-view__top-bar">
-        <div className="edusync-students-view__header-left">
-          <nav className="edusync-dashboard-hero__breadcrumb">
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
+      {/* 1. HERO & BREADCRUMBS */}
+      <div className="academic-hero">
+        <div>
+          <div className="academic-hero__crumbs">
+            <button
+              type="button"
+              className="academic-hero__crumb--link"
               onClick={onNavigateToDashboard}
-              role="button"
-              tabIndex={0}
             >
               Dashboard
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span
-              className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--link"
-              onClick={goToDirectory}
-              role="button"
-              tabIndex={0}
-            >
-              Students
-            </span>
-            <span className="edusync-dashboard-hero__crumb-sep">/</span>
-            <span className="edusync-dashboard-hero__crumb edusync-dashboard-hero__crumb--current">
-              Overview
-            </span>
-          </nav>
+            </button>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ fontWeight: 500 }}>Students</span>
+            <span className="academic-hero__crumb-sep">/</span>
+            <span style={{ color: 'var(--edusync-text-navy, #14213D)', fontWeight: 600 }}>Overview</span>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
+          <div className="academic-hero__title-row">
             <button
               type="button"
               className="edusync-btn-back-circle"
               onClick={onNavigateToDashboard}
-              title="Back to Dashboard"
+              title="Return to Dashboard Overview"
               aria-label="Back to Dashboard"
             >
               ←
             </button>
-            <h1 className="edusync-dashboard-hero__title" style={{ margin: 0 }}>Students</h1>
+            <div>
+              <h1 className="academic-hero__title">Students</h1>
+              <p className="academic-hero__subtitle">
+                Manage student records, guardians, academic progress, and fees.
+              </p>
+            </div>
           </div>
-          <p className="edusync-dashboard-hero__subtitle" style={{ marginTop: '4px' }}>
-            Manage student records, guardians, academic progress, and fees.
-          </p>
         </div>
 
-        <div className="edusync-students-view__header-actions" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="academic-hero__actions">
           <button
             type="button"
             className="edusync-btn edusync-btn--secondary"
@@ -90,13 +81,13 @@ export const ConsolidatedOverviewScreen: React.FC<ConsolidatedOverviewScreenProp
         </div>
       </div>
 
-      {/* Sub-Navigation Tabs */}
+      {/* 2. SUB-NAVIGATION TABS */}
       <StudentNavTabs />
 
-      {/* 4 KPI Cards (Placed below tabbar) */}
+      {/* 3. 4 KPI STAT CARDS (Placed directly below tabbar) */}
       <StudentKpiCards stats={stats} mode="consolidated" />
 
-      {/* Split Grid: Left Directory Table (62%), Right Quick Profile (38%) */}
+      {/* 4. SPLIT GRID: Left Directory Table (62%), Right Quick Profile (38%) */}
       <div className="edusync-students-consolidated-grid">
         {/* Left Column: Student Directory */}
         <div className="edusync-student-directory-card">

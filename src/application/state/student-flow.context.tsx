@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import type {
   Student,
   StudentStats,
@@ -42,12 +42,12 @@ const StudentFlowContext = createContext<StudentFlowContextValue | undefined>(un
 const repository = new MockStudentRepository();
 
 export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [subScreen, setSubScreen] = useState<StudentSubScreen>('STUDENTS_DIRECTORY');
-  const [students, setStudents] = useState<Student[]>([]);
-  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [subScreen, setSubScreen] = useState<StudentSubScreen>('STUDENTS_CONSOLIDATED');
+  const [allStudents, setAllStudents] = useState<Student[]>([]);
+  const [selectedStudentId, setSelectedStudentId] = useState<string>('stu-1');
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [stats, setStats] = useState<StudentStats | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
 
   const [filters, setFilters] = useState<StudentFilterOptions>({
@@ -58,29 +58,53 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
   });
 
   const loadData = useCallback(async () => {
-    setIsLoading(true);
     try {
       const [fetchedStudents, fetchedStats] = await Promise.all([
-        repository.getStudents(filters),
+        repository.getStudents(),
         repository.getStudentStats(),
       ]);
-      setStudents(fetchedStudents);
+      setAllStudents(fetchedStudents);
       setStats(fetchedStats);
-      if (!selectedStudent && fetchedStudents.length > 0) {
-        setSelectedStudent(fetchedStudents[0]);
-      } else if (selectedStudent) {
-        // preserve or update selected student
-        const current = fetchedStudents.find((s) => s.id === selectedStudent.id);
-        if (current) setSelectedStudent(current);
-      }
     } finally {
       setIsLoading(false);
     }
-  }, [filters, selectedStudent]);
+  }, []);
 
   useEffect(() => {
     loadData();
   }, [loadData]);
+
+  const selectedStudent = useMemo(() => {
+    return allStudents.find((s) => s.id === selectedStudentId) || allStudents[0] || null;
+  }, [allStudents, selectedStudentId]);
+
+  const students = useMemo(() => {
+    let result = allStudents;
+
+    if (filters.searchQuery) {
+      const q = filters.searchQuery.toLowerCase().trim();
+      result = result.filter(
+        (s) =>
+          s.fullName.toLowerCase().includes(q) ||
+          s.studentId.toLowerCase().includes(q) ||
+          s.guardianName.toLowerCase().includes(q)
+      );
+    }
+
+    if (filters.selectedClass && filters.selectedClass !== 'All classes') {
+      result = result.filter((s) => s.grade.toLowerCase() === filters.selectedClass.toLowerCase());
+    }
+
+    if (filters.selectedStatus && filters.selectedStatus !== 'All statuses') {
+      result = result.filter((s) => s.status.toLowerCase() === filters.selectedStatus.toLowerCase());
+    }
+
+    if (filters.selectedSection && filters.selectedSection !== 'All sections') {
+      result = result.filter((s) => s.section.toLowerCase() === filters.selectedSection.toLowerCase());
+    }
+
+    return result;
+  }, [allStudents, filters]);
 
   const goToConsolidatedOverview = useCallback(() => {
     setSubScreen('STUDENTS_CONSOLIDATED');
@@ -101,12 +125,12 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }, []);
 
   const goToProfile = useCallback((student: Student) => {
-    setSelectedStudent(student);
+    setSelectedStudentId(student.id);
     setSubScreen('STUDENTS_PROFILE');
   }, []);
 
   const selectStudent = useCallback((student: Student) => {
-    setSelectedStudent(student);
+    setSelectedStudentId(student.id);
   }, []);
 
   const setSearchQuery = useCallback((query: string) => {
@@ -140,11 +164,10 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const saveStudent = useCallback(
     async (data: Partial<Student>): Promise<boolean> => {
-      setIsLoading(true);
       try {
         if (editingStudent) {
           const updated = await repository.updateStudent(editingStudent.id, data);
-          setSelectedStudent(updated);
+          setSelectedStudentId(updated.id);
           setNotification({
             message: `Student "${updated.fullName}" updated successfully.`,
             type: 'success',
@@ -157,7 +180,7 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
             .toUpperCase()
             .slice(0, 2);
           const created = await repository.createStudent({
-            studentId: data.studentId || `STU-2026-00${students.length + 1}`,
+            studentId: data.studentId || `STU-2026-00${allStudents.length + 1}`,
             fullName: data.fullName || 'New Student',
             avatarColor: '#EEF2FF',
             initials: initials || 'ST',
@@ -185,7 +208,7 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
             recentFeeActivity: 'Enrollment completed · 16 Oct 2026',
             recentAcademicActivity: 'Orientation scheduled',
           });
-          setSelectedStudent(created);
+          setSelectedStudentId(created.id);
           setNotification({
             message: `Student "${created.fullName}" successfully enrolled.`,
             type: 'success',
@@ -201,11 +224,9 @@ export const StudentFlowProvider: React.FC<{ children: React.ReactNode }> = ({ c
           type: 'error',
         });
         return false;
-      } finally {
-        setIsLoading(false);
       }
     },
-    [editingStudent, loadData, students.length]
+    [allStudents.length, editingStudent, loadData]
   );
 
   return (

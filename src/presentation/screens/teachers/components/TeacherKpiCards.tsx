@@ -20,53 +20,38 @@ export const TeacherKpiCards: React.FC<TeacherKpiCardsProps> = ({ stats }) => {
   const currentStats = stats || defaultStats;
 
   return (
-    <div className="edusync-teacher-kpis">
-      <div className="edusync-teacher-kpi-card">
-        <div className="edusync-teacher-kpi-card__top">
-          <span className="edusync-teacher-kpi-card__label">Total teachers</span>
-        </div>
-        <div className="edusync-teacher-kpi-card__value-wrap">
-          <span className="edusync-teacher-kpi-card__value">{currentStats.totalTeachers}</span>
-          <span className="edusync-teacher-kpi-card__pill edusync-teacher-kpi-card__pill--primary">
-            {currentStats.totalTeachersChange}
-          </span>
-        </div>
+    <div className="academic-kpis-grid">
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Total teachers</span>
+        <span className="academic-kpi-card__value">{currentStats.totalTeachers}</span>
+        <span className="academic-kpi-card__subtext" style={{ color: 'var(--edusync-brand-primary, #3659D9)' }}>
+          {currentStats.totalTeachersChange}
+        </span>
       </div>
 
-      <div className="edusync-teacher-kpi-card">
-        <div className="edusync-teacher-kpi-card__top">
-          <span className="edusync-teacher-kpi-card__label">Active</span>
-        </div>
-        <div className="edusync-teacher-kpi-card__value-wrap">
-          <span className="edusync-teacher-kpi-card__value">{currentStats.activeTeachers}</span>
-          <span className="edusync-teacher-kpi-card__pill edusync-teacher-kpi-card__pill--success">
-            {currentStats.activeTeachersPct}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Active</span>
+        <span className="academic-kpi-card__value">{currentStats.activeTeachers}</span>
+        <span className="academic-kpi-card__subtext" style={{ color: '#15803D' }}>
+          <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#15803D', marginRight: 4 }}></span>
+          {currentStats.activeTeachersPct}
+        </span>
       </div>
 
-      <div className="edusync-teacher-kpi-card">
-        <div className="edusync-teacher-kpi-card__top">
-          <span className="edusync-teacher-kpi-card__label">On leave</span>
-        </div>
-        <div className="edusync-teacher-kpi-card__value-wrap">
-          <span className="edusync-teacher-kpi-card__value">{currentStats.onLeaveTeachers}</span>
-          <span className="edusync-teacher-kpi-card__pill edusync-teacher-kpi-card__pill--warning">
-            {currentStats.onLeaveLabel}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">On leave</span>
+        <span className="academic-kpi-card__value">{currentStats.onLeaveTeachers}</span>
+        <span className="academic-kpi-card__subtext academic-kpi-card__subtext--review" style={{ color: '#B45309' }}>
+          {currentStats.onLeaveLabel}
+        </span>
       </div>
 
-      <div className="edusync-teacher-kpi-card">
-        <div className="edusync-teacher-kpi-card__top">
-          <span className="edusync-teacher-kpi-card__label">Subjects covered</span>
-        </div>
-        <div className="edusync-teacher-kpi-card__value-wrap">
-          <span className="edusync-teacher-kpi-card__value">{currentStats.subjectsCovered}</span>
-          <span className="edusync-teacher-kpi-card__pill edusync-teacher-kpi-card__pill--neutral">
-            {currentStats.subjectsCoveredLabel}
-          </span>
-        </div>
+      <div className="academic-kpi-card">
+        <span className="academic-kpi-card__label">Subjects covered</span>
+        <span className="academic-kpi-card__value">{currentStats.subjectsCovered}</span>
+        <span className="academic-kpi-card__subtext academic-kpi-card__subtext--neutral" style={{ color: 'var(--edusync-text-secondary, #667085)' }}>
+          {currentStats.subjectsCoveredLabel}
+        </span>
       </div>
     </div>
   );
